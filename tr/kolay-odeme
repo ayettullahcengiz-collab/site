@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolay Ödeme - Banka Transferi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f5f9;
+            color: #1f2937;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 24px 16px 40px;
+        }
+
+        .top-nav {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .back-link {
+            color: #4b5563;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .back-link:hover {
+            color: #1f2937;
+        }
+
+        .amount-badge {
+            background: #eef2ff;
+            color: #3b5bdb;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #dbe4ff;
+        }
+
+        /* Ana Kart */
+        .kolay-card {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e9ecef;
+            padding: 28px 32px 36px;
+        }
+
+        /* 1. Başlık ve Logo */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .brand-logo-img {
+            height: 48px;
+            width: auto;
+            display: inline-block;
+        }
+
+        /* Geri Sayım */
+        .countdown-text {
+            text-align: center;
+            font-size: 13.5px;
+            color: #555e6d;
+            margin-top: 14px;
+            margin-bottom: 12px;
+            letter-spacing: -0.1px;
+        }
+
+        .countdown-text strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        /* İlerleme Çubuğu */
+        .progress-bar-container {
+            width: 100%;
+            height: 11px;
+            background-color: #ebedf2;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 93%;
+            background: repeating-linear-gradient(
+                135deg,
+                #4e6ff7,
+                #4e6ff7 10px,
+                #6482f8 10px,
+                #6482f8 20px
+            );
+            background-size: 28px 28px;
+            animation: barberpole 1.4s linear infinite;
+            transition: width 1s linear;
+        }
+
+        @keyframes barberpole {
+            0% { background-position: 0 0; }
+            100% { background-position: 28px 0; }
+        }
+
+        /* 2. Adımlar (Stepper) */
+        .stepper-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 75px;
+            margin-bottom: 26px;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .step-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8c96a8;
+            transition: color 0.2s ease;
+        }
+
+        .step-label {
+            font-size: 13.5px;
+            font-weight: 500;
+            margin-top: 6px;
+            color: #8c96a8;
+            transition: color 0.2s ease;
+        }
+
+        /* Aktif Adım */
+        .step-item.active .step-icon {
+            color: #3867f5;
+        }
+        .step-item.active .step-label {
+            color: #3867f5;
+            font-weight: 600;
+        }
+
+        /* Tamamlanmış veya Adım 2'deyken Banka */
+        .step-item.visited .step-icon {
+            color: #3867f5;
+        }
+        .step-item.visited .step-label {
+            color: #3867f5;
+        }
+
+        .step-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3867f5;
+        }
+
+        /* 3. Banka Seçim Grid'i (4 Kolon) */
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .bank-card {
+            background: #ffffff;
+            border: 1px solid #e5e9f0;
+            border-radius: 6px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+            position: relative;
+        }
+
+        .bank-card:hover {
+            border-color: #8fa5f8;
+            background-color: #fafbff;
+            transform: translateY(-1px);
+        }
+
+        /* Seçili Banka */
+        .bank-card.selected {
+            background-color: #edf1fe;
+            border: 1.5px solid #738bf5;
+            box-shadow: 0 0 0 1px #738bf5;
+        }
+
+        .bank-logo {
+            max-width: 82%;
+            max-height: 25px;
+            object-fit: contain;
+            pointer-events: none;
+        }
+
+        /* Devam Et Buton Barı (Banka seçildiğinde) */
+        .proceed-bar {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .proceed-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            font-size: 14.5px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+            transition: background 0.15s, transform 0.1s;
+        }
+        .proceed-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        /* 4. ADIM 2: HESAP DETAYLARI GÖRÜNÜMÜ (Fotoğraftaki Birebir Tasarım) */
+        .account-view {
+            display: none;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pay-instruction-title {
+            font-size: 14.5px;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .input-group-row {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 14px;
+            width: 100%;
+        }
+
+        .input-field-left {
+            flex: 1;
+            height: 44px;
+            border: 1px solid #e2e8f0;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            padding: 0 14px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #1f2937;
+            background: #ffffff;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        .input-field-left:focus {
+            border-color: #93c5fd;
+        }
+
+        .input-addon-right {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e2e8f0;
+            border-radius: 0 4px 4px 0;
+            background: #f0f4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #3867f5;
+            transition: background 0.15s, color 0.15s;
+            user-select: none;
+        }
+        .input-addon-right:hover {
+            background: #e2ebff;
+        }
+        .input-addon-right.copied {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .submit-btn-pay {
+            width: 100%;
+            height: 44px;
+            background: #4668f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14.5px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background 0.15s, transform 0.1s;
+            box-shadow: 0 2px 6px rgba(70, 104, 246, 0.2);
+        }
+        .submit-btn-pay:hover {
+            background: #3757e2;
+            transform: translateY(-1px);
+        }
+
+        /* Başarı Modal */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(3px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .success-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .success-box {
+            background: #ffffff;
+            width: 90%;
+            max-width: 420px;
+            border-radius: 12px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: scale(0.95);
+            transition: transform 0.25s ease;
+        }
+        .success-overlay.show .success-box {
+            transform: scale(1);
+        }
+        .success-icon-wrap {
+            width: 64px;
+            height: 64px;
+            background: #dcfce7;
+            color: #16a34a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+        .success-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+        .success-desc {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        .success-return-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 14.5px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.15s;
+        }
+        .success-return-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Responsive */
+        @media (max-width: 580px) {
+            .bank-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .kolay-card {
+                padding: 24px 18px;
+            }
+            .stepper-container {
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            GrandPashabet'e Geri Dön
+        </a>
+        <div class="amount-badge" id="amountBadge">
+            Tutar: 1.000,00 TRY
+        </div>
+    </div>
+
+    <!-- Kolay Ödeme Ana Kart -->
+    <div class="kolay-card">
+        
+        <!-- Header / Logo -->
+        <div class="brand-header">
+            <img src="img/kolay_odeme.svg" alt="KOLAY ÖDEME" class="brand-logo-img">
+        </div>
+
+        <!-- Geri Sayım Metni -->
+        <div class="countdown-text" id="countdownLabel">
+            İşleminizi gerçekleştirmenize <strong id="timerSec">280</strong> saniye kaldı.
+        </div>
+
+        <!-- Çizgili İlerleme Çubuğu -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+
+        <!-- Stepper (Banka > Hesap) -->
+        <div class="stepper-container">
+            <div class="step-item active" id="stepBanka" onclick="showBankStep()">
+                <div class="step-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 10h3v7H4zm6.5 0h3v7h-3zM2 19h20v3H2zm15-9h3v7h-3zm-5-9L2 6v2h20V6z"/>
+                    </svg>
+                </div>
+                <div class="step-label">Banka</div>
+            </div>
+
+            <div class="step-arrow">
+                <svg width="12" height="18" viewBox="0 0 10 16" fill="none">
+                    <path d="M1.5 1.5L8 8L1.5 14.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="step-item" id="stepHesap" onclick="showAccountStepIfSelected()">
+                <div class="step-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                    </svg>
+                </div>
+                <div class="step-label">Hesap</div>
+            </div>
+        </div>
+
+        <!-- 1. GÖRÜNÜM: BANKA SEÇİMİ (18 Banka) -->
+        <div class="bank-view" id="bankView">
+            <div class="bank-grid">
+                
+                <!-- Satır 1 -->
+                <div class="bank-card selected" data-id="halkbank" data-name="HALKBANK" onclick="selectBank(this)">
+                    <img src="img/banks/halkbank.svg" alt="HALKBANK" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="sekerbank" data-name="Şekerbank" onclick="selectBank(this)">
+                    <img src="img/banks/sekerbank.svg" alt="Şekerbank" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="teb" data-name="TEB BNP PARIBAS" onclick="selectBank(this)">
+                    <img src="img/banks/teb.svg" alt="TEB" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="ziraat" data-name="Ziraat Bankası" onclick="selectBank(this)">
+                    <img src="img/banks/ziraat.svg" alt="Ziraat Bankası" class="bank-logo">
+                </div>
+
+                <!-- Satır 2 -->
+                <div class="bank-card" data-id="akbank" data-name="AKBANK" onclick="selectBank(this)">
+                    <img src="img/banks/akbank.svg" alt="AKBANK" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="albaraka" data-name="alBaraka" onclick="selectBank(this)">
+                    <img src="img/banks/albaraka.svg" alt="alBaraka" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="denizbank" data-name="DenizBank" onclick="selectBank(this)">
+                    <img src="img/banks/denizbank.svg" alt="DenizBank" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="enpara" data-name="enpara.com" onclick="selectBank(this)">
+                    <img src="img/banks/enpara.svg" alt="enpara.com" class="bank-logo">
+                </div>
+
+                <!-- Satır 3 -->
+                <div class="bank-card" data-id="fibabanka" data-name="Fibabanka" onclick="selectBank(this)">
+                    <img src="img/banks/fibabanka.svg" alt="Fibabanka" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="garanti" data-name="Garanti" onclick="selectBank(this)">
+                    <img src="img/banks/garanti.svg" alt="Garanti" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="ing" data-name="ING BANK" onclick="selectBank(this)">
+                    <img src="img/banks/ing.svg" alt="ING BANK" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="kuveytturk" data-name="Kuveyt Türk" onclick="selectBank(this)">
+                    <img src="img/banks/kuveytturk.svg" alt="KUVEYTTÜRK" class="bank-logo">
+                </div>
+
+                <!-- Satır 4 -->
+                <div class="bank-card" data-id="odeabank" data-name="odeabank" onclick="selectBank(this)">
+                    <img src="img/banks/odeabank.svg" alt="odeabank" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="qnb" data-name="QNB Finansbank" onclick="selectBank(this)">
+                    <img src="img/banks/qnb.svg" alt="QNB Finansbank" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="turkiyefinans" data-name="Türkiye Finans" onclick="selectBank(this)">
+                    <img src="img/banks/turkiyefinans.svg" alt="Türkiye Finans" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="isbank" data-name="Türkiye İş Bankası" onclick="selectBank(this)">
+                    <img src="img/banks/isbank.svg" alt="TÜRKİYE İŞ BANKASI" class="bank-logo">
+                </div>
+
+                <!-- Satır 5 -->
+                <div class="bank-card" data-id="vakifbank" data-name="VakıfBank" onclick="selectBank(this)">
+                    <img src="img/banks/vakifbank.svg" alt="VakıfBank" class="bank-logo">
+                </div>
+                <div class="bank-card" data-id="yapikredi" data-name="YapıKredi" onclick="selectBank(this)">
+                    <img src="img/banks/yapikredi.svg" alt="YapıKredi" class="bank-logo">
+                </div>
+
+            </div>
+
+            <!-- Devam Butonu -->
+            <div class="proceed-bar" id="proceedBar">
+                <button type="button" class="proceed-btn" onclick="proceedToAccount()">
+                    <span id="proceedBtnText">HALKBANK ile Devam Et</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. GÖRÜNÜM: FOTOĞRAFTAKİ BİREBİR HESAP ÖDEME EKRANI -->
+        <div class="account-view" id="accountView">
+            
+            <div class="pay-instruction-title">Ödeme yapınız.</div>
+
+            <!-- 1. Tutar Satırı -->
+            <div class="input-group-row">
+                <input type="text" id="payAmountInput" class="input-field-left" readonly value="1000">
+                <div class="input-addon-right" title="Türk Lirası">
+                    <span style="font-size: 15px; font-weight: 600;">₺</span>
+                </div>
+            </div>
+
+            <!-- 2. IBAN Satırı -->
+            <div class="input-group-row">
+                <input type="text" id="payIbanInput" class="input-field-left" readonly placeholder="IBAN yükleniyor...">
+                <div class="input-addon-right" onclick="copyInputValue('payIbanInput', this)" title="IBAN Kopyala">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 3. Alıcı Adı Satırı -->
+            <div class="input-group-row">
+                <input type="text" id="payNameInput" class="input-field-left" readonly placeholder="Alıcı adı yükleniyor...">
+                <div class="input-addon-right" onclick="copyInputValue('payNameInput', this)" title="Alıcı Adı Kopyala">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Ödeme Yaptım Butonu -->
+            <button type="button" class="submit-btn-pay" onclick="completePayment()">
+                Ödeme Yaptım
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Başarı Modal -->
+    <div class="success-overlay" id="successModal">
+        <div class="success-box">
+            <div class="success-icon-wrap">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+            </div>
+            <h3 class="success-title">Ödeme Bildirimi Alındı!</h3>
+            <p class="success-desc">
+                <strong id="successAmountText">1.000,00 TRY</strong> tutarındaki yatırım talebiniz işleme alınmıştır. Transferiniz onaylandıktan sonra bakiyeniz otomatik olarak hesabınıza yansıyacaktır.
+            </p>
+            <button type="button" class="success-return-btn" onclick="returnToSite()">GrandPashabet'e Dön</button>
+        </div>
+    </div>
+
+    <script>
+        // IBAN ve Hesap bilgileri harici API veya JSON konfigürasyonundan dinamik yüklenir
+        let _cachedBankConfig = null;
+
+        async function fetchPaymentInfo(bankId) {
+            try {
+                const url = bankId ? ('/api/payment-info?bank=' + encodeURIComponent(bankId)) : '/api/payment-info';
+                const res = await fetch(url);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && (data.iban || data.banks)) return data;
+                }
+            } catch (e) {}
+
+            // Endpoint yoksa statik iban_config.json dosyasından oku
+            if (!_cachedBankConfig) {
+                try {
+                    const res2 = await fetch('iban_config.json');
+                    if (res2.ok) {
+                        _cachedBankConfig = await res2.json();
+                    }
+                } catch (e) {}
+            }
+
+            if (_cachedBankConfig) {
+                if (_cachedBankConfig.banks && _cachedBankConfig.banks[bankId]) {
+                    const b = _cachedBankConfig.banks[bankId];
+                    return {
+                        bank: bankId,
+                        iban: typeof b === 'object' ? b.iban : b,
+                        holder: (typeof b === 'object' && b.holder) ? b.holder : (_cachedBankConfig.accountHolder || '')
+                    };
+                }
+                return {
+                    bank: bankId,
+                    iban: '',
+                    holder: _cachedBankConfig.accountHolder || ''
+                };
+            }
+
+            return null;
+        }
+
+        // URL parametreleri veya sessionStorage'dan tutar al
+        const urlParams = new URLSearchParams(window.location.search);
+        let amount = parseFloat(urlParams.get('amount')) ||
+                     parseFloat(sessionStorage.getItem('gp_pending_amount')) ||
+                     1000;
+
+        let selectedBankId = 'denizbank';
+        let selectedBankName = 'DenizBank';
+
+        // Tutar alanlarını doldur
+        const rawAmountStr = String(Math.floor(amount));
+        const formattedAmount = amount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TRY';
+        
+        document.getElementById('amountBadge').textContent = 'Tutar: ' + formattedAmount;
+        document.getElementById('payAmountInput').value = rawAmountStr;
+        document.getElementById('successAmountText').textContent = formattedAmount;
+
+        // Sayfa açıldığında seçili banka bilgisini arka planda önceden yükle
+        fetchPaymentInfo(selectedBankId).then(function(info) {
+            if (info && document.getElementById('accountView').style.display === 'block') {
+                document.getElementById('payIbanInput').value = info.iban || '';
+                document.getElementById('payNameInput').value = info.holder || '';
+            }
+        });
+
+        // 280 Saniye Geri Sayım & Bar
+        let timeLeft = 280;
+        const totalDuration = 300;
+        const timerEl = document.getElementById('timerSec');
+        const progressEl = document.getElementById('progressBar');
+
+        const timerInterval = setInterval(function() {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                timerEl.textContent = '0';
+                progressEl.style.width = '0%';
+                document.getElementById('countdownLabel').innerHTML = '<span style="color:#ef4444;font-weight:600;">Süreniz doldu. Lütfen işlemi tekrar başlatınız.</span>';
+                return;
+            }
+            timerEl.textContent = timeLeft;
+            const pct = Math.max(0, (timeLeft / totalDuration) * 100);
+            progressEl.style.width = pct + '%';
+        }, 1000);
+
+        // Banka Seçimi
+        function selectBank(cardEl) {
+            document.querySelectorAll('.bank-card').forEach(function(c) {
+                c.classList.remove('selected');
+            });
+            cardEl.classList.add('selected');
+
+            selectedBankId = cardEl.getAttribute('data-id');
+            selectedBankName = cardEl.getAttribute('data-name');
+
+            document.getElementById('proceedBtnText').textContent = selectedBankName + ' ile Devam Et';
+            document.getElementById('proceedBar').style.display = 'block';
+        }
+
+        // Adım 1: Banka Seçimi Görünümü
+        function showBankStep() {
+            document.getElementById('bankView').style.display = 'block';
+            document.getElementById('accountView').style.display = 'none';
+
+            document.getElementById('stepBanka').classList.add('active');
+            document.getElementById('stepBanka').classList.remove('visited');
+            document.getElementById('stepHesap').classList.remove('active');
+        }
+
+        function showAccountStepIfSelected() {
+            if (selectedBankId) proceedToAccount();
+        }
+
+        // Adım 2: Hesap Görünümü (Dinamik IBAN Çekimi)
+        async function proceedToAccount() {
+            const ibanInput = document.getElementById('payIbanInput');
+            const nameInput = document.getElementById('payNameInput');
+
+            ibanInput.value = 'Yükleniyor...';
+            nameInput.value = 'Yükleniyor...';
+
+            document.getElementById('bankView').style.display = 'none';
+            document.getElementById('accountView').style.display = 'block';
+
+            // Stepper'ı güncelle (Her iki adım da mavi, Hesap aktif)
+            document.getElementById('stepBanka').classList.remove('active');
+            document.getElementById('stepBanka').classList.add('visited');
+            document.getElementById('stepHesap').classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const info = await fetchPaymentInfo(selectedBankId);
+            if (info) {
+                ibanInput.value = info.iban || '';
+                nameInput.value = info.holder || '';
+            } else {
+                ibanInput.value = '';
+                nameInput.value = '';
+            }
+        }
+
+        // Kopyalama Yardımcısı
+        function copyInputValue(inputId, btnEl) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            const text = input.value.trim();
+            navigator.clipboard.writeText(text).then(function() {
+                btnEl.classList.add('copied');
+                const origHtml = btnEl.innerHTML;
+                btnEl.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+                setTimeout(function() {
+                    btnEl.classList.remove('copied');
+                    btnEl.innerHTML = origHtml;
+                }, 1500);
+            }).catch(function() {
+                input.select();
+                document.execCommand('copy');
+            });
+        }
+
+        // Ödeme Tamamlama
+        function completePayment() {
+            const currentUser = sessionStorage.getItem('gp_username') || localStorage.getItem('gp_last_user') || '123medeni65';
+            sessionStorage.setItem('gp_logged_in', '1');
+            sessionStorage.setItem('gp_username', currentUser);
+
+            // İşlem geçmişine kaydet (Onay Bekliyor)
+            const txKey = 'gp_' + currentUser.toLowerCase() + '_tx_history';
+            let list = [];
+            try { list = JSON.parse(localStorage.getItem(txKey) || '[]'); } catch(e) { list = []; }
+            list.unshift({
+                date: new Date().toLocaleString('tr-TR'),
+                amount: amount,
+                type: 'Kolay Havale',
+                status: 'pending',
+                note: selectedBankName + ' (' + (document.getElementById('payNameInput').value || 'Banka Havalesi') + ') - Onay Bekliyor'
+            });
+            localStorage.setItem(txKey, JSON.stringify(list));
+
+            // Veritabanına ödeme bildirimi gönder
+            try {
+                fetch('/api/payment-notify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: currentUser,
+                        bank_id: selectedBankId,
+                        bank_name: selectedBankName,
+                        amount: amount,
+                        holder_name: document.getElementById('payNameInput').value,
+                        iban: document.getElementById('payIbanInput').value
+                    })
+                }).catch(function() {});
+            } catch(e) {}
+
+            // Başarı Modalını Aç
+            document.getElementById('successModal').classList.add('show');
+        }
+
+        function returnToSite() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

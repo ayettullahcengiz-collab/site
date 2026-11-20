@@ -1,0 +1,219 @@
+﻿.notificationSettings_container {
+   max-width: 840px;
+    width: 100%;
+}
+.notificationSettings_wrapper {
+     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.notificationSettings_checkbox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.notificationSettings_box {
+  background-color: var(--bg-level-2, var(--cwModalBg2));
+    color: var(--text-level-medium, var(--cwModalTxt2));
+    padding: 16px;
+    border-radius: 8px;
+}
+.notificationSettings_container .notificationSettings_title {
+    color: var(--text-level-high, var(--cwModalTxt)) !important;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    font-weight:700;
+}
+.notificationSettings_container .notificationSettings_description {
+    color: var(--text-level-medium, var(--cwModalTxt2))!important;
+    font-size: 16px;
+    line-height: 20px;
+}
+.notificationSettings_checkbox_items{
+    background-color: var(--bg-level-2, var(--cwModalBg2));
+    color: var(--text-level-medium, var(--cwModalTxt2));
+    padding: 16px;
+    border-radius: 8px;
+    width:100%;
+}
+/*Notifications switcher*/
+.notificationSettings_switcher {
+    position: relative;
+    display: inline-block;
+    width: 23px;
+    height: 13px;
+    transform: scale(1.35);
+    flex-shrink: 0;
+    margin-inline-end: 4px;
+    margin-top: 4px;
+}
+
+.GDPR_disabled .notificationSettings_switcher,
+.notificationSettings_switcher:has(input[disabled]),
+.notificationSettings_box:has(input[disabled]) > div{
+    opacity: .4;
+    pointer-events: none;
+}
+
+.notificationSettings_switcher input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.notificationSettings_switcher .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--cwInputTxt3, #9E9E9E);
+    transition: .4s;
+}
+
+.notificationSettings_switcher .slider:before {
+    position: absolute;
+    content: "";
+    height: 11px;
+    width: 11px;
+    left: 1px;
+    bottom: 1px;
+    background-color: var(--cwInputTxt, #333333);
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
+.notificationSettings_switcher input:checked + .slider {
+    background-color: var(--cwInputAccent, var(--btn-primary));
+}
+
+.notificationSettings_switcher input:checked + .slider:before {
+    transform: translateX(10px);
+}
+
+.notificationSettings_switcher .slider.round {
+    border-radius: 34px;
+}
+
+.notificationSettings_switcher .slider.round:before {
+    border-radius: 50%;
+}
+
+.notificationSettings_btnConfirm {
+    height: 35px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    border-radius:8px;
+    padding: 6px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: 1px solid var(--btn-primary, var(--cwButtonBg));
+    font-weight: 500;
+    background: var(--btn-primary, var(--cwButtonG));
+    color: var(--btn-primary-text, var(--cwButtonTxt));
+    margin-inline-start: auto;
+    display: block;
+    margin-top: 24px;
+}
+.notificationSettings_container .checkBox_label:has(.checkBox_input[type="checkbox"][disabled] ) {
+    opacity: .4;
+    pointer-events: none;
+}
+/*start notificationconfirmation Popup*/
+.notification_confirmPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cwBodyShadow, rgba(0, 0, 0, 0.6));
+    z-index: 990;
+}
+
+.notification_confirmPopup__inner {
+    background-color: var(--bg-level-1, var(--cwModalBg));
+    color: var(--text-level-high, var(--cwModalTxt));
+    border-radius: 12px;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 350px;
+    width: 100%;
+}
+
+
+.notification_confirmPopup__header,
+.notification_confirmPopup__text {
+    margin-bottom: 24px;
+}
+
+.notification_confirmPopup__headertxt {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-level-high, var(--cwModalTxt));
+}
+
+.notification_confirmPopup__text {
+    color: var(--text-level-medium, var(--cwModalTxt2));
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.notification_confirmPopup__close {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.notification_confirmPopup__icon {
+    color: var(--icon-level-low, var(--cwModalTxt3));
+    line-height: 24px;
+    font-size: 30px;
+}
+
+.notification_confirmPopup__buttons {
+    -webkit-column-gap: 16px;
+    -moz-column-gap: 16px;
+    column-gap: 16px;
+}
+
+.notification_confirmPopup__buttons button {
+    height: 48px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    width: calc(50% - 8px);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.notification_confirmPopup__btnCancel { 
+    background: var(--bg-level-1, var(--cwModalBg));
+    color: var(--btn-primary, var(--cwButtonBg));
+    border: 1px solid var(--btn-primary, var(--cwButtonBg));
+}
+
+.notification_confirmPopup__btnConfirm {
+    background: var(--btn-primary, var(--cwButtonG));
+    color: var(--btn-primary-text, var(--cwButtonTxt));
+    border: none;
+}
+
+.notificationSettings_checkbox .checkBox_input + .checkBox_icon {
+    top: 3px;
+}

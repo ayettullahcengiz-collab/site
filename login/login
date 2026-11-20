@@ -1,0 +1,220 @@
+<div class="tl_popup_container tl_popup_container_login" style="
+    width: 420px;
+    max-width: 95vw;
+    margin: 0 auto;
+    background-color: #131703;
+    border-radius: 4px;
+    box-shadow: 0 10px 45px rgba(0,0,0,0.85);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+">
+    <!-- Header Bar -->
+    <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #242f07;
+        padding: 12px 18px;
+        border-bottom: 1px solid #1a2205;
+    ">
+        <span style="
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        ">ÜYE GİRİŞİ</span>
+        <button type="button" class="tl_popup_close_btn" onclick="$('#loginContent').dialog('close');" style="
+            background: none;
+            border: none;
+            color: #8b9968;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        " onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#8b9968'">&times;</button>
+    </div>
+
+    <!-- Modal Body -->
+    <div style="padding: 24px 28px 24px;">
+        <!-- Logo Area (Exact Logo directly from screenshot) -->
+        <div style="
+            text-align: center;
+            margin-bottom: 24px;
+        ">
+            <img src="/img/grandpashabet_login_logo.png" alt="Grandpashabet" style="
+                max-width: 320px;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            ">
+        </div>
+
+        <form id="login_box_form" onsubmit="event.preventDefault(); var u = this.username.value || '123medeni65'; if(window.parent && window.parent.showLoggedInHeader) { window.parent.showLoggedInHeader(u); } else if(window.showLoggedInHeader) { showLoggedInHeader(u); } try { $('#loginContent').dialog('close'); } catch(e){} return false;">
+            <!-- Username Input Group -->
+            <div style="
+                display: flex;
+                align-items: stretch;
+                background-color: #1a2206;
+                border: 1px solid #32400e;
+                border-radius: 8px;
+                overflow: hidden;
+                margin-bottom: 14px;
+                height: 48px;
+            ">
+                <div style="
+                    width: 125px;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 14px;
+                    color: #e2ba4d;
+                    font-size: 12px;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    border-right: 1px solid #2a370b;
+                    flex-shrink: 0;
+                    user-select: none;
+                ">KULLANICI ADI</div>
+                <input type="text" name="username" placeholder="Kullanıcı adı / E-mail / Cep nu..." required style="
+                    flex: 1;
+                    background: transparent;
+                    border: none;
+                    color: #d1d8c5;
+                    font-size: 13px;
+                    padding: 0 14px;
+                    outline: none;
+                    font-family: inherit;
+                ">
+            </div>
+
+            <!-- Password Input Group -->
+            <div style="
+                display: flex;
+                align-items: stretch;
+                background-color: #1a2206;
+                border: 1px solid #32400e;
+                border-radius: 8px;
+                overflow: hidden;
+                margin-bottom: 22px;
+                height: 48px;
+                position: relative;
+            ">
+                <div style="
+                    width: 125px;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 14px;
+                    color: #e2ba4d;
+                    font-size: 12px;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    border-right: 1px solid #2a370b;
+                    flex-shrink: 0;
+                    user-select: none;
+                ">ŞİFRE</div>
+                <input type="password" id="login_input_password" name="password" placeholder="Şifre" required style="
+                    flex: 1;
+                    background: transparent;
+                    border: none;
+                    color: #d1d8c5;
+                    font-size: 13px;
+                    padding: 0 42px 0 14px;
+                    outline: none;
+                    font-family: inherit;
+                ">
+                <!-- Eye Toggle Icon -->
+                <button type="button" onclick="
+                    var inp = document.getElementById('login_input_password');
+                    if (inp.type === 'password') {
+                        inp.type = 'text';
+                        this.style.opacity = '1';
+                    } else {
+                        inp.type = 'password';
+                        this.style.opacity = '0.6';
+                    }
+                " style="
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    color: #c0aa67;
+                    padding: 4px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0.75;
+                ">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Submit Button (ÜYE GİRİŞİ) -->
+            <button type="submit" style="
+                width: 100%;
+                height: 48px;
+                background: linear-gradient(180deg, #dfc059 0%, #c59f37 100%);
+                color: #171b05;
+                font-size: 15px;
+                font-weight: 800;
+                letter-spacing: 0.8px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                transition: opacity 0.2s, filter 0.2s;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            " onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter='none'">ÜYE GİRİŞİ</button>
+
+            <!-- Forgot Password Link -->
+            <div style="text-align: center; margin-bottom: 22px;">
+                <a href="#" style="
+                    color: #e2ba4d;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-decoration: underline;
+                ">Şifrenizi mi unuttunuz?</a>
+            </div>
+
+            <!-- 7/24 Live Support Button -->
+            <div style="
+                width: 210px;
+                margin: 0 auto;
+                background-color: #212c08;
+                border: 1px solid #33430f;
+                border-radius: 4px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            " onmouseover="this.style.backgroundColor='#2a380b'" onmouseout="this.style.backgroundColor='#212c08'" onclick="if(window.LC_API) LC_API.open_chat_window(); else alert('Canlı destek başlatılıyor...');">
+                <!-- Chat bubbles SVG icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 10H6V8H18V10ZM18 6H6V4H18V6Z"/>
+                </svg>
+                <span style="
+                    color: #ffffff;
+                    font-size: 13px;
+                    font-weight: 700;
+                    letter-spacing: 0.3px;
+                ">7 / 24 Canlı Destek</span>
+            </div>
+        </form>
+    </div>
+</div>

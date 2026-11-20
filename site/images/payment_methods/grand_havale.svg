@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <g transform="translate(22, 23)" fill="#2b2b2b">
+<path d="M0 -20L3 -6L17 -13L9 0L20 8L6 7L13 20L0 9L-13 20L-6 7L-20 8L-9 0L-17 -13L-3 -6z"/>
+</g>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="14" font-weight="900" fill="#2b2b2b" letter-spacing="0.2">GRAND</text>
+        <text x="66" y="52" font-size="14" font-weight="900" fill="#2b2b2b" letter-spacing="0.2">HAVALE</text>
+    </g>
+</svg>

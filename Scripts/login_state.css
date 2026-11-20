@@ -1,0 +1,860 @@
+/* ========================================================
+   GrandPashabet Logged-in Header Styles (Exact Replica)
+   ======================================================== */
+
+/* Sadece giriş yapıldığında (body.gp-is-logged-in) eski butonları ve bannerı gizle */
+body.gp-is-logged-in .tl_login_container .registerDialog,
+body.gp-is-logged-in .tl_login_container .loginDialog,
+body.gp-is-logged-in .tl_login_container .header_dropdown,
+body.gp-is-logged-in .openLogin.header_livetv {
+    display: none !important;
+}
+
+/* Giriş yapılmadığında (varsayılan) gp_user_header gizli kalsın */
+.gp_user_header {
+    display: none !important;
+    align-items: center !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+    margin-right: 4px;
+}
+
+body.gp-is-logged-in .gp_user_header {
+    display: flex !important;
+}
+
+/* 1. Segmented Balance + Deposit Pill */
+.gp_balance_deposit_group {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 36px !important;
+    background: #2a350b !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    margin-right: 8px !important;
+}
+
+.gp_balance_box {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 0 12px 0 9px !important;
+    height: 100% !important;
+    cursor: default !important;
+    user-select: none !important;
+}
+
+.gp_flag_icon {
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.gp_balance_val {
+    color: #ffffff !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+}
+
+.gp_balance_cur {
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin-left: 2px !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+}
+
+.gp_deposit_btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, #c7a445 0%, #b59235 100%) !important;
+    color: #ffffff !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    padding: 0 18px !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    border-radius: 0 18px 18px 0 !important;
+    cursor: pointer !important;
+    transition: filter 0.15s ease !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.gp_deposit_btn:hover {
+    filter: brightness(1.1) !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.gp_deposit_btn span {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13.5px !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+}
+
+/* 2. Mail / Messages Button */
+.gp_mail_btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 36px !important;
+    background: #2a350b !important;
+    border-radius: 10px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    margin-right: 8px !important;
+    cursor: pointer !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    transition: background 0.15s ease !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    opacity: 1 !important;
+}
+
+.gp_mail_btn:hover {
+    background: #36440f !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.gp_mail_btn svg {
+    display: block !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* 3. User Profile Dropdown Pill */
+.gp_user_dropdown_wrapper {
+    position: relative !important;
+    margin-right: 8px !important;
+}
+
+.gp_user_btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    height: 36px !important;
+    padding: 0 14px 0 12px !important;
+    background: #2a350b !important;
+    border-radius: 18px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    transition: background 0.15s ease !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    opacity: 1 !important;
+}
+
+.gp_user_btn:hover {
+    background: #36440f !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.gp_user_icon {
+    width: 16px !important;
+    height: 16px !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.gp_username {
+    color: #ffffff !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2px !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+}
+
+.gp_arrow_icon {
+    width: 8px !important;
+    height: 5px !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    opacity: 0.9 !important;
+    margin-left: 2px !important;
+    display: block !important;
+    transition: transform 0.2s ease !important;
+}
+
+.gp_user_dropdown_wrapper.open .gp_arrow_icon {
+    transform: rotate(180deg) !important;
+}
+
+/* ========================================================
+   User Menu Dropdown - EXACT REPLICA OF SCREENSHOT
+   - Sağ kenarda canlı yeşil dikey vurgu çizgisi (border-right)
+   - Her linkte koyu zeytin-yeşil degrade (linear-gradient)
+   - Hover durumunda parlak yeşil/altın geçiş
+   ======================================================== */
+.gp_user_menu {
+    display: none;
+    position: absolute !important;
+    top: calc(100% + 4px) !important;
+    right: 0 !important;
+    width: 250px !important;
+    background: #0d1203 !important;
+    border: none !important;
+    border-right: 5px solid #9bbe16 !important; /* Canlı yeşil dikey çizgi */
+    border-radius: 3px 0 0 3px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85) !important;
+    padding: 0 !important;
+    z-index: 99999 !important;
+    overflow: hidden !important;
+}
+
+.gp_user_dropdown_wrapper.open .gp_user_menu {
+    display: block !important;
+}
+
+.gp_user_menu a {
+    display: block !important;
+    padding: 9px 16px !important;
+    color: #e5ecd2 !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.1px !important;
+    border-bottom: 1px solid #080c01 !important;
+    background: linear-gradient(180deg, #1b2308 0%, #0d1403 100%) !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
+    white-space: nowrap !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
+}
+
+.gp_user_menu a:hover {
+    background: linear-gradient(180deg, #37460c 0%, #202b06 100%) !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.gp_user_menu a.gp_profile_id_text {
+    font-weight: 600 !important;
+    color: #ffffff !important;
+}
+
+.gp_user_menu a.gp_logout_btn {
+    color: #ff7b7b !important;
+}
+.gp_user_menu a.gp_logout_btn:hover {
+    background: linear-gradient(180deg, #441717 0%, #220808 100%) !important;
+    color: #ffffff !important;
+}
+
+/* 4. Language Selector Pill Match */
+.tl_login_container .tl_drop_down.tl_acc_lang {
+    height: 36px !important;
+    line-height: 36px !important;
+    background: #2a350b !important;
+    border-radius: 18px !important;
+    border: none !important;
+    padding: 0 11px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    opacity: 1 !important;
+}
+
+.tl_login_container .tl_drop_down.tl_acc_lang:hover {
+    background: #36440f !important;
+}
+
+/* ========================================================
+   DEPOSIT OVERLAY & DETAIL PAYMENT VIEW
+   ======================================================== */
+.gp_deposit_overlay {
+    position: fixed !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.78) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', sans-serif !important;
+}
+
+.gp_deposit_modal {
+    width: 980px;
+    max-width: 95vw;
+    height: 85vh;
+    max-height: 840px;
+    background: #202b09;
+    border-radius: 18px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95);
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px 28px 28px 28px;
+    box-sizing: border-box;
+    border: 1px solid #364413;
+    scrollbar-width: thin;
+    scrollbar-color: #556b1d #141c05;
+}
+
+.gp_deposit_modal::-webkit-scrollbar {
+    width: 8px;
+}
+.gp_deposit_modal::-webkit-scrollbar-track {
+    background: #141c05;
+    border-radius: 4px;
+}
+.gp_deposit_modal::-webkit-scrollbar-thumb {
+    background: #465719;
+    border-radius: 4px;
+}
+.gp_deposit_modal::-webkit-scrollbar-thumb:hover {
+    background: #6a8427;
+}
+
+/* Header & Tab pill - Sticky at top */
+.gp_deposit_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: -16px;
+    z-index: 30;
+    background: #202b09;
+    padding: 10px 0 14px 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(54, 68, 19, 0.4);
+}
+
+.gp_deposit_tabs {
+    display: inline-flex;
+    background: #111803;
+    border: 1px solid #364413;
+    border-radius: 28px;
+    padding: 4px;
+}
+
+.gp_dep_tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 32px;
+    border: none;
+    background: transparent;
+    color: #8c9d62;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 24px;
+    transition: all 0.2s ease;
+}
+
+.gp_dep_tab.active {
+    background: #eed58b;
+    color: #171d05;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.gp_dep_tab:hover:not(.active) {
+    color: #d1e29c;
+}
+
+.gp_deposit_close {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #141b04;
+    color: #8c9d62;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.15s ease;
+}
+
+.gp_deposit_close:hover {
+    background: #e53935;
+    color: #fff;
+}
+
+/* Section Bar */
+.gp_dep_section_bar {
+    background: #313f13;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    margin-bottom: 12px;
+}
+
+.gp_dep_section_title {
+    color: #9db06e;
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+.gp_dep_section_badge {
+    color: #9db06e;
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+/* Featured row */
+.gp_dep_featured_row {
+    margin-bottom: 16px;
+}
+
+.gp_dep_featured_row .gp_dep_card {
+    width: calc((100% - (4 * 12px)) / 5);
+}
+
+/* Grid for Havale/FAST */
+.gp_dep_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+/* The dark card */
+.gp_dep_card {
+    width: 100%;
+    background: #25310a;
+    border: 1px solid #3c4b14;
+    border-radius: 14px;
+    padding: 8px 8px 10px 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gp_dep_card:hover {
+    border-color: #9bbe16;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.gp_dep_card_logo_wrap {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.gp_dep_logo_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+}
+
+.gp_dep_limits {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 0 2px;
+}
+
+.gp_limit_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+}
+
+.gp_lbl {
+    color: #7d8f58;
+    font-weight: 500;
+}
+
+.gp_val {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* ========================================================
+   DETAIL VIEW (Ödeme Yöntemi Seçildiğindeki 2 Kolonlu Ekran)
+   ======================================================== */
+.gp_detail_view {
+    padding-top: 4px;
+}
+
+/* Üst Slider */
+.gp_slider_container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.gp_slider_nav_btn {
+    width: 32px;
+    height: 48px;
+    background: #162005;
+    border: 1px solid #3c4b14;
+    color: #a4b772;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+}
+
+.gp_slider_nav_btn:hover {
+    background: #364413;
+    color: #ffffff;
+}
+
+.gp_slider_track {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 4px 2px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.gp_slider_track::-webkit-scrollbar {
+    display: none;
+}
+
+.gp_slider_pill {
+    width: 88px;
+    height: 46px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gp_slider_pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.gp_slider_pill.active {
+    border-color: #ecd488 !important;
+    box-shadow: 0 0 10px rgba(236, 212, 136, 0.5) !important;
+    transform: scale(1.04);
+}
+
+.gp_slider_pill img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 2 Kolonlu Kutu */
+.gp_detail_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: #25310a;
+    border-radius: 14px;
+    padding: 24px 28px 30px 28px;
+    border: 1px solid #3c4b14;
+    box-sizing: border-box;
+}
+
+/* Sol Kolon */
+.gp_detail_left {
+    display: flex;
+    flex-direction: column;
+}
+
+.gp_detail_top_bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.gp_detail_back_btn {
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    color: #9db06e;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s;
+    flex-shrink: 0;
+}
+
+.gp_detail_back_btn:hover {
+    color: #ffffff;
+}
+
+.gp_detail_title_wrap {
+    text-align: center;
+    flex-grow: 1;
+    margin-right: 28px;
+}
+
+.gp_detail_method_title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.gp_detail_method_limits {
+    color: #8c9d62;
+    font-size: 12.5px;
+}
+
+.gp_detail_method_limits b {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Aksiyon Hapı */
+.gp_detail_action_pill {
+    background: #1c2607;
+    border: 1px solid #3c4b14;
+    border-radius: 20px;
+    padding: 10px 18px;
+    color: #a4b772;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 22px;
+    letter-spacing: 0.3px;
+}
+
+/* Amount Giriş */
+.gp_detail_input_group {
+    margin-bottom: 22px;
+}
+
+.gp_detail_input_label {
+    display: block;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.gp_detail_input_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.gp_detail_amount_input {
+    width: 100%;
+    padding: 12px 60px 12px 16px;
+    border: 1px solid #3c4b14;
+    border-radius: 20px;
+    background: #1c2607;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.gp_detail_amount_input:focus {
+    border-color: #ecd488;
+}
+
+.gp_detail_amount_input::placeholder {
+    color: #6d7d4c;
+    font-weight: 500;
+}
+
+.gp_detail_cur_badge {
+    position: absolute;
+    right: 18px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+/* Para Yatırma Butonu */
+.gp_detail_submit_btn {
+    width: 100%;
+    height: 42px;
+    background: #b59b50;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: filter 0.15s ease, background 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gp_detail_submit_btn:hover {
+    background: #c7ab5b;
+    filter: brightness(1.1);
+}
+
+/* Sağ Kolon: Açıklama */
+.gp_detail_right {
+    display: flex;
+    flex-direction: column;
+}
+
+.gp_detail_info_heading {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+}
+
+.gp_detail_info_text {
+    color: #b7c88b;
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+}
+
+.gp_dep_cekim_msg {
+    text-align: center;
+    padding: 60px 20px;
+    color: #e5ecd2;
+    font-size: 16px;
+}
+
+
+/* ========================================================
+   RESPONSIVE / MOBİL UYARLAMA
+   ======================================================== */
+@media (max-width: 768px) {
+    .gp_user_header {
+        display: flex !important;
+        align-items: center !important;
+        margin-right: 0 !important;
+        gap: 5px !important;
+    }
+    .gp_balance_deposit_group {
+        height: 32px !important;
+        border-radius: 16px !important;
+        margin-right: 4px !important;
+    }
+    .gp_balance_box {
+        padding: 0 8px 0 6px !important;
+        gap: 4px !important;
+    }
+    .gp_flag_icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    .gp_balance_val {
+        font-size: 12px !important;
+    }
+    .gp_balance_cur {
+        font-size: 11px !important;
+    }
+    .gp_deposit_btn {
+        padding: 0 9px !important;
+        font-size: 11px !important;
+        height: 100% !important;
+    }
+    .gp_mail_btn {
+        display: none !important;
+    }
+    .gp_user_btn {
+        height: 32px !important;
+        padding: 0 8px !important;
+        font-size: 11px !important;
+    }
+    .gp_user_menu {
+        width: 220px !important;
+        right: 0 !important;
+        top: calc(100% + 4px) !important;
+    }
+    .gp_user_menu a {
+        padding: 8px 12px !important;
+        font-size: 12.5px !important;
+    }
+    .gp_deposit_overlay {
+        padding: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .gp_deposit_modal {
+        width: 95vw !important;
+        max-width: 480px !important;
+        height: 88vh !important;
+        max-height: 88vh !important;
+        border-radius: 14px !important;
+        padding: 12px 14px 24px 14px !important;
+    }
+    .gp_dep_tab {
+        padding: 6px 20px !important;
+        font-size: 13px !important;
+    }
+    .gp_dep_grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+    .gp_dep_card_logo_wrap {
+        height: 52px !important;
+    }
+    .gp_detail_box {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        padding: 16px 14px !important;
+    }
+    .gp_detail_right {
+        border-top: 1px solid #3c4b14 !important;
+        padding-top: 14px !important;
+    }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <rect x="2" y="6" width="40" height="34" rx="8" fill="#d97706"/>
+<path d="M10 18h18l-4-4 2-2 7 7-7 7-2-2 4-4H10v-2z" fill="#ffffff"/>
+<path d="M34 28H16l4 4-2 2-7-7 7-7 2 2-4 4h18v2z" fill="#ffffff"/>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="9" font-weight="900" fill="#997524" letter-spacing="0.2">MASTERPAY</text>
+        <text x="66" y="52" font-size="14" font-weight="900" fill="#222222" letter-spacing="0.2">HAVALE</text>
+    </g>
+</svg>

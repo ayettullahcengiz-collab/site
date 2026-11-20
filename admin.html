@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandPashaBet - Admin Yönetim Paneli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-card: #131b2e;
+            --bg-card-hover: #19243d;
+            --bg-input: #0c1222;
+            --border: #1e293b;
+            --border-highlight: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #f59e0b;
+            --accent-gold-hover: #d97706;
+            --accent-emerald: #10b981;
+            --accent-emerald-hover: #059669;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
+            --accent-blue: #3b82f6;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- LOGIN SCREEN --- */
+        #loginScreen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: radial-gradient(circle at top, #1e293b 0%, #090d16 100%);
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 420px;
+            padding: 36px 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .login-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .login-logo span {
+            color: var(--accent-gold);
+        }
+
+        .login-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #d97706 100%);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            padding: 13px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .login-hint {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* --- DASHBOARD WRAPPER --- */
+        #adminDashboard {
+            display: none;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .dash-header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .dash-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .brand-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.3px;
+        }
+
+        .brand-title span {
+            color: var(--accent-gold);
+        }
+
+        .dash-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-site-link {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-site-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .user-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-input);
+            padding: 6px 12px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .user-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: var(--accent-red);
+        }
+
+        /* NAV TABS */
+        .dash-tabs {
+            background: #0f1626;
+            border-bottom: 1px solid var(--border);
+            padding: 0 28px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dash-tab {
+            padding: 14px 18px;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+
+        .dash-tab:hover {
+            color: #fff;
+        }
+
+        .dash-tab.active {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .tab-badge {
+            background: var(--accent-red);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        /* MAIN CONTENT AREA */
+        .dash-main {
+            flex: 1;
+            padding: 28px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* STATS CARDS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .stat-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-sub {
+            font-size: 12px;
+            color: var(--accent-emerald);
+        }
+
+        /* SECTION HEADER */
+        .section-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-input {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            width: 260px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .btn-add {
+            background: var(--accent-emerald);
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-add:hover {
+            background: var(--accent-emerald-hover);
+            transform: translateY(-1px);
+        }
+
+        /* DATA TABLES */
+        .table-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        .data-table th {
+            background: #0d1424;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-size: 11.5px;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #182338;
+            color: #e2e8f0;
+            vertical-align: middle;
+        }
+
+        .data-table tr:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .bank-info-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bank-avatar {
+            width: 38px;
+            height: 38px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 5px;
+            object-fit: contain;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bank-avatar img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .bank-names {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .bank-primary-name {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .bank-slug {
+            font-size: 11px;
+            color: #64748b;
+            font-family: var(--font-mono);
+        }
+
+        .iban-cell {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(245, 158, 11, 0.08);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .iban-cell:hover {
+            background: rgba(245, 158, 11, 0.15);
+        }
+
+        /* TOGGLE SWITCH */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #334155;
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-emerald);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-action-edit {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-action-edit:hover {
+            background: rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-action-del {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-action-del:hover {
+            background: rgba(239, 68, 68, 0.25);
+        }
+
+        /* STATUS BADGES */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 700;
+        }
+
+        .status-badge.pending {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .status-badge.approved {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-badge.rejected {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 500px;
+            padding: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            animation: modalPop 0.2s ease-out;
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .btn-modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .btn-modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .btn-cancel {
+            background: var(--bg-input);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-save:hover {
+            background: var(--accent-gold-hover);
+        }
+
+        /* TOAST */
+        #toastBox {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .toast-item {
+            background: #1e293b;
+            color: #fff;
+            border-left: 4px solid var(--accent-gold);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            font-size: 13.5px;
+            font-weight: 500;
+            animation: slideIn 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 280px;
+        }
+
+        .toast-item.success {
+            border-left-color: var(--accent-emerald);
+        }
+
+        .toast-item.error {
+            border-left-color: var(--accent-red);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .dash-header { padding: 14px 18px; }
+            .dash-tabs { padding: 0 14px; overflow-x: auto; }
+            .dash-main { padding: 18px 14px; }
+            .search-input { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. LOGIN SCREEN -->
+    <div id="loginScreen">
+        <div class="login-card">
+            <div class="login-logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                GRANDPASHABET <span>PANEL</span>
+            </div>
+            <div class="login-subtitle">Veritabanı ve IBAN Yönetim Portalı</div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label class="form-label">Yönetici Adı</label>
+                    <input type="text" id="loginUser" class="form-control" required value="admin" autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Yönetici Şifresi</label>
+                    <input type="password" id="loginPass" class="form-control" required value="admin123" autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn-primary" id="loginBtn">
+                    <span>Güvenli Giriş Yap</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="login-hint">Varsayılan giriş: admin / admin123</div>
+        </div>
+    </div>
+
+    <!-- 2. ADMIN DASHBOARD -->
+    <div id="adminDashboard">
+        <!-- HEADER -->
+        <header class="dash-header">
+            <div class="dash-brand">
+                <div class="brand-title">GRANDPASHABET <span>YÖNETİM</span></div>
+                <div class="brand-badge">SQLite DB</div>
+            </div>
+
+            <div class="dash-actions">
+                <a href="/kolay-odeme" target="_blank" class="btn-site-link">
+                    <span>Ödeme Sayfası</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                    </svg>
+                </a>
+                <div class="user-pill">
+                    <div class="user-dot"></div>
+                    <span id="headerUsername">admin</span>
+                </div>
+                <button class="btn-logout" onclick="handleLogout()">Çıkış Yap</button>
+            </div>
+        </header>
+
+        <!-- TABS -->
+        <nav class="dash-tabs">
+            <div class="dash-tab active" onclick="switchTab('banksTab', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+                </svg>
+                Banka & IBAN Yönetimi
+            </div>
+            <div class="dash-tab" onclick="switchTab('paymentsTab', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                Gelen Ödemeler
+                <span class="tab-badge" id="pendingBadge" style="display:none;">0</span>
+            </div>
+            <div class="dash-tab" onclick="switchTab('settingsTab', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                Sistem Ayarları
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main class="dash-main">
+
+            <!-- TAB 1: BANKA & IBAN YÖNETİMİ -->
+            <div id="banksTab">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Toplam Kayıtlı Banka</div>
+                        <div class="stat-value" id="statTotalBanks">0</div>
+                        <div class="stat-sub">Veritabanında tanımlı</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Aktif Banka Sayısı</div>
+                        <div class="stat-value" id="statActiveBanks" style="color:var(--accent-emerald);">0</div>
+                        <div class="stat-sub">Kullanıcılara gösterilen</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Pasif Banka Sayısı</div>
+                        <div class="stat-value" id="statPassiveBanks" style="color:var(--text-muted);">0</div>
+                        <div class="stat-sub">Gizlenen / Pasife alınan</div>
+                    </div>
+                </div>
+
+                <div class="section-bar">
+                    <div class="section-title">
+                        Banka Hesapları & IBAN Listesi
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input type="text" id="bankSearch" class="search-input" placeholder="Banka veya IBAN ara..." oninput="filterBanks()">
+                        <button class="btn-add" onclick="openAddBankModal()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Yeni Banka / IBAN Ekle
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Banka</th>
+                                <th>IBAN Numarası</th>
+                                <th>Hesap Sahibi (Alıcı)</th>
+                                <th>Durum (Aktif/Pasif)</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bankTableBody">
+                            <tr><td colspan="5" style="text-align:center; padding:30px; color:#64748b;">Yükleniyor...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 2: GELEN ÖDEMELER -->
+            <div id="paymentsTab" style="display:none;">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Toplam Ödeme Talebi</div>
+                        <div class="stat-value" id="statTotalPayments">0</div>
+                        <div class="stat-sub">Sistemdeki tüm bildirimler</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Bekleyen Onay</div>
+                        <div class="stat-value" id="statPendingPayments" style="color:var(--accent-gold);">0</div>
+                        <div class="stat-sub">İncelenmesi gereken</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Onaylanan Hacim</div>
+                        <div class="stat-value" id="statApprovedVolume" style="color:var(--accent-emerald);">0 ₺</div>
+                        <div class="stat-sub">Hesaba geçen tutar</div>
+                    </div>
+                </div>
+
+                <div class="section-bar">
+                    <div class="section-title">
+                        Gelen Havale / EFT Bildirimleri
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <button class="btn-cancel" onclick="loadPayments()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;">
+                                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                            </svg>
+                            Yenile
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tarih</th>
+                                <th>Kullanıcı</th>
+                                <th>Yatırılan Banka</th>
+                                <th>IBAN</th>
+                                <th>Tutar</th>
+                                <th>Alıcı Adı</th>
+                                <th>Durum</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentTableBody">
+                            <tr><td colspan="9" style="text-align:center; padding:30px; color:#64748b;">Henüz ödeme bildirimi bulunmuyor.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 3: AYARLAR -->
+            <div id="settingsTab" style="display:none;">
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;">
+                    <!-- Genel Ayarlar -->
+                    <div class="table-card" style="padding: 24px;">
+                        <h3 style="margin-bottom: 20px; font-size:16px;">Genel Ödeme Ayarları</h3>
+                        <form id="settingsForm" onsubmit="saveSettings(event)">
+                            <div class="form-group">
+                                <label class="form-label">Varsayılan Hesap Sahibi (Genel Alıcı Adı)</label>
+                                <input type="text" id="settingDefaultHolder" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Varsayılan Banka Kodu</label>
+                                <input type="text" id="settingDefaultBank" class="form-control" required placeholder="örn: denizbank">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ödeme Ekranı Geri Sayım Süresi (Saniye)</label>
+                                <input type="number" id="settingCountdown" class="form-control" required value="280">
+                            </div>
+                            <button type="submit" class="btn-save" style="width:100%; padding:12px;">Ayarları Kaydet</button>
+                        </form>
+                    </div>
+
+                    <!-- Şifre Değiştirme -->
+                    <div class="table-card" style="padding: 24px;">
+                        <h3 style="margin-bottom: 20px; font-size:16px;">Yönetici Şifresini Değiştir</h3>
+                        <form id="passwordForm" onsubmit="changePassword(event)">
+                            <div class="form-group">
+                                <label class="form-label">Yeni Şifre</label>
+                                <input type="password" id="newAdminPassword" class="form-control" required placeholder="Yeni şifrenizi girin">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Yeni Şifre (Tekrar)</label>
+                                <input type="password" id="newAdminPasswordConfirm" class="form-control" required placeholder="Yeni şifreyi onaylayın">
+                            </div>
+                            <button type="submit" class="btn-primary" style="margin-top:20px;">Şifreyi Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- EDIT BANK MODAL -->
+    <div class="modal-overlay" id="editBankModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title">Banka / IBAN Düzenle</div>
+                <button class="btn-modal-close" onclick="closeModal('editBankModal')">&times;</button>
+            </div>
+            <form onsubmit="submitEditBank(event)">
+                <input type="hidden" id="editBankId">
+                <div class="form-group">
+                    <label class="form-label">Banka Adı</label>
+                    <input type="text" id="editBankName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">IBAN Numarası</label>
+                    <input type="text" id="editBankIban" class="form-control" style="font-family:var(--font-mono);" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Hesap Sahibi (Alıcı Adı)</label>
+                    <input type="text" id="editBankHolder" class="form-control" required>
+                </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top:14px;">
+                    <label class="switch">
+                        <input type="checkbox" id="editBankActive">
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size:13px; font-weight:600;">Bu banka kullanıcıya açık (Aktif) olsun</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeModal('editBankModal')">İptal</button>
+                    <button type="submit" class="btn-save">Değişiklikleri Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADD BANK MODAL -->
+    <div class="modal-overlay" id="addBankModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title">Yeni Banka Hesabı Ekle</div>
+                <button class="btn-modal-close" onclick="closeModal('addBankModal')">&times;</button>
+            </div>
+            <form onsubmit="submitAddBank(event)">
+                <div class="form-group">
+                    <label class="form-label">Banka Kodu (Slug / Küçük Harf)</label>
+                    <input type="text" id="addBankId" class="form-control" placeholder="örn: ziraat, vakifbank, qnb" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Görünen Banka Adı</label>
+                    <input type="text" id="addBankName" class="form-control" placeholder="örn: Ziraat Bankası" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">IBAN Numarası</label>
+                    <input type="text" id="addBankIban" class="form-control" style="font-family:var(--font-mono);" placeholder="TR..." required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Hesap Sahibi (Alıcı Adı)</label>
+                    <input type="text" id="addBankHolder" class="form-control" placeholder="Alıcı adı soyadı" required>
+                </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top:14px;">
+                    <label class="switch">
+                        <input type="checkbox" id="addBankActive" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size:13px; font-weight:600;">Hemen Aktif Olarak Yayınla</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addBankModal')">İptal</button>
+                    <button type="submit" class="btn-save">Bankayı Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST BOX -->
+    <div id="toastBox"></div>
+
+    <script>
+        let allBanks = [];
+        let autoRefreshTimer = null;
+
+        // Check auth on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const token = sessionStorage.getItem('gp_admin_token');
+            if (token) {
+                showDashboard();
+            }
+        });
+
+        // --- AUTH ---
+        async function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            btn.disabled = true;
+            btn.innerHTML = 'Giriş Yapılıyor...';
+
+            const u = document.getElementById('loginUser').value.trim();
+            const p = document.getElementById('loginPass').value;
+
+            try {
+                const res = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: u, password: p })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    sessionStorage.setItem('gp_admin_token', data.token);
+                    sessionStorage.setItem('gp_admin_user', data.username);
+                    showToast('Giriş başarılı!', 'success');
+                    showDashboard();
+                } else {
+                    showToast(data.error || 'Giriş başarısız!', 'error');
+                }
+            } catch (err) {
+                showToast('Bağlantı hatası!', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span>Güvenli Giriş Yap</span>';
+            }
+        }
+
+        function handleLogout() {
+            sessionStorage.removeItem('gp_admin_token');
+            sessionStorage.removeItem('gp_admin_user');
+            clearInterval(autoRefreshTimer);
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'flex';
+            showToast('Çıkış yapıldı', 'success');
+        }
+
+        function showDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'flex';
+            document.getElementById('headerUsername').textContent = sessionStorage.getItem('gp_admin_user') || 'admin';
+            loadBanks();
+            loadStats();
+            loadSettings();
+
+            // Periodic polling for payment notifications
+            if (!autoRefreshTimer) {
+                autoRefreshTimer = setInterval(() => {
+                    loadStats();
+                    if (document.getElementById('paymentsTab').style.display !== 'none') {
+                        loadPayments(true);
+                    }
+                }, 10000);
+            }
+        }
+
+        // --- TABS ---
+        function switchTab(tabId, tabEl) {
+            document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+            tabEl.classList.add('active');
+
+            document.getElementById('banksTab').style.display = tabId === 'banksTab' ? 'block' : 'none';
+            document.getElementById('paymentsTab').style.display = tabId === 'paymentsTab' ? 'block' : 'none';
+            document.getElementById('settingsTab').style.display = tabId === 'settingsTab' ? 'block' : 'none';
+
+            if (tabId === 'paymentsTab') {
+                loadPayments();
+            } else if (tabId === 'banksTab') {
+                loadBanks();
+            }
+        }
+
+        // --- BANKS CRUD ---
+        async function loadBanks() {
+            try {
+                const res = await fetch('/api/admin/banks');
+                const data = await res.json();
+                if (data.success) {
+                    allBanks = data.banks || [];
+                    renderBankTable(allBanks);
+                    updateBankStats(allBanks);
+                }
+            } catch (err) {
+                showToast('Bankalar yüklenemedi!', 'error');
+            }
+        }
+
+        function updateBankStats(banks) {
+            const total = banks.length;
+            const active = banks.filter(b => b.is_active == 1).length;
+            const passive = total - active;
+
+            document.getElementById('statTotalBanks').textContent = total;
+            document.getElementById('statActiveBanks').textContent = active;
+            document.getElementById('statPassiveBanks').textContent = passive;
+        }
+
+        function renderBankTable(banks) {
+            const tbody = document.getElementById('bankTableBody');
+            if (!banks.length) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:30px; color:#64748b;">Kayıtlı banka bulunamadı.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = banks.map(b => `
+                <tr>
+                    <td>
+                        <div class="bank-info-cell">
+                            <div class="bank-avatar">
+                                <img src="/img/banks/${b.bank_id}.svg" onerror="this.src='/favicon.ico'" alt="${b.bank_name}">
+                            </div>
+                            <div class="bank-names">
+                                <span class="bank-primary-name">${escapeHtml(b.bank_name)}</span>
+                                <span class="bank-slug">${escapeHtml(b.bank_id)}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="iban-cell" onclick="copyText('${b.iban}')" title="Kopyalamak için tıklayın">
+                            ${formatIban(b.iban)}
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </span>
+                    </td>
+                    <td>
+                        <strong style="color:#fff;">${escapeHtml(b.holder_name)}</strong>
+                    </td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ${b.is_active == 1 ? 'checked' : ''} onchange="toggleBankStatus('${b.bank_id}', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <div class="action-btns">
+                            <button class="btn-action-edit" onclick="openEditBankModal('${b.bank_id}')">Düzenle</button>
+                            <button class="btn-action-del" onclick="deleteBank('${b.bank_id}')">Sil</button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterBanks() {
+            const q = document.getElementById('bankSearch').value.toLowerCase();
+            const filtered = allBanks.filter(b => 
+                b.bank_name.toLowerCase().includes(q) ||
+                b.bank_id.toLowerCase().includes(q) ||
+                b.iban.toLowerCase().includes(q) ||
+                b.holder_name.toLowerCase().includes(q)
+            );
+            renderBankTable(filtered);
+        }
+
+        async function toggleBankStatus(bankId, isActive) {
+            const b = allBanks.find(x => x.bank_id === bankId);
+            if (!b) return;
+
+            try {
+                const res = await fetch('/api/admin/bank/update', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        bank_id: bankId,
+                        iban: b.iban,
+                        holder_name: b.holder_name,
+                        is_active: isActive ? 1 : 0,
+                        bank_name: b.bank_name
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    b.is_active = isActive ? 1 : 0;
+                    updateBankStats(allBanks);
+                    showToast(`${b.bank_name} ${isActive ? 'aktif edildi' : 'pasife alındı'}!`, 'success');
+                }
+            } catch (e) {
+                showToast('Durum güncellenemedi!', 'error');
+            }
+        }
+
+        function openEditBankModal(bankId) {
+            const b = allBanks.find(x => x.bank_id === bankId);
+            if (!b) return;
+
+            document.getElementById('editBankId').value = b.bank_id;
+            document.getElementById('editBankName').value = b.bank_name;
+            document.getElementById('editBankIban').value = b.iban;
+            document.getElementById('editBankHolder').value = b.holder_name;
+            document.getElementById('editBankActive').checked = b.is_active == 1;
+
+            openModal('editBankModal');
+        }
+
+        async function submitEditBank(e) {
+            e.preventDefault();
+            const bankId = document.getElementById('editBankId').value;
+            const bankName = document.getElementById('editBankName').value.trim();
+            const iban = document.getElementById('editBankIban').value.replace(/\s+/g, '').toUpperCase();
+            const holder = document.getElementById('editBankHolder').value.trim();
+            const isActive = document.getElementById('editBankActive').checked ? 1 : 0;
+
+            try {
+                const res = await fetch('/api/admin/bank/update', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        bank_id: bankId,
+                        bank_name: bankName,
+                        iban: iban,
+                        holder_name: holder,
+                        is_active: isActive
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    closeModal('editBankModal');
+                    showToast('Banka bilgileri güncellendi!', 'success');
+                    loadBanks();
+                } else {
+                    showToast('Güncelleme hatası!', 'error');
+                }
+            } catch (err) {
+                showToast('Bağlantı hatası!', 'error');
+            }
+        }
+
+        function openAddBankModal() {
+            document.getElementById('addBankId').value = '';
+            document.getElementById('addBankName').value = '';
+            document.getElementById('addBankIban').value = '';
+            document.getElementById('addBankHolder').value = document.getElementById('settingDefaultHolder').value || 'Levent Tanrıver';
+            document.getElementById('addBankActive').checked = true;
+            openModal('addBankModal');
+        }
+
+        async function submitAddBank(e) {
+            e.preventDefault();
+            const bankId = document.getElementById('addBankId').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            const bankName = document.getElementById('addBankName').value.trim();
+            const iban = document.getElementById('addBankIban').value.replace(/\s+/g, '').toUpperCase();
+            const holder = document.getElementById('addBankHolder').value.trim();
+            const isActive = document.getElementById('addBankActive').checked ? 1 : 0;
+
+            if (!bankId || !iban) {
+                showToast('Lütfen tüm zorunlu alanları doldurun!', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/admin/bank/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        bank_id: bankId,
+                        bank_name: bankName,
+                        iban: iban,
+                        holder_name: holder,
+                        is_active: isActive
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    closeModal('addBankModal');
+                    showToast('Yeni banka başarıyla eklendi!', 'success');
+                    loadBanks();
+                } else {
+                    showToast('Banka eklenemedi!', 'error');
+                }
+            } catch (err) {
+                showToast('Bağlantı hatası!', 'error');
+            }
+        }
+
+        async function deleteBank(bankId) {
+            if (!confirm(`'${bankId}' kodlu bankayı silmek istediğinizden emin misiniz?`)) return;
+
+            try {
+                const res = await fetch('/api/admin/bank/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bank_id: bankId })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Banka silindi!', 'success');
+                    loadBanks();
+                }
+            } catch (err) {
+                showToast('Silme hatası!', 'error');
+            }
+        }
+
+        // --- PAYMENTS ---
+        async function loadPayments(silent = false) {
+            try {
+                const res = await fetch('/api/admin/payments');
+                const data = await res.json();
+                if (data.success) {
+                    renderPaymentsTable(data.payments || []);
+                }
+            } catch (err) {
+                if (!silent) showToast('Ödemeler yüklenemedi!', 'error');
+            }
+        }
+
+        function renderPaymentsTable(payments) {
+            const tbody = document.getElementById('paymentTableBody');
+            if (!payments.length) {
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:30px; color:#64748b;">Henüz ödeme bildirimi bulunmuyor.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = payments.map(p => {
+                let badgeClass = 'pending';
+                let badgeText = 'Bekliyor';
+                if (p.status === 'approved') { badgeClass = 'approved'; badgeText = 'Onaylandı'; }
+                if (p.status === 'rejected') { badgeClass = 'rejected'; badgeText = 'Reddedildi'; }
+
+                return `
+                    <tr>
+                        <td><span style="font-family:var(--font-mono); color:#64748b;">#${p.id}</span></td>
+                        <td style="font-size:12px; color:#94a3b8;">${escapeHtml(p.created_at || '')}</td>
+                        <td><strong style="color:#fff;">${escapeHtml(p.username || 'Anonim')}</strong></td>
+                        <td><strong>${escapeHtml(p.bank_name || p.bank_id)}</strong></td>
+                        <td><span style="font-family:var(--font-mono); font-size:12px; color:var(--accent-gold);">${p.iban || ''}</span></td>
+                        <td><span style="font-size:15px; font-weight:800; color:#fff;">${parseFloat(p.amount || 0).toLocaleString('tr-TR', {minimumFractionDigits: 2})} ₺</span></td>
+                        <td>${escapeHtml(p.holder_name || '')}</td>
+                        <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-action-edit" style="background:rgba(16,185,129,0.15);color:var(--accent-emerald);border-color:rgba(16,185,129,0.3);" onclick="setPaymentStatus(${p.id}, 'approved')">✓ Onayla</button>
+                                <button class="btn-action-del" onclick="setPaymentStatus(${p.id}, 'rejected')">✕ Reddet</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        async function setPaymentStatus(id, status) {
+            try {
+                const res = await fetch('/api/admin/payment/status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, status: status })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast(`Ödeme durumu: ${status === 'approved' ? 'Onaylandı' : 'Reddedildi'}`, 'success');
+                    loadPayments();
+                    loadStats();
+                }
+            } catch (err) {
+                showToast('İşlem başarısız!', 'error');
+            }
+        }
+
+        // --- STATS & SETTINGS ---
+        async function loadStats() {
+            try {
+                const res = await fetch('/api/admin/stats');
+                const data = await res.json();
+                if (data.success && data.stats) {
+                    const s = data.stats;
+                    document.getElementById('statTotalPayments').textContent = s.total_payments;
+                    document.getElementById('statPendingPayments').textContent = s.pending_count;
+                    document.getElementById('statApprovedVolume').textContent = (s.approved_volume || 0).toLocaleString('tr-TR', {minimumFractionDigits: 2}) + ' ₺';
+
+                    const badge = document.getElementById('pendingBadge');
+                    if (s.pending_count > 0) {
+                        badge.style.display = 'inline-block';
+                        badge.textContent = s.pending_count;
+                    } else {
+                        badge.style.display = 'none';
+                    }
+                }
+            } catch (e) {}
+        }
+
+        async function loadSettings() {
+            try {
+                const res = await fetch('/api/admin/settings');
+                const data = await res.json();
+                if (data.success && data.settings) {
+                    const s = data.settings;
+                    document.getElementById('settingDefaultHolder').value = s.default_holder || 'Levent Tanrıver';
+                    document.getElementById('settingDefaultBank').value = s.default_bank || 'denizbank';
+                    document.getElementById('settingCountdown').value = s.countdown_seconds || '280';
+                }
+            } catch (e) {}
+        }
+
+        async function saveSettings(e) {
+            e.preventDefault();
+            const holder = document.getElementById('settingDefaultHolder').value.trim();
+            const defBank = document.getElementById('settingDefaultBank').value.trim();
+            const countdown = document.getElementById('settingCountdown').value;
+
+            try {
+                const res = await fetch('/api/admin/settings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        default_holder: holder,
+                        default_bank: defBank,
+                        countdown_seconds: countdown
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Genel ayarlar kaydedildi!', 'success');
+                }
+            } catch (e) {
+                showToast('Ayarlar kaydedilemedi!', 'error');
+            }
+        }
+
+        async function changePassword(e) {
+            e.preventDefault();
+            const p1 = document.getElementById('newAdminPassword').value;
+            const p2 = document.getElementById('newAdminPasswordConfirm').value;
+
+            if (p1 !== p2) {
+                showToast('Şifreler birbiriyle eşleşmiyor!', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/admin/settings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: sessionStorage.getItem('gp_admin_user') || 'admin',
+                        new_password: p1
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Şifreniz başarıyla güncellendi!', 'success');
+                    document.getElementById('passwordForm').reset();
+                }
+            } catch (e) {
+                showToast('Şifre güncellenemedi!', 'error');
+            }
+        }
+
+        // --- UTILS ---
+        function openModal(id) {
+            document.getElementById(id).classList.add('show');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('IBAN kopyalandı!', 'success');
+            }).catch(() => {
+                showToast('Kopyalanamadı', 'error');
+            });
+        }
+
+        function formatIban(iban) {
+            if (!iban) return '';
+            const clean = iban.replace(/\s+/g, '');
+            return clean.replace(/(.{4})/g, '$1 ').trim();
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function showToast(msg, type = 'info') {
+            const box = document.getElementById('toastBox');
+            const toast = document.createElement('div');
+            toast.className = `toast-item ${type}`;
+            toast.textContent = msg;
+            box.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                toast.style.transition = 'all 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

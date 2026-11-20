@@ -1,0 +1,2972 @@
+
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark" data-type="Desktop" data-sticky-header="False" data-dir="ltr">
+<head>
+
+
+
+
+    <script>
+        window.AppTrackers = {};
+    </script>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <script>
+        window.AppTrackers.gtm = function () {
+            var deviceTypeAdd = window.dataLayer;
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                !deviceTypeAdd ? w[l].push({ 'deviceType': 'web' }) : null;
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5MXXS2BH');
+        };
+        </script>
+    <script>
+        (function () {
+            'use strict';
+            var executed = false;
+            function runAllTrackers() {
+                if (executed) return;
+                executed = true;
+                cleanupTriggers();
+                for (var key in window.AppTrackers) {
+                    if (typeof window.AppTrackers[key] === 'function') {
+                        try {
+                            window.AppTrackers[key]();
+                        } catch (e) {
+                            console.error('Error executing tracker:', key, e);
+                        }
+                    }
+                }
+            }
+
+            function cleanupTriggers() {
+                window.removeEventListener('pointerdown', runAllTrackers, { passive: true });
+                window.removeEventListener('keydown', runAllTrackers, { passive: true });
+                window.removeEventListener('scroll', runAllTrackers, { passive: true });
+                window.removeEventListener('touchstart', runAllTrackers, { passive: true });
+                if (window.idleTimer) clearTimeout(window.idleTimer);
+            }
+
+            window.addEventListener('pointerdown', runAllTrackers, { passive: true });
+            window.addEventListener('keydown', runAllTrackers, { passive: true });
+            window.addEventListener('scroll', runAllTrackers, { passive: true });
+            window.addEventListener('touchstart', runAllTrackers, { passive: true });
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(function () {
+                    window.idleTimer = setTimeout(runAllTrackers, 3000);
+                }, { timeout: 5000 });
+            } else {
+                window.idleTimer = setTimeout(runAllTrackers, 4000);
+            }
+        })();
+    </script>
+
+
+
+
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+        <meta name="viewport" content="width=1360, initial-scale=0.5, maximum-scale=0.5, user-scalable=no, minimal-ui" />
+
+        <meta name="revisit-after" content="1 Days" />
+        <meta name="Robots" content="all" />
+
+        <meta name="language" content="T&#252;rk&#231;e" />
+
+        <meta name="google" content="notranslate" />
+
+    
+
+
+
+
+<script>window._peq = window._peq || []; window._peq.push(["init"]);</script>
+
+<meta name='dmca-site-verification' content='c3JGc3pzT0VsWFFpUk11TE5PWDRZRGdXbnU1YUlBNmJkaXVsV00vMHRncz01' />
+
+
+
+<title>Slot Salonu Grandpashabet</title>
+
+
+
+
+    
+
+
+
+            <link rel="shortcut icon" href="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/favicon.ico" type="image/x-icon" />
+            <link rel="icon" href="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/favicon.ico" type="image/x-icon" />
+                <meta property="og:image" content="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.grandpashabet9090.com" crossorigin>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/jquery/jquery-3.7.1.min.js"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/jquery/jquery-ui-1.13.2.js"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/jquery/jquery-dialogOptions.js"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/jquery/jquery-validate.min.js"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/jquery/jquery-validate.unobtrusive.min.js"></script>
+
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/DynamicContent/CurrencyManager.js?v=1.1711.2026.1015"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/custom-select.js"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/balance_updater_new.js?v=1.1711.2026.1015"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/DynamicContent/Common.js?v=1.1711.2026.1015"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/DynamicContent/Web/GamesCommon.js?v=1.1711.2026.1015"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/jackpotSlider.js"></script>
+
+<link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/Utils/swiper.css" type="text/css" rel="stylesheet" />
+
+        <link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/fonts/roboto/fontRoboto.css?v=1.1711.2026.1015" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/components/cwDynamicIcons.css?v=1.1711.2026.1015" rel="stylesheet" />
+        <link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/site.css?v=1.1711.2026.1015" rel="stylesheet" />
+        <link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/paymentDesktop.css?v=1.1711.2026.1015" type="text/css" rel="stylesheet" />
+
+
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/Utils/swiper.js"></script>
+            <link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/landingv1.css?v=1.1711.2026.1015" type="text/css" rel="stylesheet" />
+
+<link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/components/dynamicBanners_v1.0.css?v=1.1711.2026.1015" type="text/css" rel="stylesheet" />
+<link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/components/popups/registration.css?v=1.1711.2026.1015" type="text/css" rel="stylesheet" />
+
+    <link href="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Content/partners/1093.css?v=1.1711.2026.1015" type="text/css" rel="stylesheet" />
+        <link href="//cdn.grandpashabet9090.com/plat/prd/Img/Partners/1093/CustomCSS/customWeb.css" type="text/css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+    function closeCustomSelOnScroll(event) {
+
+        if (event.target.classList && event.target.classList.value.includes('scrolled__content') && document.getElementsByClassName('tl_sel_custom_popup_reg_selected active').length > 0) {
+            $('.tl_sel_popup_reg').customSelect({
+                method: 'closeList'
+            });
+        }
+    }
+    document.removeEventListener('scroll', closeCustomSelOnScroll);
+    document.addEventListener('scroll', function (event) {
+        closeCustomSelOnScroll(event);
+    }, true);
+
+
+    if (performance.navigation.type == 2) {
+          setTimeout(function () {
+
+                if ('false' == 'true') {
+                    $.ajax({
+                            type: "POST",
+                            url: '/tr/Common/CheckIsLoggedIn',
+                            success: function (data) {
+                        if (data.Reload == 'Reload' || '0' != data.Id) {
+                            location.reload();
+                        }
+                    }
+
+                });
+              }
+
+          }, 25);
+
+        $.ajax({
+            type: "POST",
+            url: '/tr/Home/UpdateLanguage',
+            data: "lang=" + document.documentElement.lang
+        });
+    }
+    showpopup = true;
+
+    function CRMEngagementTrigger() {
+        if ('False'.toLowerCase() == 'true') {
+            showPopup("/tr" + "/CRMengagement", "crmengagement_tab", {
+                width: 1600,
+                height: 'auto',
+                closeOnEscape: true,
+                dialogClass: 'tl_popup_dialog',
+            });
+        }
+    }
+
+    function LoginTrigger() {
+        if ('False'.toLowerCase() == 'true') {
+            FnLoginTrigger(window.location.href);
+        } else {
+            if (document.querySelector('.tl_login_container .loginDialog') != null) {
+                $('.tl_login_container .loginDialog').trigger('click');
+            } else if (document.querySelector('.js_fixed_header_right .loginDialog')) {
+                $('.js_fixed_header_right .loginDialog').trigger('click');
+            }
+        }
+    }
+    function RegisterTrigger() {
+        if ('False'.toLowerCase() == 'true') {
+            document.getElementById("js_open_register").trigger('click');
+        } else {
+            $('.registerDialog').trigger('click');
+        }
+    }
+    function UsernameTrigger() {
+        $('.username').trigger('click');
+    }
+    function WithdrawalTrigger() {
+        $('.withdrawalDialog').trigger('click');
+    }
+    function DepositTrigger() {
+        $('.depositDialog').first().trigger('click');
+    }
+    function ProfileTrigger() {
+        $('.profileDialog').first().trigger('click');
+    }
+    function DocumentTrigger() {
+        if (document.querySelector('.DocumentsDialog') != null) {
+            $('.DocumentsDialog').first().trigger('click');
+        } else {
+            showAccountPopup("/tr" + "/Account/DocumentsUpload", 'documents_tab', {
+                width: 1600,
+                height: 681,
+
+            });
+        }
+    }
+    function FnLoginTrigger(param) {
+        if (param == undefined) {
+            param = getUrlPathQueryHash();
+        }
+        setCookie('mnUrl', param, 1);
+        location.href = '/login/login';
+    }
+    function FnRegisterTrigger() {
+        location.href = '/registration/register';
+    }
+    function ReferAFriendTrigger() {
+        if ('False'.toLowerCase() == 'true' && 'False'.toLowerCase() == 'true') {
+            showAccountPopup("/tr" + "/ReferAFriend/Invite?param=ref", "referAFriend_tab", {
+                width: 1600,
+                height: 681,
+            });
+        }
+    };
+
+    function BonusesTrigger() {
+        showAccountPopup("/tr" + "/bonus/newbonuses", "bonuses_tab", {
+            width: 1600,
+            height: 681,
+        });
+    };
+    function PromoCodeTrigger() {
+        if ('True'.toLowerCase() == 'true') {
+            showAccountPopup("/tr" + "/Account/CheckPromoCode", "hasPromoDialog", {
+                width: 1600,
+                height: 681,
+            });
+        }
+    };
+
+    $(document).on('click',
+        "#mnLogin",
+        function () {
+            setCookie('mnUrl', window.location.href, 1);
+        });
+    var offset = new Date().getTimezoneOffset();
+    var hours = offset / -60;
+
+    setCookie('ClientTimeZone', hours, 100);
+
+    $(document).ready(function () {
+
+        function handleDOMBlurForDropdownMenu(e) {
+            if (document.activeElement.tagName === "IFRAME") {
+                hideDropdown($('.links_container'));
+            }
+            document.removeEventListener('click', handleDOMBlurForDropdownMenu);
+            window.removeEventListener('blur', handleDOMBlurForDropdownMenu);
+        }
+
+        click = 0;
+        /* Dropdown Start */
+        var showDropDown = function (elem) {
+            elem.toggle();
+        };
+
+        var hideDropdown = function (elem) {
+            elem.hide();
+            //$(".header__dropdown-menu").removeClass("balance_drp_header");
+        };
+
+        $('a.header__dropdown-menu[data-toggle="dropdown"]').on('click', function (e) {
+            //debugger;
+            e.preventDefault();
+            e.stopPropagation();
+
+            document.addEventListener('click', handleDOMBlurForDropdownMenu);
+            window.addEventListener('blur', handleDOMBlurForDropdownMenu);
+
+            $('a.header__dropdown-menu').not(this).each(function () {
+                hideDropdown($(this).next());
+                //$(this).toggleClass("balance_drp_header");
+            });
+
+            var menu = $(this).next();
+            const depositDropDown = document.getElementById("depositDropDown");
+            if (depositDropDown && depositDropDown.classList.contains("state_visible")) {
+                depositDropDown.classList.remove("state_visible");
+            }
+            //$(this).toggleClass("balance_drp_header");
+
+            showDropDown(menu);
+        });
+
+        $(document).on('click', function (e) {
+            var parent = $(e.target);
+
+            if (!parent.hasClass('dropdown')) {
+                hideDropdown($('.links_container'));
+            }
+        });
+        /* Dropdown End */
+
+        $.ajaxSetup({ cache: false });
+
+        /* Registration */
+        $(".registerDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href") + '?p=true';
+            var w = 850;
+            var h = 720;
+            var p = null;
+            var dg = 'tl_popup_dialog  js_popup_dialog flex_popup_content js_reg_popup_d' ;
+            var r = false;
+
+            if (click == 0) {
+                click++;
+                showPopup(url, 'registerContent', {
+                    width: w,
+                    height: h,
+                    position: p,
+                    dialogClass: dg,
+                    responsive: r,
+                });
+
+            }
+        });
+        /* Registration End */
+
+        /* Login */
+        $(document).on("click", '.loginDialog', function (e) {
+            e.preventDefault();
+            if (click == 0) {
+                click++;
+                var url = $(this).data("href") + '?p=true';
+
+                showPopup(url, 'loginContent', {
+                    position: null,
+                    dialogClass: 'tl_popup_dialog js_popup_dialog flex_popup_content',
+                    responsive: false,
+                });
+            }
+        });
+
+
+    /* Login End */
+
+    /* Document page start*/
+
+          $(".DocumentsDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'documents_tab', {
+                width: 1600,
+                height: 681,
+
+            });
+          });
+
+        $(document).on("click", '.VoisoCallCenterDialog', function (e) {
+        //$(".VoisoCallCenterDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'voisocallcenter_tab', {
+                width: 1600,
+                height: 681,
+
+            });
+        });
+
+        /* Documents page End */
+
+        /* USSD Password Change */
+        $(".ussdpasswchangeDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showPopup(url, 'ussdpasswchangeContent', {
+                width: 350,
+                height: 400,
+
+            });
+        });
+        /*USSD Password Change End */
+         /* USSD Password Change */
+        $(document).on("click",'.pokerpasswchangeDialog', function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showPopup(url, 'pokerpasswchangeContent', {
+                width: 350,
+                height: 400,
+            });
+        });
+        $(".createPokerPasswordDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showPopup(url, 'createPokerPasswordDialog', {
+                width: 350,
+                height: 400,
+                closeOnEscape: false
+
+            });
+        });
+        /*USSD Password Change End */
+        /* SelfExclusion popup */
+        $(document).on("click", '.selfExclusionDialog', function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showPopup(url, 'selfExclusionContent', {
+                width: 336,
+                height: 'auto'
+            });
+        });
+
+        /* SelfExclusion popup */
+
+        /* Forgotpass */
+        $(document).on("click", '.forgotPassDialog', function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+
+            showPopup(url, 'loginContent', {
+                position: null,
+                dialogClass: 'tl_popup_dialog js_popup_dialog flex_popup_content',
+                responsive: false,
+            });
+        });
+        /* Forgotpass */
+
+        /* ForgotUserName */
+        $(document).on("click", '.forgotUsernamesDialog', function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+
+            showPopup(url, 'loginContent', {
+                width: 335,
+                height: 'auto'
+            });
+        });
+        /* Forgotpass */
+
+        /* Force Forgotpass */
+        $(document).on("click", '#force_change_pass', function (e) {
+            e.preventDefault();
+            var url = this.href;
+            showPopup(url, 'forceChangePassContent', {
+                position: null,
+                dialogClass: 'tl_popup_dialog js_popup_dialog flex_popup_content',
+                responsive: false,
+            });
+        });
+        /* Force Forgotpass */
+
+        /* changeLoginPass */
+        $(document).on("click", '#changeLoginPass', function (e) {
+            e.preventDefault();
+            var url = this.href;
+            showPopup(url, 'changeLoginPassContent', {
+                width: 360,
+                height: 'auto'
+            });
+        });
+        /*changeLoginPass */
+        /* Password Change */
+        $(".passwchangeDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+            var self = this;
+            showPopup(url, 'passwchangeContent', {
+                position: null,
+                dialogClass: 'tl_popup_dialog js_popup_dialog flex_popup_content',
+                responsive: false,
+                open: function (e, ui) {
+
+                    $(this).load(url, function (data) {
+
+                        // check if is user is not logged, redirect
+                        if (!isLogged(data)) {
+                            location.href = "/";
+                            return false;
+                        }
+
+                        hideSpinner();
+                    });
+                }
+            });
+        });
+        /* Password Change End */
+
+        /* Profile */
+        $(".profileDialog, .profileDialog1").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'profile_tab');
+        });
+        /* Profile End */
+
+
+        /*Sporttransfer*/
+        $(".sporttransferDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'transfer_to_sport_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        /*Sporttransfer End*/
+
+        /* Deposit */
+        $(".depositDialog").on("click", function (e) {
+            if (click == 0) {
+                click++;
+                e.preventDefault();
+                var url = $(this).data("href");
+
+                if ('1093' == "1040") {
+
+                    setTimeout(function () {
+
+                        $(".tl_my_acc_cont_nav").remove();
+                        $(".tl_my_acc_cont_content").css("width", "calc((100%) - 0px)");
+
+
+                    }, 5);
+
+                }
+
+                if ('False'.toLowerCase() == 'false') {
+                    if ('False'.toLowerCase() == 'true') {
+                        document.location.href = '/Account/TransactionsHistory';
+                    } else {
+                        showAccountPopup('/Account/TransactionsHistory', 'transactions_tab', {
+                            width: 1600,
+                            height: 681,
+                        });
+                    }
+                }
+                else if ('1093' == "1201") {
+                    checkClientStatus(false, 'deposit_tab', url);
+                } else if (typeof cw_fillInFLname != 'undefined' && cw_fillInFLname == true) {
+                    FillInFnameLname();
+                } else if ('False' == 'True') {
+                    showAccountPopup("/Account/profile", "profile_tab", {
+                        width: 1600,
+                        height: 681,
+                    });
+                } else if ('True'.toLocaleLowerCase() == 'true' && 'False'.toLocaleLowerCase() == 'true') {
+                    if ('True'.toLocaleLowerCase() == 'true' && 'False'.toLocaleLowerCase() == 'true' && 'True'.toLocaleLowerCase() == 'true') {
+                        openCashierPopup(1);
+                    } else {
+                        openBonusRequestPopup('True'.toLocaleLowerCase() == 'false');
+                    }
+                }
+                else if ('True'.toLocaleLowerCase() == 'true' && 'False'.toLocaleLowerCase() == 'true') {
+                    openCashierPopup(1);
+                }
+                else {
+                    showAccountPopup(url, 'deposit_tab', {
+                        width: 1600,
+                        height: 681,
+                    });
+                }
+            }
+        });
+        /* Deposit End */
+
+        /* NotificationSettings */
+        $(".notificationsettingsDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+             getCss('//cdn.grandpashabet9090.com/plat/prd/CW/GGP' + '/Content/components/notificationSettings.css?v=' + '1.1711.2026.1015').then(function () {
+                showAccountPopup(url, 'notification_tab', {
+                    width: 1600,
+                    height: 681,
+                });
+            });
+        });
+    /* NotificationSettings End */
+
+        $(".bankAccountsDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'bankAccounts_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        /* Withdraw */
+        $(".withdrawalDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+            if ('1093' == "1201") {
+                checkClientStatus(false, 'withdraw_tab', url);
+            } else if ('True'.toLocaleLowerCase() == 'true') {
+                openCashierPopup(2);
+            } else {
+                showAccountPopup(url, 'withdraw_tab', {
+                    width: 1600,
+                    height: 681,
+                });
+            }
+        });
+        /* Withdraw End */
+
+        /* Transactions */
+        $(".transactionsDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'transactions_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        /* Transactions End */
+
+        $(".internalAgentDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'internalAgent_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        $(".referAFriendDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href") + "?param=ref";
+
+            showAccountPopup(url, 'referAFriend_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        $(".voisoCallCenterDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'voisocallcenter_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        $(".betShopDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'betshop_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        $(".trustedBrowsersDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'trustedBrowsers_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        $(".myActivityDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'myActivity_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        /* Bonuses */
+        $(document).on("click", ".bonusesDialog", function (e) {
+
+            e.preventDefault();
+            var url = $(this).data("href");
+            var tabId = "bonuses_tab";
+            showAccountPopup(url, tabId, {
+                width: 1600,
+                height: 681,
+            });
+
+        });
+
+        //$("#js_exchange_spin_history").delegate(".bonusesDialog", "click", function(e) {
+        //    e.preventDefault();
+        //    var url = $(this).data("href");
+        //    var tabId = "bonuses_tab";
+
+        //    showAccountPopup(url, tabId, {
+        //        width: 1600,
+        //        height: 681,
+        //    });
+
+        //});
+        /* Bonuses End */
+
+        /*GameHystory*/
+        $(".gamehystoryDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'history_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        /*GameHystory End*/
+
+        /*TournamentHystory*/
+        $(".tournamenthystoryDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'historyTournament_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+
+        /* Bets and Winings Info */
+        $(".betwininfoDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'betwininfo_tab');
+
+        });
+        /* Bets and Winings Info End */
+
+        ///*Transfer To Friend*/
+        $(".transferToFriendDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'transfer_to_friend_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        ///*Transfer To Friend*/
+        /*Referrer Report*/
+        $(".referrerDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'referrer_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        $(".selfLimitingDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'referrer_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+         $(".getBetWinInfoDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+
+            showAccountPopup(url, 'betwininfo_tab', {
+                width: 1600,
+                height: 681,
+            });
+        });
+        /*Referrer Report*/
+        if ('False'.toLocaleLowerCase() == 'true')
+        {
+            /* responsibleGamingDialog Start */
+            $(".responsibleGamingDialog").on("click", function(e) {
+
+                e.preventDefault();
+                var url = $(this).data("href");
+
+                showAccountPopup(url,
+                    'responsibleGamingDialog',
+                    {
+                        width: 1600,
+                        height: 681,
+                    });
+
+            });
+            /* responsibleGamingDialog End */
+        }
+
+        if ('True'.toLocaleLowerCase() == 'true') {
+            $(".hasPromoDialog").on("click", function(e) {
+
+                e.preventDefault();
+                var url = $(this).data("href");
+
+                showAccountPopup(url,
+                    'promocode_tab',
+                    {
+                        width: 1600,
+                        height: 681,
+                    });
+
+            });
+        }
+
+        $(document).on("click", '.twoFaSettingsDialog', function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+            showAccountPopup(url, 'twoFaSettings_tab');
+        });
+
+        if ('False'.toLocaleLowerCase() == 'true') {
+            $(document).on("click", '.declarationsDialog', function (e) {
+                e.preventDefault();
+                var url = $(this).data("href");
+                showAccountPopup(url, 'declarations_tab');
+            });
+        }
+
+        /*Tabs Click*/
+        var tabClicked = false;
+        $(document).on("click", '.links_container.profile:not(#logout)', function (e) {
+            tabClicked = false;
+        });
+        $(document).on('click', 'a.tl_my_acc_nav_item', function(e) {
+            e.preventDefault();
+            if (!$(this).hasClass('active')) {
+
+                if ($(this).attr('id') == 'deposit_tab') {
+                    if ('True'.toLocaleLowerCase() == 'true') {
+                        openBonusRequestPopup('True'.toLocaleLowerCase() == 'false', true);
+                    }
+                    if ('True'.toLocaleLowerCase() == 'true') {
+                        return;
+                    }
+                }
+                if ($(this).attr('id') == 'withdraw_tab' && 'True'.toLocaleLowerCase() == 'true') {
+                    $(this).closest(".ui-dialog-content").dialog("close");
+                    openCashierPopup(2);
+                    return;
+                }
+
+                if (tabClicked) {
+                    return false;
+                }
+
+                tabClicked = true;
+
+                var tabUrl = $(this).data("href");
+                var tabId = this.id;
+                if (tabId == 'notification_tab') {
+                     getCss('//cdn.grandpashabet9090.com/plat/prd/CW/GGP' + '/Content/components/notificationSettings.css?v=' + '1.1711.2026.1015');
+                }
+                if ('False'.toLocaleLowerCase() == 'true' && '' == 'yes' && tabId == 'deposit_tab') {
+                    tabClicked = false;
+                    return false;
+                }
+                if ('1093' == '1201' && (tabId == 'deposit_tab' || tabId == 'withdraw_tab')) {
+                    checkClientStatus(true, tabId, tabUrl);
+                    tabClicked = false;
+                } else if (typeof cw_fillInFLname != 'undefined' && cw_fillInFLname == true && tabId == 'deposit_tab') {
+                    $(this).closest(".ui-dialog-content").remove();
+                    tabClicked = false;
+                    click = 0;
+                    showpopup = true;
+                    FillInFnameLname();
+                } else if ('False' == 'True' && tabId == 'deposit_tab') {
+                    loadTab('profile_tab', '/Account/profile', function () {
+                        tabClicked = false;
+                        activateTab('profile_tab');
+                    });
+                } else {
+                    loadTab(tabId, tabUrl, function () {
+                        tabClicked = false;
+                        activateTab(tabId);
+                    });
+                }
+            }
+        });
+
+        /* Inbox */
+        $(".inboxDialog").on("click", function (e) {
+            e.preventDefault();
+            var url = $(this).data("href");
+             getCss('//cdn.grandpashabet9090.com/plat/prd/CW/GGP' + '/Content/components/popups/inbox_v2.css?v=' + '1.1711.2026.1015').then(function () {
+                showPopup(url, 'inboxContent', {
+                    width: 1600,
+                    height: 720,
+                    dialogClass: 'tl_popup_dialog inbox-dialog',
+                    open: function (e, ui) {
+                        $(this).load(url, function (data) {
+
+                            // check if is user is not logged, redirect
+                            if (!isLogged(data)) {
+                                location.href = "/";
+                                return false;
+                            }
+
+                            hideSpinner();
+                        });
+                    }
+                });
+
+                $(window).on('resize', function () {
+                    $("#inboxContent").dialog("option", "position", { my: "center", at: "center", of: window });
+                });
+
+            });
+        });
+        /* Inbox End */
+
+
+        /* Clock Start */
+
+        if ($('.time').length) {
+            startTime();
+        }
+
+        /* Clock End */
+    });
+
+    /*Tabs Start*/
+    function activateTab(tabId) {
+        $('.tl_my_acc_nav_item').removeClass('active');
+        $('#' + tabId).addClass('active');
+    }
+
+    function loadTab(tabId, tabUrl, callback) {
+        callback = callback || null;
+
+        showSpinner();
+
+        $('#tl_profile_content').fadeOut(300, function() {
+            $(this).load(tabUrl, function (data) {
+
+                // check if is user is not logged, redirect
+                if (!isLogged(data)) {
+                    location.href = "/";
+                    return false;
+                }
+
+                hideSpinner();
+                changeAccountPopupHeight(tabId);
+
+                $('#tl_profile_content').fadeIn(300);
+
+                if (callback) {
+                    callback();
+                }
+            });
+        });
+    }
+    /*Tabs End*/
+
+    /*Popups Start*/
+
+    function changeAccountPopupHeight(tabId) {
+        tabId = tabId || null;
+
+        if (!tabId) {
+            return false;
+        }
+
+        var dialogHeight = null;
+
+        switch(tabId) {
+        case 'profile_tab':
+            dialogHeight = 680;
+            break;
+        case 'withdraw_tab':
+            dialogHeight = 720;
+            break;
+        case 'deposit_tab':
+            dialogHeight = 800;
+            break;
+        case 'transfer_to_sport_tab':
+            dialogHeight = 650;
+            break;
+        case 'responsibleGamingDialog':
+            dialogHeight = 627;
+            break;
+        default:
+            dialogHeight = 720;
+        }
+
+        if ('1093' != '1200') {
+            if ($(window.top).height() < 800) {
+                dialogHeight = 650;
+            }
+        }
+
+
+        if (dialogHeight) {
+            $('#accountDialog').dialog("option", {
+                height: dialogHeight
+            });
+
+            $(window).on('resize', function() {
+                $("#accountDialog").dialog("option", "position", {my: "center", at: "center", of: window});
+            });
+            if (dialogHeight == 650 && 'False'.toLowerCase() == 'true')
+            {
+                $('#tl_scroll').height("auto");
+            }
+
+        }
+    }
+
+    function isLogged(data) {
+        var isLogged = $(data).find('#isLogged');
+        return isLogged.val() > 0;
+    }
+
+    function showAccountPopup(pageUrl, tabId) {
+
+        var popupOptions = {
+            width: 1600,
+            height: screen.height - 300,
+            clickOut: false
+        };
+
+        showPopup(pageUrl, 'depositContent', popupOptions, function (dialogOptions) {
+
+
+            var popupContainer = '<div class="tl_my_acc_cont flex" id="accountDialog">';
+            popupContainer += '<div class="tl_my_acc_cont_nav">';
+
+            if ('1093' != '1083') {
+
+                if ('False'.toLowerCase() == 'true') {
+                    popupContainer += '<a class="diff_tl_my_acc_nav_item" href="/account/profilestatic">Account Summary</a>';
+                    if ('False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/transaction/deposits" id="transactions_tab">Transactions</a>';
+                    } else {
+                       popupContainer += '<a class="diff_tl_my_acc_nav_item" href="/account/transactionshistory">Transactions</a>';
+                    }
+                    if ('False'.toLocaleLowerCase() == 'true')
+                    {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/account/betshopbethistory" id="betshop_tab">label_menu_dropdown_profile_page</a>'
+                    }
+                }
+                else if ('1093' == '1040')
+                {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/profile" id="profile_tab">HESABIM</a>';
+                }
+                else if ('1093' == '1117')
+                {
+                   popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/profile" id="profile_tab">Kişisel bilgiler</a>';
+                }
+                else if ('1093' == '2')
+                {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/profile" id="profile_tab">Personal information</a>';
+                }
+                else {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/profile" id="profile_tab">Profilim</a>';
+                }
+                if ('True' == 'True') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/notificationsettings" id="notification_tab">Bildirim Ayarları</a>';
+                }
+                if ('1093' == '1201') {
+                    if (0 != 3) {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/documentsupload" id="documents_tab">Identifications</a>';
+                    }
+                } else if ('True'.toLowerCase() == 'true' || ('1093' == '1129' && 'False' == 'True')) {
+                    if ('1093' == '1225') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/documentsupload" id="documents_tab">DOCUMENTS-BANK DETAILS</a>';
+                    } else {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/documentsupload" id="documents_tab">Belgeler</a>';
+                    }
+
+                }
+                if ('True'.toLowerCase() == 'false') {
+                    if ('False'.toLowerCase() == 'true') {
+                        if ('False'.toLowerCase() == 'true') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Para Yatırma</a>';
+                        } else if ('1093' == '1081') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Deposit</a>';
+                        } else if ('1093' == '1136' || '1093' == '1180') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Deposit</a>';
+                        } else if ('1093' == '1117') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">PARA YATIR</a>';
+                        } else if ('1093' == '1129') {
+                            if ('False' != 'True') {
+                                popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Para Yatırma</a>';
+                            }
+                        } else if ('1093' == '1004') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Deposit</a>';
+                        } else if ('1093' == '1174') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">PARA YATIR</a>';
+                        } else if ('1093' == '1026') {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Para Yatır</a>';
+                        }
+                        else {
+                            popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/account/deposit" id="deposit_tab">Para Yatırma</a>';
+                        }
+                    }
+                    if ('False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Withdrawal</a>';
+                    } else if ('1093' == '2') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Para &#199;ekme</a>';
+                        if ('' != '') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/' + 'tr' + '/account/bankaccounts" id="bankAccounts_tab">Bank accounts</a>';
+                        }
+                    } else if ('1093' == '1094') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Withdraw</a>';
+                    } else if ('1093' == '1117') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Para &#231;ek</a>';
+                    }
+                    else if ('1093' == '1086') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">T&#203;RHEQJE</a>';
+                    }
+                    else if ('1093' == '1129') {
+                        if ('False' != 'True') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Para &#199;ekme</a>';
+                        }
+                    } else {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Para &#199;ekme</a>';
+                    }
+                }
+
+                if ('False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="' + '/tr' + '/account/declarations" id="declarations_tab">Declaration</a>';
+                }
+
+                if ('False'.toLowerCase() == 'true') {
+                    if ('False'.toLocaleLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonuses" id="bonuses_tab">Bonuses';
+                        if ('0' > 0) {
+                            popupContainer += '<div class="alb_bonus_count"><span>' +0+'</span></div>';
+                        }
+                        popupContainer += '</a >';
+                    }
+                    if ('False'.toLowerCase() == 'true' && 'False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/referafriend/invite?param=ref" id="referAFriend_tab">Arkadaş Y&#246;nlendirme</a>';
+                    }
+                    if ('True'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="diff_tl_my_acc_nav_item" href="/account/invitefriends">Refer Friends</a>';
+                        if ('False'.toLowerCase() == 'true') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/transaction/referrerreport" id="referrer_tab">Arkadaş Bonusu Raporu</a>';
+                        } else {
+                            popupContainer += '<a class="diff_tl_my_acc_nav_item" href="/account/referrerreport">Arkadaş Bonusu Raporu</a>';
+                        }
+                    }
+                    if ('True'.toLocaleLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gettrustedbrowsers" id="trustedBrowsers_tab">G&#252;venilen Tarayıcılar</a>';
+                    }
+
+                    popupContainer += '<a class="diff_tl_my_acc_nav_item" href="/account/resetpassword">Change Password</a>';
+                    if ('False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/transaction/betshistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                    } else {
+                        popupContainer += '<a class="diff_tl_my_acc_nav_item" href="/account/gamehistory">Oyun Ge&#231;mişi</a>';
+                    }
+                }
+
+                if ('False'.toLowerCase() != 'true') {
+                    if ('False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/transaction/betshistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                    }else if ('1093' == '1086') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">HISTORIA E LOJ&#203;RAVE</a>';
+                    }
+                    else if ('1093' == '1158') {
+                         popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                    }
+                    else {
+                        if ('1093' == '1072'){
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Games History</a>';
+                        }
+                        else if ('1093' != '1201') {
+                            if ('1093' == '1130') {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                            } else if ('1093' == '1093' || '1093' == '1096') {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                            }else if ('1093' == '1197') {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                            } else if ('1093' != '2') {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Oyun Ge&#231;mişi</a>';
+                            }else {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gamehistory" id="history_tab">Game history</a>';
+                            }
+
+                        }
+                    }
+                    if ('1093' == '2') {
+                        if ('False' == 'True') {
+                            popupContainer += '<a class="tl_my_acc_nav_itemsp js_sport_links" target="_self" href="' + 'https://sport./tr' + '/esport/bet-history">Spor Bahis Ge&#231;mişi</a>';
+                        } else {
+                            popupContainer += '<a class="tl_my_acc_nav_itemsp" href="' + 'https://sport./tr' + '/sport/bet-history">Spor Bahis Ge&#231;mişi</a>';
+                        }
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/tournamenthistory" id="historyTournament_tab">Turnuva Ge&#231;mişi</a>';
+                    }
+                    else {
+                        if ('False'.toLowerCase() == 'true') {
+                            popupContainer += '<a class="tl_my_acc_nav_itemsp" href="/sports/betting-history">BAHİS GE&#199;MİŞİ</a>';
+                        } else if ('1093' == '1040' || '1093' == '1075' || '1093' == '1195' || '1093' == '1199') {
+                            if ('False' == 'True') {
+                                popupContainer += '<a class="tl_my_acc_nav_itemsp js_sport_links" target="_self" href="/esport/bet-history">BAHİS GE&#199;MİŞİ</a>';
+                            }
+                            else {
+                                popupContainer += '<a class="tl_my_acc_nav_itemsp js_sport_links" target="_self" href="/sport/bet-history">BAHİS GE&#199;MİŞİ</a>';
+                            }
+                        } else if ('False' == 'True') {
+                            popupContainer += '<a class="tl_my_acc_nav_itemsp js_sport_links" target="_self" href="/esport/bet-history">Spor Bahis Ge&#231;mişi</a>';
+                        } else if('1093' != '1188' && '1093' != '1242') {
+                            popupContainer += '<a class="tl_my_acc_nav_itemsp js_sport_links" target="_self" href="/sport/bet-history">Spor Bahis Ge&#231;mişi</a>';
+                        }
+                    }
+                    if ('1093' == '1171' || '1093' == '1187') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/tournamenthistory" id="historyTournament_tab">Turnuva Ge&#231;mişi</a>';
+                    }
+                    switch ('1093') {
+                        case '1':
+                        case '112':
+                        case '105':
+                            popupContainer += '<a class="tl_my_acc_nav_itemsp promoted" href="/sport/sport-tournament">Sport Tournament</a>';
+                            break;
+                    }
+                    if ('False'.toLocaleLowerCase() == 'true') {
+                        if ('1093' == '1040') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonuses" id="bonuses_tab">BONUS GE&#199;MİŞİ';
+                            if ('0' > 0) {
+                                popupContainer += '<div class="alb_bonus_count"><span>' +0+'</span></div>';
+                            }
+                            popupContainer += '</a>';
+                        } else if ('1093' == '1117') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonuses" id="bonuses_tab">Bonuslarım';
+                            if ('0' > 0) {
+                                popupContainer += '<div class="alb_bonus_count"><span>' +0+'</span></div>';
+                            }
+                            popupContainer += '</a>';
+                        } else if ('1093' == '1182') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonuses" id="bonuses_tab">Bonuses';
+                            if ('0' > 0) {
+                                popupContainer += '<div class="alb_bonus_count"><span>' +0+'</span></div>';
+                            }
+                            popupContainer += '</a>';
+                        }
+                        else {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonuses" id="bonuses_tab">Bonuslarım';
+                            if ('0' > 0) {
+                                popupContainer += '<div class="alb_bonus_count ' + '' + '"><span>' +0+'</span></div>';
+                            }
+                            popupContainer += '</a>';
+                        }
+                    }
+                    if ('False'.toLowerCase() == 'true' && 'False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/referafriend/invite?param=ref" id="referAFriend_tab">Arkadaş Y&#246;nlendirme</a>';
+                    }
+                    if ('True'.toLowerCase() == 'true') {
+                        if ('False'.toLowerCase() == 'true') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/transaction/referrerreport" id = "referrer_tab">Arkadaş Bonusu Raporu</a>';
+                        } else {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/referrerreport" id = "referrer_tab">Arkadaş Bonusu Raporu</a>';
+                        }
+                    }
+                    if ('False'.toLowerCase() == 'true' && 'False'.toLocaleLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/agent/index" id="internalAgent_tab">Agent Sistem Raporu</a>';
+                    }
+                    if ('False'.toLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/transaction/deposits" id="transactions_tab">Finansal İşlemler</a>';
+                    } else {
+                        if ('1093' == '2') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/pendingwithdrawals?typeTransac=2" id="transactions_tab">Finansal İşlemler</a>';
+                        } else {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/transactionshistory?typeTransac=2" id="transactions_tab">Finansal İşlemler</a>';
+                        }
+                    }
+
+                    if ('False'.toLocaleLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/account/betshopbethistory" id="betshop_tab">label_menu_dropdown_profile_page</a>';
+                    }
+
+                    if ('False'.toLocaleLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/account/opentwofasettings" id="twoFaSettings_tab">2 Aşamalı G&#252;venlik</a>';
+                    }
+                    if ('True'.toLocaleLowerCase() == 'true') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gettrustedbrowsers" id="trustedBrowsers_tab">G&#252;venilen Tarayıcılar</a>';
+                    }
+                    if ('False'.toLocaleLowerCase() == 'true') {
+                        if ('1093' == "1072") {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Self Limitation</a>';
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming/getbetwininfo" id="betwininfo_tab">Responsible Gaming</a>';
+                        } else if ('1093' == "1210" || '1093' == "55") {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Responsible Gambling</a>';
+                        } else if ('1093' == "1247" ||
+                                    '1093' == "1249" ||
+                                    '1093' == "1248" ||
+                                    '1093' == "1218" ||
+                                    '1093' == "1205" ||
+                                    '1093' == "1204" ||
+                                    '1093' == "1203" ||
+                                    '1093' == "1131" ||
+                                    '1093' == "1112" ||
+                                    '1093' == "1096" ||
+                                    '1093' == "1260" ||
+                                    '1093' == "1250" ||
+                                    '1093' == "1093" ||
+                                    '1093' == "1258" ||
+                                    '1093' == "1263" ||
+                                    '1093' == "1268" ||
+                                    '1093' == "1269" ||
+                                    '1093' == "1270" ||
+                                    '1093' == "1271" ||
+                                    '1093' == "1285" ||
+                                    '1093' == "1274" ||
+                                    '1093' == "1272" ||
+                                    '1093' == "1275" ||
+                                    '1093' == "1281" ||
+                                    '1093' == "1286" ||
+                                    '1093' == "1287" ||
+                                    '1093' == "1288" ||
+                                    '1093' == "1290") {
+                            if ('1093' == "1263")
+                            {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Kendini Hari&#231; Tutma</a>';
+                            }else {
+                                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Hesabı Dondurma</a>';
+                            }
+                        } else if ('1093' == "1246") {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Mola</a>';
+                        }
+                        else {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Sorumlu Bahis</a>';
+                        }
+                    }
+
+
+                   if ('True'.toLocaleLowerCase() == 'true') {
+                       popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/checkpromocode" id="promocode_tab">Promo Kodlar</a>';
+                    }
+                }
+
+                if ('False'.toLowerCase() == 'true')
+                {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/voisocallcenter" id="voisocallcenter_tab">ARANMA TALEBİ</a>';
+                }
+
+                if ('False'.toLowerCase() == 'true' && 'False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/account/opentwofasettings" id="twoFaSettings_tab">2 Aşamalı G&#252;venlik</a>';
+                }
+
+                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/myactivity" id="myActivity_tab">Girişlerim</a>';
+
+                popupContainer += '</div>';
+                popupContainer += '<div class="tl_my_acc_cont_content tl_popup_clr">';
+                popupContainer += '<div class="tl_head_close dont-shrink tl_my_acc_close"></div>';
+                if ('False'.toLowerCase() != 'true') {
+                    popupContainer += '<div id="tl_scroll" class="profile_popup_content scrolled__content">';
+                }
+                popupContainer += '<div id="tl_profile_content"></div>';
+                if ('False'.toLowerCase() == 'true')
+                {
+                    popupContainer += '</div>';
+                }
+
+
+            } else {
+
+                //Oriontip menu
+
+                popupContainer += '<span class="tl_my_acc_nav_item">PROFILE</span>';
+
+                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/profile1083" id="profile_tab">Personal Details</a>';
+                if ('True' == 'True') {
+                            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/notificationsettings" id="notification_tab">Bildirim Ayarları</a>';
+                }
+                if ('True'.toLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/documentsupload" id="documents_tab">Belgeler</a>';
+                }
+
+                if ('False'.toLocaleLowerCase() == 'true') {
+                    if ('1093' == "1083") {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Self Limitation</a>';
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming/getbetwininfo" id="betwininfo_tab">Sorumlu Bahis</a>';
+                    } else {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming" id="responsibleGamingDialog">Sorumlu Bahis</a>';
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/responsiblegaming/getbetwininfo" id="betwininfo_tab">Information on Bets</a>';
+                    }
+
+                }
+
+                popupContainer += '<span class="tl_my_acc_nav_item">My Wallet</span>';
+
+                popupContainer += '<a class="tl_my_acc_nav_item ' + '' + '" data-href="/tr/Account/Deposit" id="deposit_tab">Para Yatırma</a>';
+
+                if ('True'.toLowerCase() == 'false') {
+                    if ('1093' == '1094') {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Withdraw</a>';
+                    } else {
+                        popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/withdrawal" id="withdraw_tab">Para &#199;ekme</a>';
+                    }
+                }
+                if ('False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="' + '/tr' + '/account/declarations" id="declarations_tab">Declaration</a>';
+                }
+                popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/transactionshistory?typeTransac=2" id="transactions_tab">Finansal İşlemler</a>';
+
+                popupContainer += '<span class="tl_my_acc_nav_item">MY BETS</span>';
+
+                if ('False' == 'True') {
+                    popupContainer += '<a class="tl_my_acc_nav_itemsp js_sport_links" target="_self" href="/esport/bet-history">Spor Bahis Ge&#231;mişi</a>';
+                }
+                else {
+                   popupContainer += '<a class="tl_my_acc_nav_itemsp" href="/sport/bet-history">Spor Bahis Ge&#231;mişi</a>';
+
+                }
+
+                if ('False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/account/opentwofasettings" id="twoFaSettings_tab">2 Aşamalı G&#252;venlik</a>';
+                }
+                if ('True'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gettrustedbrowsers" id="trustedBrowsers_tab">G&#252;venilen Tarayıcılar</a>';
+                }
+                if ('False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<span class="tl_my_acc_nav_item">Bonuslar</span>';
+
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonuses?scope=0" id="bonuses_tab">New Bonuses</a>';
+
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/bonus/newbonushistory?showHistory=True&amp;scope=0" id="bonuses_all_tab">Bonuses History</a>';
+                }
+                if ('False'.toLowerCase() == 'true' && 'False'.toLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/referafriend/invite?param=ref" id="referAFriend_tab">Arkadaş Y&#246;nlendirme</a>';
+                }
+                if ('True'.toLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/referrerreport" id = "referrer_tab">Arkadaş Bonusu Raporu</a>';
+                }
+                if ('False'.toLowerCase() == 'true' && 'False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/agent/index" id="internalAgent_tab">Agent Sistem Raporu</a>';
+                }
+                if ('False' == 'True') {
+                    popupContainer +=
+                            '<a class="tl_my_acc_nav_item" data-href="/tr/account/voisocallcenter" id="voisocallcenter_tab">ARANMA TALEBİ</a>';
+                }
+                if ('True'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/checkpromocode" id="hasPromoDialog">Promo Kodlar</a>';
+                }
+                if ('False'.toLocaleLowerCase() == 'true') {
+                    popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/gettrustedbrowsers" id="trustedBrowsers_tab">G&#252;venilen Tarayıcılar</a>';
+                }
+            popupContainer += '<a class="tl_my_acc_nav_item" data-href="/tr/account/myactivity" id="myActivity_tab">Girişlerim</a>';
+            popupContainer += '</div>';
+            popupContainer += '<div class="tl_my_acc_cont_content tl_popup_clr">';
+            popupContainer += '<div class="tl_head_close dont-shrink tl_my_acc_close"></div>';
+                popupContainer += '<div id="tl_scroll"  class="profile_popup_content scrolled__content">';
+            popupContainer += '<div id="tl_profile_content"></div></div';
+
+            }
+
+            popupContainer += '</div>';
+            popupContainer += '</div>';
+
+            dialogOptions.open = function() {
+                $('#tl_profile_content').load(pageUrl, function (data) {
+
+                    // check if is user is not logged, redirect
+                    if (!isLogged(data)) {
+                        location.href = "/";
+                        return false;
+                    }
+
+                    // set active tab
+                    activateTab(tabId);
+
+                    // hide spiiner
+                    hideSpinner();
+
+                    changeAccountPopupHeight(tabId);
+                });
+            };
+            $(popupContainer).appendTo("body").dialog(dialogOptions);
+        });
+       showpopup = false;
+    }
+
+    function showPopup(pageUrl, containerId, popupOptions, callback) {
+        if (pageUrl.toLowerCase().includes('/login/login') && typeof showLoginRestrictedMessage == 'function') {
+            showLoginRestrictedMessage();
+            click = 0;
+            return;
+        }
+        if (pageUrl.toLowerCase().includes('/registration/register') && typeof showRegistrationRestrictedMessage == 'function') {
+            showRegistrationRestrictedMessage();
+            click = 0;
+            return;
+        }
+
+        var passChangeRequired = 'false';
+        if (passChangeRequired == 'true' && containerId != 'forceChangePassContent') {
+            showPopup('/account/forcechangepassword', 'forceChangePassContent', {
+                position: null,
+                dialogClass: 'tl_popup_dialog js_popup_dialog flex_popup_content',
+                responsive: false,
+            });
+            return;
+        }
+        if ('False'.toLocaleLowerCase() == 'false') {
+            $('body').addClass('ofh');
+        }
+        $(window).scrollTop(0);
+        callback = callback || false;
+
+        // setting options
+        var options = popupOptions || {};
+
+        // setting dialog options
+        var dialogOptions = {
+
+            clickOut: false,
+            showTitleBar: false,
+            showCloseButton: false,
+            responsive: true,
+            dialogClass: "tl_popup_dialog",
+            modal: true,
+            draggable: false,
+            resizable: false,
+            closeOnEscape:true,
+            show: {
+                effect: "fadeIn",
+                duration: 300
+            },
+            hide: {
+                effect: "fadeOut",
+                duration: 300
+            },
+            position: {},
+            open: function(e, ui) {
+                $(this).load(pageUrl, function (responseText, textStatus, jqXHR) {
+                    if (pageUrl?.toLowerCase().includes('/login/login') && jqXHR.getResponseHeader('cf-mitigated') === 'challenge') {
+                        location.href = '/login/login';
+                    }
+                    hideSpinner();
+                });
+            },
+            close: function() {
+                $(this).remove();
+                if (!$('body').hasClass('no_scroll')) {
+                    $('body').removeClass('ofh');
+                }
+                $('body').removeClass('bodyscroll');
+                if ('False'.toLowerCase() == 'true')
+                {
+                    if (containerId == "inboxContent") {
+                        var url = window.location.href;
+                        if (url.includes('/?account=1')) {
+                            url = url.replace('/?account=1', '');
+                            window.location.href = url;
+                        }
+                    }
+                }
+
+            }
+        };
+
+        dialogOptions = $.extend(dialogOptions, options);
+
+        if (containerId == 'forceChangePassContent' || containerId == 'selfExclusionContent' || containerId == 'changeLoginPassContent') {
+            dialogOptions = $.extend(dialogOptions, { closeOnEscape:false});
+        }
+
+        if (containerId == 'registerContent' && 'False'.toLowerCase() == 'true' || 'False'.toLowerCase() == 'true') {
+            dialogOptions = $.extend(dialogOptions, { closeOnEscape: false });
+        }
+
+        showSpinner();
+
+        if (!callback) {
+            $('<div />', {
+                    id: containerId,
+                    class: 'dialog'
+                })
+                .appendTo("body").dialog(dialogOptions);
+        } else {
+            callback(dialogOptions);
+        }
+        if (dialogOptions.position == null) {
+            $('.js_popup_dialog').removeAttr('style');
+            $('#registerContent').removeAttr('style');
+            $('#loginContent').removeAttr('style');
+        }
+    }
+
+    $(document).on("click", ".tl_head_close", function (e) {
+        e.preventDefault();
+        $(this).closest(".ui-dialog-content").dialog("close");
+        click = 0;
+        showpopup = true;
+    });
+
+    $(document).on('keyup', function(e) {
+          if (e.key == "Escape") showpopup = true;
+    });
+
+
+    $(document).on("click", ".tl_my_acc_nav_itemsp", function (e) {
+        $(this).closest(".ui-dialog-content").dialog("close");
+        click = 0;
+    });
+    /*Popups End*/
+
+    jQuery(document).on('keyup', function (evt) {
+        if (evt.keyCode == 27) {
+            click = 0;
+        }
+    });
+
+    /*Spinner Start*/
+    function showSpinner() {
+        $('#tl_loader').removeClass('hidden');
+    }
+
+    function hideSpinner() {
+        $('#tl_loader').addClass('hidden');
+    }
+    /*Spinner End*/
+
+    /* Check Checkboxes Start */
+    function chkBoxFunc(id) {
+
+        if ($(id).is(':checked')) {
+            $(id).val('true');
+        } else {
+            $(id).val('false');
+        }
+    }
+    /* Check Checkboxes End */
+
+    /* Clock Start */
+
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+    function checkTimeZone2(z) {
+        return "GMT" + (z > 0 ? "-" + z : "+" + z * -1);
+    }
+
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        var z = today.getTimezoneOffset() / 60;
+
+        // add a zero in front of numbers<10
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        $('.time').html(h + ":" + m + ":" + s);
+
+        z = checkTimeZone2(z);
+        $('.zone').html(z);
+
+        t = setTimeout(function () {
+            startTime();
+
+            if ('tr' == 'fa' && 'False'.toLowerCase() == 'true')
+               {
+                String.prototype.toPersianDigit = function (a) {
+
+                    if (this == $(".time").text()) {
+                        return this.replace(/\d+/g,
+                            function(digit) {
+                                var enDigitArr = [], peDigitArr = [];
+                                for (var i = 0; i < digit.length; i++) {
+                                    enDigitArr.push(digit.charCodeAt(i));
+                                }
+                                for (var j = 0; j < enDigitArr.length; j++) {
+                                    peDigitArr.push(
+                                        String.fromCharCode(enDigitArr[j] + ((!!a && a == true) ? 1584 : 1728)));
+                                }
+                                return peDigitArr.join('');
+                            });
+                    } else {
+                        return this;
+                    }
+
+
+
+                };
+
+                function TraceNodes(Node) {
+                    if (Node.nodeType == 3)  //TextNode
+                        Node.nodeValue = Node.nodeValue.toPersianDigit();
+                    else
+                        for (var i = 0; i < Node.childNodes.length; i++)
+                            TraceNodes(Node.childNodes[i]);
+                }
+
+                TraceNodes(document.getElementById("myTime"));
+            }
+
+        }, 500);
+    }
+
+    /* Clock End */
+
+    /*On Escape close select menus */
+    $(document).on('keyup', function(e) {
+        if (e.keyCode === 27) {
+            $(this).customSelect({
+                method: 'closeList'
+            });
+        }
+    });
+    /*Dynamic Payments*/
+    function showDynLoading(event) {
+        $(event).hide();
+        $($(event).parent().next()).show();
+    }
+
+    function hideDynLoading(event) {
+        $($(event).parent().next()).hide();
+        $(event).show();
+    }
+
+    function validateDDControl(el) {
+        var elP = $(el).parent() ? $(el).parent()[0] : el;
+        var inpValErr = "input-validation-error";
+        var isVal = true;
+        if (!el.value && elP.classList.toString().indexOf(inpValErr) === -1) {
+            elP.classList.add(inpValErr);
+            var ps = document.createElement('span');
+            ps.className = "reg_err_mess field-validation-error";
+            var ns = document.createElement('span');
+            ns.innerHTML = el.getAttribute("data-val-required");
+            ps.appendChild(ns);
+            $(elP).parent()[0].appendChild(ps);
+            isVal = false;
+        } else if (elP.classList.toString().indexOf(inpValErr) !== -1 && el.value) {
+            elP.classList.remove(inpValErr);
+            var remEl = $(elP).parent()[0].getElementsByClassName("field-validation-error");
+            if (remEl && remEl[0]) {
+                $(remEl[0]).parent()[0].removeChild(remEl[0]);
+            }
+            isVal = true;
+        } else if (!el.value && elP.classList.toString().indexOf(inpValErr) !== -1) {
+            var e = $(elP).next();
+            if (e && e[0]) {
+                e[0].innerHTML = '<span>' + el.getAttribute("data-val-required") + '</span>';
+                isVal = false;
+            }
+        }
+        return isVal;
+    }
+
+    function validateDynamicForm(el) {
+        var patt = new RegExp(el.getAttribute("data-val-regex-pattern"));
+        var inpValErr = "input-validation-error";
+        var parentEl = $(el).parent()[0];
+        var test = patt.test(el.value);
+        var minL = el.getAttribute("minlength");
+        if (el.value.length === 0 || el.value.length >= parseInt(minL)) {
+            el.classList.remove(inpValErr);
+            var nxt = $(el).next();
+            if (nxt && nxt[0]) {
+                parentEl.removeChild($(el).next()[0]);
+            }
+        }
+
+        if ((!test || !el.value) && el.classList.toString().indexOf(inpValErr) === -1) {
+            el.classList.add(inpValErr);
+            var ps = document.createElement('span');
+            ps.className = "reg_err_mess field-validation-error";
+            var ns = document.createElement('span');
+            ns.innerHTML = !el.value ? el.getAttribute("data-val-required") : el.getAttribute("data-val-regex");
+            ps.appendChild(ns);
+            parentEl.appendChild(ps);
+        } else if (el.classList.toString().indexOf(inpValErr) !== -1 && test) {
+            el.classList.remove(inpValErr);
+            var remEl = parentEl.getElementsByClassName("field-validation-error");
+            if (remEl && remEl[0]) {
+                parentEl.removeChild(remEl[0]);
+            }
+        } else if ((!test || !el.value) && el.classList.toString().indexOf(inpValErr) !== -1) {
+            var e = $(el).next();
+            if (e && e[0]) {
+                e[0].innerHTML = '<span>' + (!el.value ? el.getAttribute("data-val-required") : el.getAttribute("data-val-regex")) + '</span>';
+            }
+        }
+    }
+
+    /*End Dynamic Payments*/
+
+    $(document).on('click', '.openLogin',
+        function() {
+            LoginTrigger();
+            return false;
+        });
+
+
+    $(document).on('click', '.openRegistration',
+        function () {
+            RegisterTrigger();
+            return false;
+        });
+
+</script>
+    <script type="text/javascript">
+        BalanceUpdater.PlayerId = 0;
+        BalanceUpdater._updateInterval = 60000;
+            BalanceUpdater.checkLoginStatus('58dd4a61826ae6a3db1aae01f9a8455ef16d528519d006771b06967bc828defc');
+        BalanceUpdater.start();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+
+        .tl_loader {
+            background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/loader.gif') !important;
+        }
+    </style>
+
+    <script>
+        function getNewBonusHistory(showHistory) {
+            let allowNewBonusHistoryClick = true;
+
+            if (allowNewBonusHistoryClick) {
+                allowNewBonusHistoryClick = false;
+                $.ajax({
+                    url: "/tr/Bonus/NewBonusHistory",
+                    type: "POST",
+                    data: "showHistory=" + showHistory,
+                    datatype: "json",
+                    success: function (result) {
+                        // check if is user is not logged, redirect
+                        if (!isLogged(result)) {
+                            location.href = "/";
+                            return false;
+                        }
+
+                        $("#tl_profile_content").html(result);
+                        allowNewBonusHistoryClick = true;
+                    }
+                });
+            }
+        }
+    </script>
+
+
+
+<style>
+    :root {
+        --cdn-logo_png: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logo.png');
+        --cdn-logoSm_png: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logoSm.png');
+        --cdn-logo_webp: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logo.webp');
+        --cdn-logoSm_webp: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logoSm.webp');
+        --cdn-logo_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logo.svg');
+        --cdn-logoSm_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logoSm.svg');
+        --cdn-logoBig_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logoBig.svg');
+        --cdn-logo_gif: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logoGif.gif?v=1.1711.2026.1015');
+        --cdn-logoSm_gif: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logoSmGif.gif?v=1.1711.2026.1015');
+        --cdn-footer_sprite: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/footer_sprite.png');
+        --cdn-newBadge_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/new.svg');
+        --cdn-hotBadge_png: url('//cdn.grandpashabet9090.com/plat/prd/Img/hotWHT.png');
+        --cdn-newBadgeLobby_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/SVG/ic_new.svg');
+        --cdn-hotBadgeLobby_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/SVG/ic_hot.svg');
+        --cdn-topBadgeLobby_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/SVG/ic_top.svg');
+        --cdn-jackpotBadgeLobby_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/SVG/ic_jackpot.svg');
+        --cdn-jackpot_icons: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/redesign/egt_jackpot_icons_new.png');
+        --cdn-prg-jackpot_icons: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/redesign/prg_jackpot_icons.png');
+        --cdn-skill-jackpot_icons: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/redesign/skill_jackpot_icons_sprite.png');
+        --cdn-sport-jackpot_icons: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/redesign/sport_jackpot_icons.png');
+        --cdn-profile-avatar: url('//cdn.grandpashabet9090.com/plat/prd/Img/common/avatars.webp');
+        --cdn-idq-big: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/idq_big.png');
+        --cdn-idq-small: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/idq_small.png');
+        --cdn-manType-prize-icon: url('//cdn.grandpashabet9090.com/plat/prd/Img/icons/prize_icon.png');
+        --cdn-betradar-img: url('//cdn.grandpashabet9090.com/plat/prd/Img/common/betradar_bg.webp');
+        --cdn-loader_gif: url('//cdn.grandpashabet9090.com/plat/prd/Img/partnerLoader.gif');
+        --cdn-circleFlag_png: url('//cdn.grandpashabet9090.com/plat/prd/Img/sprites/flags_sprite.png');
+        --cdn-rectangleFlag_png: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png');
+        --cdn-vipIcon_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/common/web_icon_vip.svg');
+        --cdn-cross_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/cross.svg');
+        --cdn-pass_svg: url('//cdn.grandpashabet9090.com/plat/prd/Img/pass.svg');
+    }
+</style>
+        <script type="text/javascript">
+            function jsdOnload() {
+                window.cloudflare.jsd.executeOnce({
+                    callback: function (result) {
+                        console.log('jsd outcome', result);
+                    }
+                });
+            }
+        </script>
+        <script defer src="/cdn-cgi/challenge-platform/scripts/jsd/api.js?onload=jsdOnload"></script>
+
+
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/DynamicPopUp/popup-engine.js?v=1.1711.2026.1015"></script>
+<script src="//cdn.grandpashabet9090.com/plat/prd/CW/GGP/Scripts/canvas-engine.js?v=1.1711.2026.1015"></script>
+<script>
+    PopupEngineModule.init({"baseUrl":"//cdn.grandpashabet9090.com/plat/prd/","playerId":0,"currencyCode":"TRY","isMobile":false,"isMobileBrowser":false,"isAlbatros":false,"cookieDomain":"","previewPopupId":0});
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            PopupEngineModule.run();
+        });
+    </script>
+
+
+
+
+
+        <script src="/Scripts/Common.js"></script>
+
+
+
+
+</head>
+<body class="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7VH6V5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
+
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MXXS2BH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+
+
+
+
+
+
+
+    <a data-href="../Home/ForgotPass" class="tl_popup_link recover_btn popup_lbl_2 forgotPassDialog" id="forgotpasslink"></a>
+
+    <svg id="cw_hide_defs" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 85 40">
+        <defs>
+            <clipPath id="maskRectL">
+                <path fill="#000" d="M0,0v40h85V0H0ZM84,31c0,4.42-3.58,8-8,8H9c-4.42,0-8-3.58-8-8V9C1,4.58,4.58,1,9,1h67c4.42,0,8,3.58,8,8v22Z"></path>
+            </clipPath>
+            <clipPath id="maskRectS">
+                <path fill="#000" d="M0,0v40h40V0H0ZM39,33c0,3.31-2.69,6-6,6H7c-3.31,0-6-2.69-6-6V7C1,3.69,3.69,1,7,1h26c3.31,0,6,2.69,6,6v26Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+
+
+
+    <a class="hidden" href="/Account/ForceChangePassword" id="force_change_pass"></a>
+    <div class="tl_loader_box hidden" id="tl_loader">
+        <div class="tl_loader"></div>
+    </div>
+
+
+    <div id="app" class="toto_landint_container cw_state_idle">
+
+
+
+        <style>
+            .links_container.profile a {
+                text-transform: lowercase;
+            }
+        </style>
+
+
+<div class="static_header_content ">
+    <div id="header_fix" class="tl_header_top_row fixed_head">
+        <div class="tl_header_top_row_fix d-flex">
+            <div class="tl_logo ">
+                <a href="/" style="background-image: url(//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/logo_big.gif)"></a>
+            </div>
+            <div class="d-flex align-items-center tl_head_promos_btns ">
+                <a href="/sections/pages/promosyonlar" class="promotions promo_btn tl_simple_link d-flex justify-content-center align-items-center">
+                    <span class="dynamic_icon">&#58194</span>
+                    <span class="text">Promosyonlar</span>
+                </a>
+                <a href="https://shortseven.online/tiklaara" target="_blank" rel="noopener noreferrer" class="call_me promo_btn tl_simple_link mr-2 d-flex justify-content-center align-items-center">
+                    <span class="dynamic_icon">&#57353</span>
+                    <span class="text">Sesli Destek</span>
+                </a>
+                <a href="/sport/live" target="_blank" class="js_sport_links tl_simple_link ">Canlı TV</a>
+                <a href="/sport/live" target="_blank" class="js_sport_links icons" title="Canlı TV">
+                    <i class="dynamic_icon" aria-hidden="true">&#57441</i>
+                </a>
+                <a href="https://shortten.online/gpnasilytyapilir" target="_blank" rel="noopener" class="tl_simple_link ">Nasıl Para Yatırılır?</a>
+                <a href="https://shortten.online/gpnasilytyapilir" target="_blank" rel="noopener" class="icons" title="Nasıl Para Yatırılır?">
+                    <i class="dynamic_icon deposit_icon">&#57448</i>
+                </a>
+            </div>
+            <div class="tl_login_container d-flex">
+                <div class="header_dropdown">
+                    <span class="header_dropdown__btn d-flex align-items-center justify-content-center" onclick="headerDropdownOpen()"><i class="dynamic_icon" aria-hidden="true">&#57478</i></span>
+                    <div class="header_dropdown__content">
+                        <a class="header_gif" href="/promo/grandcark-2" target="_blank"><img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/header_gif.gif" /></a>
+                        <a class="header_gif" href="https://shortsan.online/gpvipclub" target="_blank" rel="noopener"><img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/vip.gif" /></a>
+                    </div>
+                </div>
+                    <a class="openLogin header_livetv" data-dialog-title="Login" automation="home_login_button">
+                        <img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/herhafta.gif" />
+                    </a>
+
+                    <div class="d-flex align-items-center">
+                            <a class="registerDialog tl_btn tl_btn-accent mx-1" automation="open_register" data-dialog-title="New User" data-href="/registration/register">Kayıt Ol</a>
+                        <a class="loginDialog tl_btn mx-1" data-dialog-title="Login" data-href="/login/login" automation="home_login_button">Giriş Yap</a>
+
+
+    <div class="tl_drop_down tl_acc_lang d-flex tl_btn ternBtn">
+        <a class="d-flex header__dropdown-menu align-items-center" href="#" data-toggle="dropdown">
+                        <span class="flex-shrink-0 lang tr" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+
+                <i class="dynamic_icon dynamic_icon-arrow">&#57956</i>
+        </a>
+            <div class="links_container scrolled__content" id="LanguageBarSorting">
+                            <a class="tl_dropdown_style d-flex px-1 js_language_bar_link en"
+                               href="/en/play/real/shining-crown-egt-casino" data-lang="en">
+
+                                    <span class="flex-grow-1 text-truncate text-left">English</span>
+                                    <span class="flex-shrink-0 lang en" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+                            </a>
+                            <a class="tl_dropdown_style d-flex px-1 js_language_bar_link es"
+                               href="/es/play/real/shining-crown-egt-casino" data-lang="es">
+
+                                    <span class="flex-grow-1 text-truncate text-left">Espa&#241;ol</span>
+                                    <span class="flex-shrink-0 lang es" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+                            </a>
+                            <a class="tl_dropdown_style d-flex px-1 js_language_bar_link ru"
+                               href="/ru/play/real/shining-crown-egt-casino" data-lang="ru">
+
+                                    <span class="flex-grow-1 text-truncate text-left">Русский</span>
+                                    <span class="flex-shrink-0 lang ru" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+                            </a>
+                            <a class="tl_dropdown_style d-flex px-1 js_language_bar_link pt"
+                               href="/pt/play/real/shining-crown-egt-casino" data-lang="pt">
+
+                                    <span class="flex-grow-1 text-truncate text-left">Portugu&#234;s</span>
+                                    <span class="flex-shrink-0 lang pt" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+                            </a>
+                            <a class="tl_dropdown_style d-flex px-1 js_language_bar_link fr"
+                               href="/fr/play/real/shining-crown-egt-casino" data-lang="fr">
+
+                                    <span class="flex-grow-1 text-truncate text-left">Fran&#231;ais</span>
+                                    <span class="flex-shrink-0 lang fr" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+                            </a>
+                            <a class="tl_dropdown_style d-flex px-1 js_language_bar_link de"
+                               href="/de/play/real/shining-crown-egt-casino" data-lang="de">
+
+                                    <span class="flex-grow-1 text-truncate text-left">Deutsch</span>
+                                    <span class="flex-shrink-0 lang de" style="background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/flags/mob_flags.png')"></span>
+                            </a>
+
+            </div>
+    </div>
+
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="tl_header_bot_row dynamic_menu header__bottom d-flex align-items-center ">
+    <div class="tl_header_bot_row_fix flex align-items-center" id="js_dy_hdr_cont">
+        <div class="tl_header_navigation tl_bot_header_cont tl_responsive_header_navigation hdr_effect" id="js_dy_hdr">
+                        <div>
+                            <a href='/sport' target="_self" title="Spor Bahisleri"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        Spor Bahisleri
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/sport/overview' target="_self" title="Canlı Bahis"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        Canlı Bahis
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/esport' target="_self" title="E-Spor"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        E-Spor
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/tr/lobby/casino/main' target="_self" title="3D Slot Salonu"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        3D Slot Salonu
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/lobby/livecasino/main' target="_self" title="Canlı Casino"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        Canlı Casino
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a onclick='smarticoClick();' target="_self" title="HAZİNE AVI"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        HAZİNE AVI
+                                    </span>
+                                    <div class="lb_card_badge_wrapper "><div class="lb_card_badge_inner_wrapper_global"><div class="lb_card_badge badge_type_premium"style="background:#775BBC"><span style="color:#FFFFFF">Premium</span></div></div></div>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="js_header_dropdown header_nav__dropdown_button_click">
+
+                            <a title="Hızlı Oyunlar" href='/lobby/fastgames/main' class="tl_main_nav_item js_menu_links ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>Hızlı Oyunlar</span>
+                                    
+                                        <i class="js_open_dropdown dropdown_arrow"></i>
+                                </span>
+                            </a>
+
+
+                                <div class="header_nav__dropdown">
+                                        <a href='/play/real/crasher-fastgames'
+                                           target="_self"
+                                           title="Grandpashabet Crasher"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Grandpashabet Crasher</span>
+                                                
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/blackjack94-galaxsys-fastgames'
+                                           target="_self"
+                                           title="BlackJack"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>BlackJack</span>
+                                                <div class="lb_card_badge_wrapper "><div class="lb_card_badge_inner_wrapper_global"><div class="lb_card_badge badge_type_hot"style="background:#FF0000"><span style="color:#FFFFFF">Hot</span></div></div></div>
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/maestro-fastgames'
+                                           target="_self"
+                                           title="Maestro"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Maestro</span>
+                                                <div class="lb_card_badge_wrapper "><div class="lb_card_badge_inner_wrapper_global"><div class="lb_card_badge badge_type_hot"style="background:#FF0000"><span style="color:#FFFFFF">Hot</span></div></div></div>
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/aviator-spribe-casino'
+                                           target="_self"
+                                           title="Aviator"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Aviator</span>
+                                                
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/jetx-smart-soft-casino'
+                                           target="_self"
+                                           title="JetX"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>JetX</span>
+                                                
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/dr-shocker-fastgames-fastgames'
+                                           target="_self"
+                                           title="Dr. Shocker"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Dr. Shocker</span>
+                                                
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/betongamesrocket-fastgames'
+                                           target="_self"
+                                           title="Rocketon"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Rocketon</span>
+                                                
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/plinkoman-fastgames'
+                                           target="_self"
+                                           title="Plinkoman"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Plinkoman</span>
+                                                
+                                            </span>
+                                        </a>
+                                        <a href='/play/real/crash-fastgames'
+                                           target="_self"
+                                           title="Crash"
+                                           class="tl_main_nav_item js_menu_links bg-tert ">
+                                            <span class="tl_main_nav_item-inner">
+                                                
+                                                <span>Crash</span>
+                                                
+                                            </span>
+                                        </a>
+                                </div>
+                        </div>
+                        <div>
+                            <a href='/tr/lobby/virtualsport/main' target="_self" title="Sanal Bahisler"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        Sanal Bahisler
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/lobby/tvgames/main' target="_self" title="TV Oyunları"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        TV Oyunları
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/sections/pages/milyonerler' target="_self" title="MİLYONERLER"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        MİLYONERLER
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='/sections/pages/hergun-kazan' target="_self" title="GRAND ETKİNLİK"
+                               class="tl_main_nav_item js_menu_links  ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>
+                                        GRAND ETKİNLİK
+                                    </span>
+                                    
+                                </span>
+                            </a>
+                        </div>
+                        <div class="js_header_dropdown header_nav__dropdown_button">
+
+                            <a title="&#231;arkıfelek" href='/promo/grandcark-2' class="tl_main_nav_item js_menu_links ">
+                                <span class="tl_main_nav_item-inner">
+                                    
+                                    <span>&#231;arkıfelek</span>
+                                    
+                                </span>
+                            </a>
+
+
+                        </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    setActiveClassToPrMenuItems('js_menu_links');
+
+    $(document).on('click', '.js_open_dropdown', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        let dropDownCont = $(this).parents('.js_header_dropdown');
+        if (dropDownCont.hasClass('open')) {
+            dropDownCont.removeClass('open');
+        } else {
+            $('.js_header_dropdown').removeClass('open');
+            dropDownCont.addClass('open');
+        }
+    });
+
+    window.addEventListener("hashchange", function (event) {
+        setActiveClassToPrMenuItems('js_menu_links');
+    });
+
+    $(document).on('click', function () {
+        $('.js_header_dropdown').removeClass('open');
+    });
+</script> 
+<script type="text/javascript">
+    let box = document.querySelector(".header_dropdown");
+
+    function headerDropdownOpen() {
+        box.classList.toggle("active_header_content");
+    }
+</script>            <script type="text/javascript">
+            function respHdr() {
+                let navigationContainer = document.querySelector(".tl_header_bot_row_fix");
+                let navigation = document.querySelector(".tl_header_navigation");
+                if (!navigationContainer || !navigation) return;
+
+                if (document.getElementById('js_dy_hdr_more')) {
+                    if (typeof window.__respHdrRecalc === 'function') {
+                        window.__respHdrRecalc();
+                    }
+                    return;
+                }
+
+                let navigationsArray = Array.from(navigation.children);
+
+                function measureItemWidth(item) {
+                    let style = window.getComputedStyle(item);
+                    let marginLeft = parseFloat(style.marginLeft) || 0;
+                    let marginRight = parseFloat(style.marginRight) || 0;
+                    return item.getBoundingClientRect().width + marginLeft + marginRight;
+                }
+
+                let navItemsWidths = navigationsArray.map(measureItemWidth);
+
+                function refreshItemWidths() {
+                    navigationsArray.forEach((item, index) => {
+                        if (item.parentNode === navigation) {
+                            navItemsWidths[index] = measureItemWidth(item);
+                        }
+                    });
+                }
+
+                let navigationContainerMoreBtn = document.createElement("div");
+                navigationContainerMoreBtn.className = "header_nav__more";
+                navigationContainerMoreBtn.id = "js_dy_hdr_more";
+                navigationContainerMoreBtn.innerHTML = "<span class='header_more_btn'>Daha Fazlası</span>";
+
+                let navigationContainerMore = document.createElement("div");
+                navigationContainerMore.className = "header_nav__more_content";
+                navigationContainerMore.id = "js_dy_hdr_more_content";
+
+                navigationContainerMoreBtn.appendChild(navigationContainerMore);
+                navigationContainer.appendChild(navigationContainerMoreBtn);
+
+                let isAMnType = 'False'.toLowerCase() === 'true';
+
+                function rearrangeNavigationItems() {
+
+                    let hdrCont = document.getElementById('js_dy_hdr_cont');
+                    let sportSw = document.getElementById('SportView');
+
+                    let hdrContLeft = hdrCont ? hdrCont.offsetLeft : 0;
+                    let sportSwWidth = sportSw ? sportSw.offsetWidth : 0;
+                    let hdrMoreBtnWidth = navigationContainerMoreBtn.offsetWidth;
+                    let hdrMoreContentWidth = navigationContainerMore.offsetWidth;
+
+                    let moreSize = Math.max(hdrMoreBtnWidth, hdrMoreContentWidth);
+                    let winWid = isAMnType ? 800 - moreSize : window.innerWidth - (hdrContLeft * 2) - sportSwWidth - moreSize - 15;
+
+                    let visWidth = 0;
+                    let fitCount = navigationsArray.length;
+
+                    for (let i = 0; i < navItemsWidths.length; i++) {
+                        if (visWidth + navItemsWidths[i] > winWid) {
+                            fitCount = i;
+                            break;
+                        }
+                        visWidth += navItemsWidths[i];
+                    }
+
+                    let allVisible = fitCount === navigationsArray.length;
+
+                    navigationContainerMoreBtn.style.visibility = allVisible ? "hidden" : "";
+
+                    let navFragment = document.createDocumentFragment();
+                    let moreFragment = document.createDocumentFragment();
+
+                    navigationsArray.forEach((item, index) => {
+                        if (index < fitCount) {
+                            item.classList.remove('bg-tert');
+                            navFragment.appendChild(item);
+                        } else {
+                            item.classList.add('bg-tert');
+                            moreFragment.appendChild(item);
+                        }
+                    });
+
+                    navigation.appendChild(navFragment);
+                    navigationContainerMore.appendChild(moreFragment);
+
+                    let hasActiveInMore = navigationContainerMore.querySelector(".tl_main_nav_item-active") !== null;
+                    let moreBtnSpan = navigationContainerMoreBtn.querySelector(".header_more_btn");
+                    if (moreBtnSpan) {
+                        moreBtnSpan.classList.toggle("text-primary", hasActiveInMore);
+                    }
+                }
+
+                window.__respHdrRecalc = function () {
+                    refreshItemWidths();
+                    rearrangeNavigationItems();
+                };
+
+                if (!isAMnType) {
+                    let resizeTicking = false;
+                    function onResize() {
+                        if (!resizeTicking) {
+                            window.requestAnimationFrame(() => {
+                                rearrangeNavigationItems();
+                                resizeTicking = false;
+                            });
+                            resizeTicking = true;
+                        }
+                    }
+                    if (window.__respHdrResizeHandler) {
+                        window.removeEventListener("resize", window.__respHdrResizeHandler);
+                    }
+                    window.__respHdrResizeHandler = onResize;
+                    window.addEventListener("resize", onResize);
+
+                    if (document.fonts && document.fonts.ready) {
+                        document.fonts.ready.then(function () {
+                            window.__respHdrRecalc();
+                        });
+                    }
+                }
+                rearrangeNavigationItems();
+            }
+
+            if ('False'.toLowerCase() !== 'true' && document.getElementById('js_dy_hdr')) {
+                setTimeout(function () {
+                    respHdr();
+                    $('#js_dy_hdr, #js_dy_hdr_more').removeClass('hdr_effect');
+                }, 300);
+            }
+            </script>
+        
+            <div class="content-wrapper">
+                <main class="main-wrapper">
+                    <div class="invalid_validation_error d-flex flex-column justify-content-center align-items-center">
+    <style>
+        /*start error page*/
+        .invalid_validation_error {
+            min-height: 75vh;
+            column-gap: 15px;
+            max-width: 740px;
+            line-height: 1.5;
+            text-align: center;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .invalid_validation_error span {
+                opacity: 0.7;
+                font-size: 18px;
+                color: #999;
+            }
+
+            .invalid_validation_error .tl_btn {
+                font-size: 14px !important;
+            }
+
+        .verify_btn {
+            background-color: #ffb700;
+            color: #000;
+            min-width: 206px;
+            margin-top: 17px;
+            height: 44px;
+            font-size: 16px !important;
+            border: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            width: fit-content;
+            padding: 0 15px;
+        }
+
+            .verify_btn:focus {
+                outline: none;
+            }
+        /*end error page*/
+    </style>
+
+    <div class="mb-2">
+        <svg width="256" height="91" viewBox="0 0 256 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.9339 38.054L62.8751 34.008C62.8611 34.208 62.8159 34.44 62.7879 34.656C62.7449 34.901 62.7309 35.131 62.6729 35.377C62.612 35.6891 62.5306 35.9967 62.429 36.298C62.357 36.572 62.299 36.816 62.199 37.09C62.083 37.407 61.9389 37.752 61.7989 38.098C61.6829 38.372 61.5839 38.63 61.4529 38.904C61.2803 39.2633 61.0932 39.6233 60.8919 39.984C60.7479 40.271 60.6039 40.545 60.4449 40.818C60.2299 41.193 59.9699 41.581 59.7259 41.971C59.5519 42.244 59.3949 42.518 59.1919 42.792C58.9199 43.192 58.617 43.613 58.314 44.015C58.114 44.275 57.9399 44.533 57.7239 44.793C57.3779 45.253 56.9899 45.699 56.6019 46.146C56.4139 46.362 56.257 46.577 56.054 46.808C55.465 47.47 54.8461 48.118 54.1981 48.766C53.5501 49.414 52.8879 50.047 52.2249 50.623C51.9959 50.839 51.75 51.023 51.525 51.228C51.092 51.588 50.6609 51.962 50.2249 52.307C49.9509 52.524 49.6789 52.707 49.4039 52.912C49.0039 53.2 48.6119 53.501 48.2239 53.775C47.9359 53.975 47.6479 54.135 47.3609 54.323C46.9859 54.567 46.626 54.813 46.252 55.014C45.964 55.187 45.676 55.331 45.389 55.475C45.043 55.675 44.682 55.863 44.337 56.022C44.05 56.166 43.776 56.266 43.502 56.382C43.171 56.526 42.8401 56.67 42.5091 56.782C42.2501 56.869 41.9911 56.94 41.7171 57.013C41.4171 57.099 41.0991 57.2 40.8111 57.257C40.5681 57.304 40.3227 57.3374 40.076 57.357C39.876 57.386 39.6449 57.443 39.4439 57.457L43.4881 61.503C45.4741 63.49 52.5 60.869 59.396 53.974V53.96C66.3011 47.08 68.9209 40.055 66.9339 38.054Z" fill="#4c4c4c" />
+            <path d="M61.1749 33.62C61.2018 33.2671 61.1585 32.9123 61.0474 32.5762C60.9364 32.2401 60.7598 31.9294 60.5279 31.662H60.513C60.2507 31.4265 59.9432 31.2464 59.6094 31.1326C59.2757 31.0188 58.9225 30.9737 58.5709 31H58.555C55.116 31 49.516 34.3 44.607 39.191C41.6638 42.0276 39.2509 45.367 37.482 49.052C36.229 51.902 36.0709 54.104 37.0819 55.097C37.3512 55.3303 37.6645 55.5077 38.003 55.619C38.3415 55.7302 38.6988 55.773 39.054 55.745C42.495 55.745 48.0948 52.445 52.9898 47.555C57.8848 42.665 61.1749 37.075 61.1749 33.62ZM43.4979 48.677V48.691C42.5919 49.8 41.398 50.707 40.398 50.707C40.0855 50.7129 39.7805 50.6112 39.534 50.419C38.441 49.511 39.1598 47.64 40.3548 46.172C41.5068 44.732 43.235 43.58 44.314 44.444C45.399 45.324 44.6779 47.195 43.4979 48.677Z" fill="#4c4c4c" />
+            <path d="M255.411 43.234C254.852 42.965 252.886 42.313 249.73 44.673C248.404 45.6857 247.292 46.9517 246.459 48.3976C245.626 49.8436 245.088 51.4406 244.877 53.096C244.788 53.9563 244.881 54.8256 245.151 55.6475C245.42 56.4693 245.859 57.2253 246.44 57.866C249.093 57.4604 251.513 56.119 253.263 54.0845C255.012 52.05 255.977 49.4565 255.981 46.773C255.979 45.5707 255.786 44.3762 255.411 43.234Z" fill="#4c4c4c" fill-opacity="0.5" />
+            <path d="M249.027 43.731C251.603 41.796 253.59 41.631 254.827 41.837C253.904 39.9501 252.47 38.3597 250.689 37.2462C248.908 36.1326 246.85 35.5405 244.749 35.537C243.799 35.539 242.852 35.6641 241.934 35.909C241.265 38.98 239.957 41.876 238.096 44.409C236.005 47.193 234.484 47.948 233.596 48.093C233.921 50.8239 235.235 53.341 237.291 55.1679C239.347 56.9947 242.001 58.0044 244.751 58.006C244.845 58.006 244.937 57.996 245.03 57.996C244.01 56.5474 243.537 54.7836 243.696 53.019C243.912 51.1912 244.496 49.426 245.412 47.8298C246.328 46.2336 247.558 44.8393 249.027 43.731Z" fill="#4c4c4c" fill-opacity="0.5" />
+            <path d="M237.156 43.69C238.767 41.4791 239.943 38.9826 240.623 36.333C238.528 37.1604 236.73 38.5982 235.463 40.4601C234.195 42.3219 233.517 44.5217 233.515 46.774C233.515 46.815 233.525 46.856 233.525 46.898C234.073 46.763 235.294 46.174 237.156 43.69Z" fill="#4c4c4c" fill-opacity="0.5" />
+            <path d="M194.869 30.736C196.586 30.736 197.379 30.868 197.379 31.136C193.56 33.4695 190.311 36.6272 187.869 40.378C187.869 39.982 187.737 39.057 187.737 37.604V36.415C187.869 32.981 188.137 31.264 188.662 31.264C190.71 30.8972 192.788 30.7205 194.869 30.736ZM200.417 31.661C204.678 32.6072 208.576 34.7623 211.643 37.868C214.813 41.038 216.794 43.944 217.587 46.717C218.044 47.6321 218.356 48.6124 218.512 49.623C216.227 54.9223 212.03 59.1664 206.756 61.51C202.001 60.189 198.171 58.076 195.397 54.91C193.121 52.7226 191.284 50.1215 189.982 47.246C189.337 45.9557 188.892 44.575 188.662 43.151C191.043 38.0118 195.225 33.9239 200.417 31.661ZM196.454 43.019L197.511 44.076L198.568 43.019H198.7C198.832 43.019 199.228 43.419 199.757 44.208V44.336L198.832 45.393C198.832 45.525 199.232 45.921 199.889 46.582L201.078 45.657H201.21C201.342 45.657 201.738 46.057 202.267 46.714V46.846L201.337 48.036C201.337 48.168 201.737 48.436 202.394 49.093C202.394 48.961 202.794 48.565 203.451 48.036C203.584 48.036 203.981 48.4323 204.64 49.225V49.357L203.715 50.414C203.715 50.546 204.115 50.814 204.772 51.471C204.772 51.339 205.172 50.943 205.829 50.414C205.961 50.414 206.357 50.814 207.15 51.603L206.225 52.528V52.66C206.225 52.792 206.625 53.06 207.15 53.717H207.282C208.466 52.7044 209.569 51.601 210.582 50.417C210.582 50.285 210.182 49.889 209.525 49.36L208.468 50.285C208.336 50.285 207.94 49.885 207.279 48.964L208.204 47.907C208.204 47.775 207.804 47.379 207.147 46.85C207.147 46.982 206.747 47.25 206.222 47.907H206.09C205.957 47.907 205.56 47.5107 204.901 46.718L205.826 45.661C205.826 45.529 205.426 45.133 204.769 44.604C204.769 44.736 204.369 45.004 203.844 45.529H203.58C203.448 45.529 203.18 45.129 202.523 44.472V44.336L203.448 43.147L202.137 42.095C202.137 42.227 201.873 42.495 201.212 43.02H201.077C200.945 43.02 200.549 42.62 199.888 41.963V41.699L200.945 40.642L199.888 39.585H199.756C197.643 41.699 196.454 42.755 196.454 43.019ZM219.304 52.793C219.401 53.8027 219.445 54.8167 219.436 55.831V56.756C219.436 60.19 219.036 61.907 218.379 61.907C216.865 62.2706 215.313 62.4479 213.756 62.435H212.831C211.817 62.4441 210.803 62.4 209.793 62.303V62.171L214.285 58.736C216.127 56.9272 217.725 54.8848 219.037 52.661H219.301L219.304 52.793Z" fill="#4c4c4c" />
+            <path d="M121.585 11.875C122.289 10.6657 123.298 9.66228 124.511 8.96484C125.724 8.2674 127.099 7.90036 128.499 7.90036C129.898 7.90036 131.273 8.2674 132.486 8.96484C133.699 9.66228 134.708 10.6657 135.412 11.875L163.999 60.975C164.707 62.1908 165.082 63.5718 165.085 64.9787C165.089 66.3855 164.722 67.7685 164.02 68.988C163.319 70.2076 162.309 71.2207 161.091 71.9251C159.873 72.6294 158.491 73.0002 157.084 73H99.914C98.5072 73.0002 97.1251 72.6294 95.9073 71.9251C94.6895 71.2207 93.6789 70.2076 92.9776 68.988C92.2763 67.7685 91.909 66.3855 91.9127 64.9787C91.9165 63.5718 92.2912 62.1908 92.999 60.975L121.585 11.875Z" fill="#4c4c4c" />
+            <g filter="url(#filter0_d_686_2)">
+                <path d="M125.001 19.857C125.322 19.2943 125.786 18.8265 126.346 18.5012C126.906 18.1758 127.542 18.0044 128.19 18.0044C128.838 18.0044 129.474 18.1758 130.034 18.5012C130.594 18.8265 131.058 19.2943 131.379 19.857L154.881 61.085C155.199 61.6433 155.365 62.2753 155.363 62.9178C155.36 63.5604 155.189 64.1911 154.866 64.7467C154.543 65.3024 154.081 65.7636 153.524 66.0843C152.967 66.4049 152.336 66.5738 151.693 66.574H104.678C104.035 66.5741 103.404 66.4055 102.847 66.085C102.289 65.7645 101.826 65.3033 101.503 64.7476C101.18 64.1919 101.009 63.5611 101.006 62.9183C101.004 62.2756 101.17 61.6434 101.488 61.085L125.001 19.857Z" fill="#FFB700" />
+            </g>
+            <path d="M128.183 40.81C130.154 40.81 131.752 39.1852 131.752 37.181C131.752 35.1768 130.154 33.552 128.183 33.552C126.212 33.552 124.614 35.1768 124.614 37.181C124.614 39.1852 126.212 40.81 128.183 40.81Z" fill="#4c4c4c" />
+            <path d="M131.152 47.126V59.086C131.152 59.476 131.075 59.8622 130.926 60.2226C130.777 60.5829 130.558 60.9103 130.282 61.1861C130.006 61.4619 129.679 61.6807 129.319 61.8299C128.958 61.9792 128.572 62.056 128.182 62.056C127.792 62.056 127.406 61.9792 127.045 61.8299C126.685 61.6807 126.358 61.4619 126.082 61.1861C125.806 60.9103 125.587 60.5829 125.438 60.2226C125.289 59.8622 125.212 59.476 125.212 59.086V47.126C125.212 46.736 125.289 46.3498 125.438 45.9894C125.587 45.6291 125.806 45.3017 126.082 45.0259C126.358 44.7501 126.685 44.5313 127.045 44.3821C127.406 44.2328 127.792 44.156 128.182 44.156C128.572 44.156 128.958 44.2328 129.319 44.3821C129.679 44.5313 130.006 44.7501 130.282 45.0259C130.558 45.3017 130.777 45.6291 130.926 45.9894C131.075 46.3498 131.152 46.736 131.152 47.126Z" fill="#4c4c4c" />
+            <path d="M11.954 36.052C14.1173 36.0611 16.2295 36.7109 18.0238 37.9194C19.8181 39.1279 21.2142 40.8409 22.0358 42.8422C22.8573 44.8434 23.0676 47.0432 22.64 49.1639C22.2124 51.2846 21.1661 53.231 19.6332 54.7575C18.1002 56.284 16.1494 57.3222 14.027 57.7409C11.9045 58.1596 9.70562 57.9401 7.70782 57.1102C5.71001 56.2802 4.00288 54.877 2.80192 53.0776C1.60096 51.2782 0.960011 49.1634 0.959991 47C0.963009 45.5593 1.24977 44.1332 1.8039 42.8033C2.35804 41.4734 3.16869 40.2657 4.18958 39.2491C5.21047 38.2324 6.4216 37.4269 7.75382 36.8783C9.08604 36.3298 10.5133 36.049 11.954 36.052Z" fill="#4c4c4c" fill-opacity="0.5" />
+            <path d="M22.658 50.554C23.301 48.6082 23.3957 46.5229 22.9317 44.5268C22.4678 42.5307 21.4632 40.7008 20.028 39.238C18.9889 38.1412 17.7364 37.2684 16.3476 36.6734C14.9587 36.0784 13.4629 35.7737 11.952 35.778C11.4502 35.7629 10.948 35.7943 10.452 35.872C8.3441 36.1625 6.35959 37.0372 4.72299 38.397C2.90424 39.9195 1.62061 41.9843 1.05999 44.289V44.383C0.86841 45.2427 0.77382 46.1212 0.777995 47.002C0.774772 48.6175 1.1271 50.2139 1.80999 51.678V51.772C2.60534 53.4504 3.80047 54.9079 5.2905 56.0166C6.78053 57.1253 8.51991 57.8513 10.356 58.131H10.45C10.946 58.2087 11.4482 58.2402 11.95 58.225C13.9694 58.2309 15.9515 57.6808 17.679 56.635C17.6913 56.6353 17.7036 56.6331 17.7151 56.6285C17.7265 56.6239 17.7369 56.6171 17.7457 56.6084C17.7545 56.5998 17.7614 56.5894 17.7661 56.578C17.7708 56.5666 17.7731 56.5543 17.773 56.542C20.0834 55.2179 21.8226 53.0862 22.656 50.557L22.658 50.554ZM22.376 49.806C20.686 46.813 16.835 45.785 13.924 45.036C13.454 44.942 12.985 44.755 12.515 44.662C9.79199 43.914 8.38299 42.792 8.10099 41.108C10.3035 39.6551 12.8815 38.8753 15.52 38.864C16.9548 38.8526 18.382 39.0738 19.746 39.519C21.6804 41.5287 22.758 44.2116 22.751 47.001C22.7314 47.947 22.606 48.8879 22.377 49.806H22.376ZM18.901 38.864C17.7665 38.5646 16.5992 38.4074 15.426 38.396C12.8007 38.4067 10.2308 39.1518 8.00699 40.547V40.178C8.00699 38.214 9.79099 36.811 10.449 36.344C10.9447 36.2633 11.4471 36.2319 11.949 36.25C14.4943 36.3167 16.9432 37.2374 18.902 38.864H18.901ZM5.001 38.77C6.2935 37.7128 7.79919 36.9473 9.41499 36.526C8.85384 36.9672 8.38939 37.519 8.0505 38.1473C7.7116 38.7755 7.5055 39.4668 7.445 40.178C7.42279 40.4007 7.45504 40.6255 7.539 40.833C6.83655 41.3389 6.17698 41.9018 5.567 42.516C5.107 41.324 4.91446 40.0456 5.003 38.771L5.001 38.77ZM4.53099 39.331C4.56163 40.5818 4.81598 41.8169 5.28199 42.978L4.15499 44.378C3.88811 44.0498 3.57124 43.7657 3.21599 43.536C2.90703 43.347 2.5386 43.2803 2.18299 43.349C2.04173 43.3722 1.91071 43.4373 1.80699 43.536C2.29287 41.9019 3.23928 40.4423 4.53299 39.332L4.53099 39.331ZM1.43099 44.568C1.58682 44.2605 1.85613 44.0256 2.18199 43.913C2.29207 43.8825 2.40726 43.8751 2.52033 43.8913C2.63339 43.9075 2.74189 43.9469 2.83899 44.007C3.20639 44.186 3.50371 44.4823 3.68399 44.849C2.61124 46.587 1.90796 48.5273 1.61799 50.549C1.2104 49.4071 0.988588 48.2072 0.960995 46.995C1.15299 46.159 1.24699 45.317 1.43399 44.569L1.43099 44.568ZM2.18199 51.582C2.27265 49.3689 2.91846 47.2141 4.05999 45.316C4.6448 46.887 5.05559 48.5174 5.285 50.178C5.942 53.825 7.06899 56.07 8.75999 57.285C7.31957 56.8597 5.98724 56.1302 4.85309 55.1456C3.71894 54.161 2.80941 52.9444 2.18599 51.578L2.18199 51.582ZM10.446 57.661C8.00399 56.819 6.59599 54.481 5.746 50.086C5.48173 48.2915 5.00886 46.5339 4.33699 44.849C4.65061 44.3604 4.99568 43.8928 5.37 43.449C6.37847 45.7814 7.67163 47.9801 9.21999 49.995C13.07 55.045 15.512 56.354 16.733 56.728C15.2504 57.4824 13.6074 57.8674 11.944 57.85C11.483 57.755 10.919 57.755 10.45 57.662L10.446 57.661ZM17.489 56.261C17.113 56.261 14.578 56.261 9.69399 49.715C8.10559 47.6932 6.80955 45.458 5.844 43.075C6.407 42.514 7.06499 41.953 7.72199 41.392C8.19199 43.169 9.59999 44.292 12.422 45.133C12.892 45.227 13.361 45.414 13.831 45.507C16.742 46.255 20.78 47.284 22.189 50.464C21.3417 52.8811 19.682 54.9292 17.493 56.259L17.489 56.261Z" fill="#4c4c4c" stroke="#4c4c4c" stroke-width="0.5" />
+            <defs>
+                <filter id="filter0_d_686_2" x="87.0062" y="7.00439" width="82.3566" height="76.5696" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset dy="3" />
+                    <feGaussianBlur stdDeviation="7" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.659 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_686_2" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_686_2" result="shape" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+
+    <span>Oyun yüklenemiyor.</span>
+
+                <span>Error Code 21</span>
+    </div>
+
+                </main>
+            </div>
+
+
+
+<style>
+
+    .twetter .social_icon:before {
+        background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/twetter.png');
+    }
+    .instagram .social_icon:before {
+        background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/instagram.svg');
+    }
+    .pinterest .social_icon:before {
+        background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/pinterest.svg');
+    }
+    .telegram .social_icon:before {
+        background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/telegram.png');
+    }
+    .whatsapp .social_icon:before {
+        background-image: url('//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/whatsapp.svg');
+    }
+    .yandex_mail_top {
+        background-image: url(//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/footer_mail.png);
+    }
+    .toMobile {
+        background-image: url(//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/mobile_version.png);
+    }
+    .promo_bg_image {
+        background-image: url( //cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/background.jpg);
+    }
+</style>
+<!--    FOOTER CONTAINER-->
+<div class="tl_footer_BG" id="js_footer">
+
+
+    <img src="//cdn.grandpashabet9090.com/plat/prd//Img/partners/1093/footer_top_sbc.png" alt="sbc" class="sbc_img" />
+
+    <div class="tl_footer_container">
+        <div class="flex justify-content-between">
+            <div class="footer_social-list d-flex">
+                <a class="footer_social-item social__facebook-icon colorful" href="https://shortyum.online/gpfacebook" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__twitter-icon colorful" href="https://shortpals.online/gradnpashatwitter" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__instagram-icon colorful" href="https://shortyum.online/isntagramgrand" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__pinterest-icon colorful" href="https://shortpals.online/grandpinterest" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__youtube-icon colorful" href="https://shortyan.online/grandyoutube" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__telegram-icon colorful" href="https://telegram.me/grandpashagir" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__tumblr-icon colorful" href="https://shortthree.online/grandtumblr" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__linkedin-icon colorful" href="https://shortpear.online/grandlinkedin" target="_blank" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__mail-icon colorful" href="https://shortap.site/destekmail" rel="noopener noreferrer"></a>
+                <a class="footer_social-item social__whatsApp-icon colorful" href="https://shortlear.online/grandguncelwp" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+        </div>
+        <div class="tl_footer_links d-flex justify-content-between flex">
+            <div class="d-flex flex-column">
+                <div class="copy d-flex align-items-center mb-2">
+                    <div class="cw_footer_18_wrapper">
+                        <i class="cw_icon_plus_18 ico_size-lg ml-1"></i>
+                    </div>
+                    <span class="partner_color"> GRANDPASHABET</span> &copy; T&#252;m hakları saklıdır.
+                </div>
+                <div class="dmca-trusted-block d-flex align-items-center">
+<div class="footer_script" id="anj-b0b16fbe-571e-457d-b528-8dcb81e95610" data-anj-seal-id="b0b16fbe-571e-457d-b528-8dcb81e95610" data-anj-image-size="128" data-anj-image-type="basic-small"></div>
+<script>
+    (function () {
+        function injectScript() {
+            var s = document.createElement("script");
+            s.src = "https://anjseal.com/anj-seal.js?host=b0b16fbe-571e-457d-b528-8dcb81e95610";
+            s.defer = true;
+            document.body.appendChild(s);
+        }
+        if (document.readyState === "complete") {
+            injectScript();
+        } else {
+            window.addEventListener("load", injectScript);
+        }
+    })();
+</script>
+                    <div id="trust-seal-container">
+                        <a id="trust-seal-container-a" href="https://gamecheck.tech/seal-scan/grand-pasha-bet?referrer=grandpashabet.com" target="_blank">
+                            <img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/qr.png" alt="Gamecheck Trust SEAL" width="217" height="64" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tl_footer_links_row">
+                <h1>Hakkımızda</h1>
+                <a href="/sections/rules/iletisim">İletişim</a>
+                <a href="/sections/rules/diger-kurallar-ve-sartlar">Diğer H&#252;k&#252;m ve Koşullar</a>
+                <a href="/sections/rules/diger-odeme-islemleri">&#214;deme İşlemleri</a>
+                <a href="/sections/rules/sikca-sorulan-sorular">Sık&#231;a Sorulan Sorular</a>
+            </div>
+            <div class="tl_footer_links_row">
+                <h1>Hızlı Linkler</h1>
+                <a href="/tr/lobby/casino/main">3D Slot Salonu</a>
+                <a href="/tr/lobby/livecasino/main">Canlı Casino</a>
+                <a class="js_sport_links" href="/sport">Spor Bahisleri</a>
+                <a href="/sections/rules/diger-odeme-islemleri">Diğer Yatırım Kuralları</a>
+                <a href="/sections/rules/diger-odeme-islemleri">Diğer &#199;ekim Kuralları</a>
+                    <a href="#" class="openLogin">Zeppelin</a>
+            </div>
+            <div class="tl_footer_links_row">
+                <h1>BAHİSLER</h1>
+                <a class="js_sport_links" href="/sport/live">Canlı Bahis</a>
+                <a class="js_sport_links" href="/sport">Futbol Bahisleri</a>
+                <a class="js_sport_links" href="/sport">Basketbol Bahisleri</a>
+                <a class="js_sport_links" href="/sport">Tenis Bahisleri</a>
+                <a class="js_sport_links" href="/sport">Beyzbol Bahisleri</a>
+                <a class="js_sport_links" href="/sport">Formula 1</a>
+            </div>
+            <div class="tl_footer_links_row">
+                <h1>Promosyonlar</h1>
+                <a href="/sections/pages/promosyonlar?promo=190">%300 İlk Yatırım Bonusu</a>
+                <a href="/sections/pages/promosyonlar?promo=193">%50 Her G&#252;n Slot Bonusu</a>
+                <a href="/sections/pages/promosyonlar?promo=194">%40 Hafta Sonu Slot Bonusu</a>
+                <a href="/sections/pages/promosyonlar?promo=198">%20 Anlık Kayıp Bonusu</a>
+                <a href="/sections/pages/promosyonlar?promo=196">%15 Yatırım %10 Kayıp Bonusu</a>
+                <a href="/sections/pages/promosyonlar?promo=189">Yeni &#220;yelere 1000 TL Deneme Bonusu</a>
+            </div>
+            <div class="tl_footer_links_row">
+                <h1>LİSANS</h1>
+                <a href="/sections/rules/anti-money-laundering">Kara Para Aklama &#214;nleme</a>
+                <a href="/sections/rules/aml-kyc">KYC</a>
+                <a href="/sections/rules/terms-and-conditions">Kurallar ve Şartlar</a>
+                <a href="/sections/rules/Responsible-Gaming">Sorumlu Oyun</a>
+            </div>
+        </div>
+
+        <div class="flex align-items-center licenses_block">
+            <div class="footer_bottom_text">
+                <h2 class="licenses_title">
+                    ONLİNE GAMİNG LİSANSIMIZ
+                </h2>
+                <a href="https://grandpashabet777.com/" class="license_link">grandpashabet777.com</a> is owned and operated by GSR Technology Holding Limitada. Registration number: 3102920507,registered address: Ofident Building, Office No.3, San Jose, Costa Rica.
+                Contact us: <a href="/cdn-cgi/l/email-protection#3d4e484d4d524f497d5a4f5c53594d5c4e555c5f58490a0a0a135e5250" class="license_link"><span class="__cf_email__" data-cfemail="4d3e383d3d223f390d2a3f2c23293d2c3e252c2f28397a7a7a632e2220">[email&#160;protected]</span></a>. <a href="https://grandpashabet777.com/" class="license_link">grandpashabet777.com</a> is licensed and regulated by the Government of the Autonomous Island of Anjouan, Union of Comoros, and operates under License No. ALSI-202412047-FI2.
+                <a href="https://grandpashabet777.com/" class="license_link">grandpashabet777.com</a> has passed all regulatory compliance and is legally authorized to conduct gaming operations for any and all games of chance and wagering.
+            </div>
+        </div>
+
+        <div class="flex bordered_box ">
+            <div class="d-flex justify-content-start align-items-center logos_LGS">
+                <img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/footer_logos_sprite.png" alt="footer_logos_sprite" />
+            </div>
+            <div class="footer_center_text">
+                Kumar Alışkanlık Yapabilir <br /> Kumar Oynarken <br /> Lütfen Sorumlu Davranınız!
+            </div>
+
+            <div class="flex justify-content-end align-items-center">
+                <img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/FF.png" alt="FF" />
+                <div class="logo_dmca">
+                    <a href="//www.dmca.com/Protection/Status.aspx?ID=39bed7f3-6d82-4c3e-820c-aad64dc9aaf4" title="DMCA.com Protection Status" class="dmca-badge">
+                        <img src="https://images.dmca.com/Badges/_dmca_premi_badge_1.png?ID=39bed7f3-6d82-4c3e-820c-aad64dc9aaf4" alt="DMCA.com Protection Status" />
+                    </a>
+                    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+                </div>
+                <div class="footer__QR-code d-flex align-items-center">
+                    <img src="//cdn.grandpashabet9090.com/plat/prd/Img/partners/1093/mobile-qr.webp" alt="GrandPasha Qr code" />
+                    <div class="">
+                        <div class="footer__QR-icon d-flex align-items-center justify-content-center">
+                            <i class="dynamic_icon">&#57705</i>
+                            <i class="dynamic_icon">&#57704</i>
+                        </div>
+                        <p class="footer__QR-text text-center">MOBİL UYGULAMAMIZ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<a style="display:none" href="https://www.josephinebelgrade.com/" title="grandpashabet">Grandpashabet</a> 
+<a style="display:none" href="https://www.yapstategov.org/" title="grandpashabet">Grandpashabet</a> 
+<a style="display:none" href="https://hollywoodhillsrehab.com/" title="grandpashabet">Grandpashabet</a>
+    <div class="social_icons_fixed">
+        <a class="twetter" href="https://shortpals.online/gradnpashatwitter" target="_blank" rel="noopener">
+            <span class="social_text">X</span>
+            <span class="social_icon"></span>
+        </a>
+        <a class="instagram" href="https://shortyum.online/isntagramgrand" target="_blank" rel="noopener">
+            <span class="social_text">Instagram</span>
+            <span class="social_icon"></span>
+        </a>
+        <a class="telegram" href="https://telegram.me/grandpashagir" target="_blank" rel="noopener">
+            <span class="social_text">Telegram</span>
+            <span class="social_icon"></span>
+        </a>
+        <a class="pinterest" href="https://shortpals.online/grandpinterest" target="_blank" rel="noopener">
+            <span class="social_text">Pinterest</span>
+            <span class="social_icon"></span>
+        </a>
+    </div>
+<script type="text/javascript">
+    var logdin = 0 + "";
+    $(".new_pay").on('click', function () {
+        if (logdin > 0) {
+            $(".tl_deposit_button").trigger("click");
+
+        } else {
+            $(".tl_login_button").trigger("click");
+
+        }
+});
+</script>
+<script>
+    $(document).on('click', '#rwToggleQuickActionsBtn', function () {
+        $(this).toggleClass('opened');
+        $('#rwQuickActions').toggleClass('opened');
+        $('#rwSupportOptions').removeClass('opened');
+        if ($('#rwQuickActions').hasClass('opened')) {
+            $('#rwQuickActionsOverlay').addClass('opened');
+        } else {
+            $('#rwQuickActionsOverlay').removeClass('opened');
+        }
+    });
+
+    $(document).on('click', '#rwQuickActionsOverlay, #rwQuickActionsWindowCloseBtn', function () {
+        $('#rwQuickActions').removeClass('opened');
+        $('#rwQuickActionsOverlay').removeClass('opened');
+        $('#rwQuickActionsWindow').removeClass('opened');
+        if (rw.getDeviceType() !== 'd') {
+            $('#rwToggleQuickActionsBtn, #lc-c').removeClass('opened');
+        }
+    });
+
+</script>
+    </div>
+
+
+    <div id="comm100-button-8cb529b4-9648-4197-b81a-6d2a248a387b"></div>
+    <script type="text/javascript">
+        var Comm100API = Comm100API || {}; (function (t) { function e(e) { var a = document.createElement("script"), c = document.getElementsByTagName("script")[0]; a.type = "text/javascript", a.async = !0, a.src = e + t.site_id, c.parentNode.insertBefore(a, c) } t.chat_buttons = t.chat_buttons || [], t.chat_buttons.push({ code_plan: "8cb529b4-9648-4197-b81a-6d2a248a387b", div_id: "comm100-button-8cb529b4-9648-4197-b81a-6d2a248a387b" }), t.site_id = 90000391, t.main_code_plan = "8cb529b4-9648-4197-b81a-6d2a248a387b", e("https://service.djqjsor4wf.com/livechat.ashx?siteId="), setTimeout(function () { t.loaded || e("https://service.djqjsor4wf.com/livechat.ashx?siteId=") }, 5e3) })(Comm100API || {})
+    </script>
+
+
+        <div id="userPopup" class="tl_popup_container user_popup dis_none">
+    </div>
+    
+                <div class="hidden to_top_cont" id="js_to_top_cont">
+            <button class="to_top text-center " type="button" data-role="none" id="js_to_top">
+                <i class="dynamic_icon">&#57600</i>
+            </button>
+        </div>
+    
+
+    <script>
+        $(document).ready(function () {
+            if (window.location.href.indexOf("sections/rules") > -1) {
+                $(".social_icons_fixed").hide();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5ca67ea08eb3f36',t:'MTc5NTA0MDg4Mg=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5ca67ea08eb3f36',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+<div id="verification_popup"></div>
+
+<div id="InffInfoPopUpdialog"></div>
+
+
+<script>
+
+    if ('false' == 'true') {
+        function RefreshToken() {
+            $.ajax({
+                url: '/Account/RefreshToken',
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                }
+            });
+        }
+
+        setInterval(function () {
+            RefreshToken();
+        }, 300000);
+    }
+
+</script>
+
+    <script id="js_fpScript">
+        window.addEventListener('message', (event) => {
+            if (event.data.Type && event.data.Type == 'unqId') {
+                if (event.data.Data && event.data.Data != '') {
+                    setCookie('uuid', event.data.Data, 365);
+                    document.getElementById('js_fpFrame').remove();
+                    document.getElementById('js_fpScript').remove();
+                }
+            }
+        });
+    </script>
+    <iframe src="https://fin-ggp.com/" style="height: 0;  width: 0; position: absolute; bottom: 0" id="js_fpFrame"></iframe>
+<div class="floating-links-wrapper">
+
+
+        <script type="text/javascript">
+            $('.js-livechat_badge_icon').on('click', function () {
+                $('.js-livechat-badge').toggleClass('open');
+            });
+            $('.js-livechat_link').on('click', function () {
+                Comm100API.open_chat_window();
+                $('.js-livechat-badge').removeClass('open');
+            });
+        </script>
+
+</div>
+
+
+    <script>
+        setCookie('_userLoggedIn', null, '-1', '');
+    </script>
+
+
+

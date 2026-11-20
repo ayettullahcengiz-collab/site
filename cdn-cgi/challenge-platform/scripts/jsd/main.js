@@ -1,0 +1,1 @@
+/* Cloudflare challenge main stub */

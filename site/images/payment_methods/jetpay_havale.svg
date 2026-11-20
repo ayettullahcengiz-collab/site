@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <rect x="2" y="8" width="40" height="30" rx="6" fill="#dc2626"/>
+<circle cx="16" cy="23" r="10" fill="#111111"/>
+<text x="11" y="29" font-family="sans-serif" font-weight="900" font-size="16" fill="#ffffff">P</text>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="12" font-weight="900" fill="#dc2626" letter-spacing="0.2">JETPAY</text>
+        <text x="66" y="52" font-size="14" font-weight="900" fill="#111111" letter-spacing="0.2">HAVALE</text>
+    </g>
+</svg>

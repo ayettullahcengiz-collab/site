@@ -1,0 +1,96 @@
+{
+  "accountHolder": "Levent Tanrıver",
+  "defaultBank": "denizbank",
+  "banks": {
+    "halkbank": {
+      "name": "Halkbank",
+      "iban": "TR450001200945200012345678",
+      "holder": "Levent Tanrıver"
+    },
+    "sekerbank": {
+      "name": "Şekerbank",
+      "iban": "TR620005900128900034567890",
+      "holder": "Levent Tanrıver"
+    },
+    "teb": {
+      "name": "TEB",
+      "iban": "TR320003200000000056789012",
+      "holder": "Levent Tanrıver"
+    },
+    "ziraat": {
+      "name": "Ziraat Bankası",
+      "iban": "TR560001002134567890123456",
+      "holder": "Levent Tanrıver"
+    },
+    "akbank": {
+      "name": "Akbank",
+      "iban": "TR120004600123456789012345",
+      "holder": "Levent Tanrıver"
+    },
+    "albaraka": {
+      "name": "Albaraka Türk",
+      "iban": "TR780020300000123456789012",
+      "holder": "Levent Tanrıver"
+    },
+    "denizbank": {
+      "name": "DenizBank",
+      "iban": "TR110013400002705354700001",
+      "holder": "Levent Tanrıver"
+    },
+    "enpara": {
+      "name": "Enpara.com",
+      "iban": "TR880011100000012345678901",
+      "holder": "Levent Tanrıver"
+    },
+    "fibabanka": {
+      "name": "Fibabanka",
+      "iban": "TR150010300000001234567890",
+      "holder": "Levent Tanrıver"
+    },
+    "garanti": {
+      "name": "Garanti BBVA",
+      "iban": "TR340006200012345678901234",
+      "holder": "Levent Tanrıver"
+    },
+    "ing": {
+      "name": "ING Bank",
+      "iban": "TR440009900000123456789012",
+      "holder": "Levent Tanrıver"
+    },
+    "kuveytturk": {
+      "name": "Kuveyt Türk",
+      "iban": "TR250020500000987654321098",
+      "holder": "Levent Tanrıver"
+    },
+    "odeabank": {
+      "name": "Odea Bank",
+      "iban": "TR090014600000123456789012",
+      "holder": "Levent Tanrıver"
+    },
+    "qnb": {
+      "name": "QNB Finansbank",
+      "iban": "TR110011100000009876543210",
+      "holder": "Levent Tanrıver"
+    },
+    "turkiyefinans": {
+      "name": "Türkiye Finans",
+      "iban": "TR670020600000123456789012",
+      "holder": "Levent Tanrıver"
+    },
+    "isbank": {
+      "name": "İş Bankası",
+      "iban": "TR640006400000112233445566",
+      "holder": "Levent Tanrıver"
+    },
+    "vakifbank": {
+      "name": "VakıfBank",
+      "iban": "TR850001500158007301234567",
+      "holder": "Levent Tanrıver"
+    },
+    "yapikredi": {
+      "name": "Yapı Kredi",
+      "iban": "TR920006701000000098765432",
+      "holder": "Levent Tanrıver"
+    }
+  }
+}

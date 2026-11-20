@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Sugar Rush Demo - GrandPashaBet</title>
+    <link rel="shortcut icon" href="https:/plat/prd/Img/partners/1093/favicon.ico" type="image-x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #0a0a0a;
+            font-family: 'Roboto', sans-serif;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Top bar */
+        .game-topbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 48px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16162a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s;
+        }
+
+        .back-btn:active {
+            background: rgba(255,255,255,0.12);
+            transform: scale(0.96);
+        }
+
+        .back-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .game-title {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-title span {
+            color: #f7c948;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-badge {
+            background: linear-gradient(135deg, #f7c948, #e6a817);
+            color: #1a1a2e;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .fullscreen-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: rgba(255,255,255,0.06);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s;
+        }
+
+        .fullscreen-btn:active {
+            background: rgba(255,255,255,0.15);
+            transform: scale(0.92);
+        }
+
+        .fullscreen-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Game container */
+        .game-container {
+            position: fixed;
+            top: 48px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+        }
+
+        .game-container.fullscreen {
+            top: 0;
+        }
+
+        .game-container.fullscreen + .game-topbar,
+        .fullscreen .game-topbar {
+            display: none;
+        }
+
+        .game-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, #1e0a3c 0%, #0a0a1a 70%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-game-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(247, 201, 72, 0.3);
+            margin-bottom: 24px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 8px 32px rgba(247, 201, 72, 0.3); }
+            50% { box-shadow: 0 8px 48px rgba(247, 201, 72, 0.6); }
+        }
+
+        .loading-title {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .loading-sub {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-bottom: 28px;
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #f7c948;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-tip {
+            margin-top: 24px;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            text-align: center;
+            padding: 0 32px;
+        }
+
+        /* Landscape prompt for better mobile experience */
+        .rotate-hint {
+            position: fixed;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.85);
+            color: #f7c948;
+            font-size: 12px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(247,201,72,0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .rotate-hint svg {
+            width: 18px;
+            height: 18px;
+            fill: #f7c948;
+            animation: rotate-wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg); }
+            75% { transform: rotate(90deg); }
+        }
+
+        @media (orientation: portrait) and (max-width: 768px) {
+            .rotate-hint {
+                display: flex;
+            }
+        }
+
+        @media (orientation: landscape) {
+            .rotate-hint {
+                display: none !important;
+            }
+        }
+
+        /* Fullscreen mode: hide topbar */
+        body.is-fullscreen .game-topbar {
+            display: none;
+        }
+
+        body.is-fullscreen .game-container {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="game-topbar" id="gameTopbar">
+        <div class="topbar-left">
+            <a href="index.html" class="back-btn">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                Lobby
+            </a>
+        </div>
+        <div class="game-title">Sugar Rush <span>1000</span></div>
+        <div class="topbar-right">
+            <span class="demo-badge">DEMO</span>
+            <button class="fullscreen-btn" id="fullscreenBtn" title="Tam Ekran">
+                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container" id="gameContainer">
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <img class="loading-game-img" src="images/94_sugarrush-1000_20261109210341124.webp" alt="Sugar Rush 1000"
+                 onerror="this.style.display='none'">
+            <div class="loading-title">Sugar Rush 1000</div>
+            <div class="loading-sub">Pragmatic Play</div>
+            <div class="loading-spinner"></div>
+            <div class="loading-tip">📱 En iyi deneyim için telefonu yatay çevirin</div>
+        </div>
+
+        <!-- Game iFrame -->
+        <iframe
+            id="gameFrame"
+            class="game-iframe"
+            src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20sugarrush1000&jurisdiction=99&lang=tr&cur=TRY&stylename=grandpashabet"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            loading="eager"
+        ></iframe>
+    </div>
+
+    <!-- Rotate Hint -->
+    <div class="rotate-hint" id="rotateHint">
+        <svg viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h1.5C23.44 4.84 18.29 0 12 0l-.66.03 3.81 3.81 1.33-1.32zm-6.25-.77c-.59-.59-1.54-.59-2.12 0L1.75 8.11c-.59.59-.59 1.54 0 2.12l12.02 12.02c.59.59 1.54.59 2.12 0l6.36-6.36c.59-.59.59-1.54 0-2.12L10.23 1.75zm4.6 19.44L2.81 9.17l6.36-6.36 12.02 12.02-6.36 6.36zm-7.31.29C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32z"/></svg>
+        Yatay çevirin
+    </div>
+
+    <script>
+        // Hide loading overlay when iframe loads
+        const iframe = document.getElementById('gameFrame');
+        const overlay = document.getElementById('loadingOverlay');
+
+        iframe.addEventListener('load', function() {
+            setTimeout(function() {
+                overlay.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Fallback: hide loading after 8 seconds regardless
+        setTimeout(function() {
+            overlay.classList.add('hidden');
+        }, 8000);
+
+        // Fullscreen toggle
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        fullscreenBtn.addEventListener('click', function() {
+            const container = document.getElementById('gameContainer');
+
+            if (!document.fullscreenElement) {
+                // Try native fullscreen first
+                const el = document.documentElement;
+                if (el.requestFullscreen) {
+                    el.requestFullscreen().catch(function() {
+                        // Fallback: CSS fullscreen
+                        document.body.classList.toggle('is-fullscreen');
+                    });
+                } else if (el.webkitRequestFullscreen) {
+                    el.webkitRequestFullscreen();
+                } else {
+                    document.body.classList.toggle('is-fullscreen');
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
+        });
+
+        document.addEventListener('fullscreenchange', function() {
+            if (document.fullscreenElement) {
+                document.body.classList.add('is-fullscreen');
+            } else {
+                document.body.classList.remove('is-fullscreen');
+            }
+        });
+
+        // Auto-dismiss rotate hint after 5 seconds in landscape
+        window.addEventListener('orientationchange', function() {
+            const hint = document.getElementById('rotateHint');
+            if (window.orientation === 90 || window.orientation === -90) {
+                hint.style.display = 'none';
+            }
+        });
+
+        // Lock orientation to landscape if supported
+        if (screen.orientation && screen.orientation.lock) {
+            // Only attempt on user gesture
+            document.addEventListener('click', function orientLock() {
+                screen.orientation.lock('landscape').catch(function(){});
+                document.removeEventListener('click', orientLock);
+            }, { once: true });
+        }
+    </script>
+</body>
+</html>

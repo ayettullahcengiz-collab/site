@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <circle cx="22" cy="23" r="21" fill="#0eb053"/>
+<path d="M13 22l6 6 13-13-2.5-2.5-10.5 10.5-3.5-3.5L13 22z" fill="#ffffff"/>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="14" font-weight="900" fill="#0f7a3f" letter-spacing="0.2">TREND</text>
+        <text x="66" y="52" font-size="14" font-weight="900" fill="#0f7a3f" letter-spacing="0.2">HAVALE</text>
+    </g>
+</svg>
