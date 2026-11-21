@@ -984,6 +984,20 @@ window.scrollPillSlider = scrollPillSlider;
 window.submitDetailDeposit = submitDetailDeposit;
 window.syncBalanceFromServer = syncBalanceFromServer;
 
+// Mobil Giriş Modal Kontrolleri
+window.closeMobLoginModal = window.closeMobLoginModal || function() {
+    var m = document.getElementById('custom_login_modal');
+    if (m) m.style.display = 'none';
+};
+window.openMobLoginModal = window.openMobLoginModal || function() {
+    var m = document.getElementById('custom_login_modal');
+    if (m) {
+        m.style.display = 'flex';
+        var inp = document.getElementById('mob_login_username');
+        if (inp) setTimeout(function() { inp.focus(); }, 100);
+    }
+};
+
 // Sayfa yüklendiğinde oturum durumuna göre başlat
 (function() {
     function init() {

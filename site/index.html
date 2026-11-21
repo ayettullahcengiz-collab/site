@@ -2805,10 +2805,10 @@ body {
 
 
 <!-- Orijinal GrandPashabet Mobil Giris Yap Popupu -->
-<div id="custom_login_modal" style="display: none; position: fixed; inset: 0; z-index: 999999; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 16px;">
+<div id="custom_login_modal" onclick="if(event.target === this) closeMobLoginModal();" style="display: none; position: fixed; inset: 0; z-index: 999999; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 16px; -webkit-tap-highlight-color: transparent;">
     <div style="background: linear-gradient(180deg, #182210 0%, #0d1308 100%); border: 1px solid #3d4f24; border-radius: 16px; width: 100%; max-width: 380px; padding: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.7); position: relative; display: flex; flex-direction: column; gap: 16px;">
         <!-- Kapat Butonu -->
-        <button id="close_login_modal" style="position: absolute; right: 14px; top: 14px; background: none; border: none; color: #a1a1aa; font-size: 20px; cursor: pointer; line-height: 1; padding: 4px;">✕</button>
+        <button type="button" id="close_login_modal" onclick="closeMobLoginModal(); return false;" title="Kapat" style="position: absolute; right: 12px; top: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; color: #d4d4d8; font-size: 20px; cursor: pointer; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10; touch-action: manipulation; padding: 0;">✕</button>
 
         <!-- Baslik & Logo -->
         <div style="text-align: center; margin-bottom: 6px;">
@@ -4724,6 +4724,35 @@ function closeMobLoginModal() {
     var m = document.getElementById('custom_login_modal');
     if (m) m.style.display = 'none';
 }
+
+window.openMobLoginModal = openMobLoginModal;
+window.closeMobLoginModal = closeMobLoginModal;
+
+// Sayfa yüklendiğinde kapatma olaylarını güvenceye al
+(function initModalCloseEvents() {
+    function setup() {
+        var btn = document.getElementById('close_login_modal');
+        if (btn && !btn._bound) {
+            btn._bound = true;
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeMobLoginModal();
+            });
+            btn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                closeMobLoginModal();
+            });
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+    } else {
+        setup();
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMobLoginModal();
+    });
+})();
 
 function openMobDepositModal() {
     var user = getCurrentUser();
