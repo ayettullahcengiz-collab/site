@@ -171,7 +171,7 @@ function showLoggedInHeader(username, balance) {
         '<!-- 1. Segmented Balance + Deposit -->' +
         '<div class="gp_balance_deposit_group">' +
             '<div class="gp_balance_box">' +
-                '<img src="/img/tr_flag_circle.png" class="gp_flag_icon" alt="TRY" onerror="this.onerror=null;this.src=\'img/tr_flag_circle.png\';" />' +
+                '<svg class="gp_flag_icon" viewBox="0 0 32 32" width="22" height="22" style="border-radius:50%;display:inline-block;vertical-align:middle;flex-shrink:0;"><circle cx="16" cy="16" r="16" fill="#e30a17"/><circle cx="13.8" cy="16" r="7.2" fill="#ffffff"/><circle cx="15.8" cy="16" r="5.7" fill="#e30a17"/><polygon points="19.8,13.8 20.8,15.2 22.5,14.6 21.5,16 22.5,17.4 20.8,16.8 19.8,18.2 19.9,16.5 18.5,16 19.9,15.5" fill="#ffffff"/></svg>' +
                 '<span class="gp_balance_val" id="js_user_balance">' + bal + '</span>' +
                 '<span class="gp_balance_cur">TRY</span>' +
             '</div>' +
