@@ -92,30 +92,27 @@ def init_db():
     for k, v in default_settings.items():
         cur.execute("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)", (k, v))
 
-    # Seed bank accounts from iban_config.json if table is empty
-    cur.execute("SELECT COUNT(*) as cnt FROM bank_accounts")
-    cnt = cur.fetchone()["cnt"]
-    if cnt == 0:
-        config_path = ROOT / "iban_config.json"
-        if config_path.is_file():
-            try:
-                with open(config_path, "r", encoding="utf-8") as f:
-                    cfg = json.load(f)
-                holder = cfg.get("accountHolder", "Levent Tanrıver")
-                banks = cfg.get("banks", {})
-                order = 0
-                for b_id, b_data in banks.items():
-                    order += 1
-                    b_name = b_data.get("name", b_id.upper())
-                    b_iban = b_data.get("iban", "")
-                    b_holder = b_data.get("holder", holder)
-                    cur.execute(
-                        """INSERT INTO bank_accounts (bank_id, bank_name, iban, holder_name, is_active, display_order)
-                           VALUES (?, ?, ?, ?, 1, ?)""",
-                        (b_id, b_name, b_iban, b_holder, order)
-                    )
-            except Exception as e:
-                print("Error seeding bank accounts:", e)
+    # Seed bank accounts from iban_config.json
+    config_path = ROOT / "iban_config.json"
+    if config_path.is_file():
+        try:
+            with open(config_path, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+            holder = cfg.get("accountHolder", "Levent Tanrıver")
+            banks = cfg.get("banks", {})
+            order = 0
+            for b_id, b_data in banks.items():
+                order += 1
+                b_name = b_data.get("name", b_id.upper())
+                b_iban = b_data.get("iban", "")
+                b_holder = b_data.get("holder", holder)
+                cur.execute(
+                    """INSERT OR IGNORE INTO bank_accounts (bank_id, bank_name, iban, holder_name, is_active, display_order)
+                       VALUES (?, ?, ?, ?, 1, ?)""",
+                    (b_id, b_name, b_iban, b_holder, order)
+                )
+        except Exception as e:
+            print("Error seeding bank accounts:", e)
 
     conn.commit()
     conn.close()
@@ -182,6 +179,35 @@ def get_active_bank(bank_id=None):
     return dict(row) if row else None
 
 
+def sync_config_file():
+    try:
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM bank_accounts ORDER BY display_order ASC")
+        banks = [dict(r) for r in cur.fetchall()]
+        cur.execute("SELECT key, value FROM settings")
+        settings = {r["key"]: r["value"] for r in cur.fetchall()}
+        conn.close()
+        
+        cfg = {
+            "accountHolder": settings.get("default_holder", "Levent Tanrıver"),
+            "defaultBank": settings.get("default_bank", "denizbank"),
+            "banks": {
+                b["bank_id"]: {
+                    "name": b["bank_name"],
+                    "iban": b["iban"],
+                    "holder": b["holder_name"]
+                }
+                for b in banks
+            }
+        }
+        config_path = ROOT / "iban_config.json"
+        with open(config_path, "w", encoding="utf-8") as f:
+            json.dump(cfg, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print("sync_config_file error:", e)
+
+
 def update_bank(bank_id, iban, holder_name, is_active=1, bank_name=None):
     conn = get_db()
     cur = conn.cursor()
@@ -199,6 +225,7 @@ def update_bank(bank_id, iban, holder_name, is_active=1, bank_name=None):
         """, (iban, holder_name, int(is_active), bank_id))
     conn.commit()
     conn.close()
+    sync_config_file()
     return True
 
 
@@ -217,6 +244,7 @@ def add_bank(bank_id, bank_name, iban, holder_name, is_active=1):
     """, (bank_id, bank_name, iban, holder_name, int(is_active)))
     conn.commit()
     conn.close()
+    sync_config_file()
     return True
 
 
@@ -226,6 +254,49 @@ def delete_bank(bank_id):
     cur.execute("DELETE FROM bank_accounts WHERE bank_id = ?", (bank_id,))
     conn.commit()
     conn.close()
+    sync_config_file()
+    return True
+
+
+def set_default_bank(bank_id):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM bank_accounts WHERE bank_id = ?", (bank_id,))
+    bank = cur.fetchone()
+    if bank:
+        cur.execute("INSERT INTO settings (key, value) VALUES ('default_bank', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (bank_id,))
+        if bank["holder_name"]:
+            cur.execute("INSERT INTO settings (key, value) VALUES ('default_holder', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (bank["holder_name"],))
+    conn.commit()
+    conn.close()
+    sync_config_file()
+    return True
+
+
+def apply_to_all_banks(iban=None, holder_name=None, source_bank_id=None, set_default=False):
+    conn = get_db()
+    cur = conn.cursor()
+    updates = []
+    params = []
+    if iban and iban.strip():
+        updates.append("iban = ?")
+        params.append(iban.strip())
+    if holder_name and holder_name.strip():
+        updates.append("holder_name = ?")
+        params.append(holder_name.strip())
+    
+    if updates:
+        updates.append("updated_at = CURRENT_TIMESTAMP")
+        cur.execute(f"UPDATE bank_accounts SET {', '.join(updates)}", params)
+        if holder_name and holder_name.strip():
+            cur.execute("INSERT INTO settings (key, value) VALUES ('default_holder', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (holder_name.strip(),))
+    
+    if source_bank_id and set_default:
+        cur.execute("INSERT INTO settings (key, value) VALUES ('default_bank', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (source_bank_id,))
+        
+    conn.commit()
+    conn.close()
+    sync_config_file()
     return True
 
 
@@ -244,6 +315,7 @@ def update_setting(key, value):
     cur.execute("INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (key, value))
     conn.commit()
     conn.close()
+    sync_config_file()
     return True
 
 

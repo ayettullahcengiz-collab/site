@@ -746,12 +746,295 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
+        /* BANK PICKER */
+        .bank-picker-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .bank-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 8px;
+            max-height: 240px;
+            overflow-y: auto;
+            padding: 4px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+        }
+
+        .bank-picker-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .bank-picker-grid::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .bank-picker-grid::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+
+        .bank-picker-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 6px;
+            border-radius: var(--radius-sm);
+            border: 2px solid transparent;
+            background: var(--bg-card);
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .bank-picker-item:hover {
+            border-color: var(--border-highlight);
+            background: var(--bg-card-hover);
+        }
+
+        .bank-picker-item.selected {
+            border-color: var(--accent-gold);
+            background: rgba(245, 158, 11, 0.08);
+            box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.3);
+        }
+
+        .bank-picker-icon {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .bank-picker-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .bank-picker-name {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        .bank-picker-item.selected .bank-picker-name {
+            color: var(--accent-gold);
+        }
+
+        .bank-picker-selected-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--radius-sm);
+        }
+
+        .bank-picker-selected-info.hidden {
+            display: none;
+        }
+
+        .bank-picker-selected-info img {
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border-radius: 6px;
+            padding: 3px;
+            object-fit: contain;
+        }
+
+        .bank-picker-selected-info span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .bank-picker-custom-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .bank-picker-custom-toggle:hover {
+            color: var(--accent-blue);
+        }
+
+        .bank-picker-custom-input {
+            display: none;
+            margin-top: 8px;
+        }
+
+        .bank-picker-custom-input.show {
+            display: block;
+        }
+
+        /* DEFAULT BANK BADGE */
+        .badge-default-bank {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-set-default {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-set-default:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-apply-all {
+            background: rgba(139, 92, 246, 0.12);
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-apply-all:hover {
+            background: rgba(139, 92, 246, 0.22);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        /* APPLY ALL MODAL */
+        .apply-all-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .apply-all-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .apply-all-option:hover {
+            border-color: var(--border-highlight);
+            background: var(--bg-card-hover);
+        }
+
+        .apply-all-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        .apply-all-option label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .apply-all-option .apply-all-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .apply-all-source-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px;
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+        }
+
+        .apply-all-source-info img {
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 4px;
+            object-fit: contain;
+        }
+
+        .apply-all-source-info .source-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .apply-all-source-info .source-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .apply-all-source-info .source-iban {
+            font-size: 12px;
+            font-family: var(--font-mono);
+            color: var(--accent-gold);
+        }
+
         /* Responsive */
         @media(max-width: 768px) {
             .dash-header { padding: 14px 18px; }
             .dash-tabs { padding: 0 14px; overflow-x: auto; }
             .dash-main { padding: 18px 14px; }
             .search-input { width: 100%; }
+            .bank-picker-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
         }
     </style>
 </head>
@@ -883,12 +1166,13 @@
                                 <th>Banka</th>
                                 <th>IBAN Numarası</th>
                                 <th>Hesap Sahibi (Alıcı)</th>
+                                <th>Ödeme Sayfası</th>
                                 <th>Durum (Aktif/Pasif)</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
                         <tbody id="bankTableBody">
-                            <tr><td colspan="5" style="text-align:center; padding:30px; color:#64748b;">Yükleniyor...</td></tr>
+                            <tr><td colspan="6" style="text-align:center; padding:30px; color:#64748b;">Yükleniyor...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1003,6 +1287,10 @@
             </div>
             <form onsubmit="submitEditBank(event)">
                 <input type="hidden" id="editBankId">
+                <div class="bank-picker-selected-info" id="editBankIconPreview" style="margin-bottom:16px;">
+                    <img id="editBankIconImg" src="" alt="">
+                    <span id="editBankIconLabel">—</span>
+                </div>
                 <div class="form-group">
                     <label class="form-label">Banka Adı</label>
                     <input type="text" id="editBankName" class="form-control" required>
@@ -1022,6 +1310,20 @@
                     </label>
                     <span style="font-size:13px; font-weight:600;">Bu banka kullanıcıya açık (Aktif) olsun</span>
                 </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top:8px; padding:10px; background:rgba(245, 158, 11, 0.08); border-radius:6px; border:1px solid rgba(245, 158, 11, 0.2);">
+                    <label class="switch">
+                        <input type="checkbox" id="editBankSetDefault">
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size:12.5px; font-weight:600; color:var(--accent-gold);">Ödeme sayfasında varsayılan banka yap</span>
+                </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top:8px; padding:10px; background:rgba(139, 92, 246, 0.08); border-radius:6px; border:1px solid rgba(139, 92, 246, 0.2);">
+                    <label class="switch">
+                        <input type="checkbox" id="editBankApplyAll">
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size:12.5px; font-weight:600; color:#c4b5fd;">Bu IBAN ve alıcı adını TÜM bankalara uygula</span>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-cancel" onclick="closeModal('editBankModal')">İptal</button>
                     <button type="submit" class="btn-save">Değişiklikleri Kaydet</button>
@@ -1032,19 +1334,33 @@
 
     <!-- ADD BANK MODAL -->
     <div class="modal-overlay" id="addBankModal">
-        <div class="modal-box">
+        <div class="modal-box" style="max-width:600px;">
             <div class="modal-header">
                 <div class="modal-title">Yeni Banka Hesabı Ekle</div>
                 <button class="btn-modal-close" onclick="closeModal('addBankModal')">&times;</button>
             </div>
             <form onsubmit="submitAddBank(event)">
                 <div class="form-group">
-                    <label class="form-label">Banka Kodu (Slug / Küçük Harf)</label>
-                    <input type="text" id="addBankId" class="form-control" placeholder="örn: ziraat, vakifbank, qnb" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Görünen Banka Adı</label>
-                    <input type="text" id="addBankName" class="form-control" placeholder="örn: Ziraat Bankası" required>
+                    <label class="bank-picker-label">Banka Seçin</label>
+                    <div class="bank-picker-grid" id="addBankPickerGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="bank-picker-selected-info hidden" id="addBankSelectedInfo">
+                        <img id="addBankSelectedIcon" src="" alt="">
+                        <span id="addBankSelectedName">—</span>
+                    </div>
+                    <div class="bank-picker-custom-toggle" onclick="toggleCustomBankInput()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Listede olmayan bir banka ekle
+                    </div>
+                    <div class="bank-picker-custom-input" id="customBankInputArea">
+                        <input type="text" id="addBankIdCustom" class="form-control" placeholder="Banka kodu (örn: hsbc)" style="margin-bottom:8px;">
+                        <input type="text" id="addBankNameCustom" class="form-control" placeholder="Görünen banka adı (örn: HSBC)">
+                    </div>
+                    <input type="hidden" id="addBankId">
+                    <input type="hidden" id="addBankName">
                 </div>
                 <div class="form-group">
                     <label class="form-label">IBAN Numarası</label>
@@ -1061,9 +1377,78 @@
                     </label>
                     <span style="font-size:13px; font-weight:600;">Hemen Aktif Olarak Yayınla</span>
                 </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top:8px; padding:10px; background:rgba(245, 158, 11, 0.08); border-radius:6px; border:1px solid rgba(245, 158, 11, 0.2);">
+                    <label class="switch">
+                        <input type="checkbox" id="addBankSetDefault">
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size:12.5px; font-weight:600; color:var(--accent-gold);">Ödeme sayfasında varsayılan banka yap</span>
+                </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top:8px; padding:10px; background:rgba(139, 92, 246, 0.08); border-radius:6px; border:1px solid rgba(139, 92, 246, 0.2);">
+                    <label class="switch">
+                        <input type="checkbox" id="addBankApplyAll">
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size:12.5px; font-weight:600; color:#c4b5fd;">Bu IBAN ve alıcı adını TÜM bankalara uygula</span>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-cancel" onclick="closeModal('addBankModal')">İptal</button>
                     <button type="submit" class="btn-save">Bankayı Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- APPLY ALL MODAL -->
+    <div class="modal-overlay" id="applyAllModal">
+        <div class="modal-box" style="max-width:520px;">
+            <div class="modal-header">
+                <div class="modal-title">Tüm Bankalara Uygula</div>
+                <button class="btn-modal-close" onclick="closeModal('applyAllModal')">&times;</button>
+            </div>
+            <form onsubmit="submitApplyAll(event)">
+                <input type="hidden" id="applySourceBankId">
+                <input type="hidden" id="applySourceIbanRaw">
+                <input type="hidden" id="applySourceHolderRaw">
+
+                <div class="apply-all-source-info">
+                    <img id="applySourceIcon" src="" alt="">
+                    <div class="source-details">
+                        <span class="source-name" id="applySourceName">—</span>
+                        <span class="source-iban" id="applySourceIban">—</span>
+                        <span style="font-size:12px; color:#cbd5e1;" id="applySourceHolder">—</span>
+                    </div>
+                </div>
+
+                <div class="apply-all-options">
+                    <label class="apply-all-option">
+                        <input type="checkbox" id="applyCheckIban" checked>
+                        <div>
+                            <div>Bu IBAN'ı tüm bankalara tanımla</div>
+                            <div class="apply-all-desc">Sistemdeki tüm kayıtlı bankaların IBAN numarası bu değerle güncellenir.</div>
+                        </div>
+                    </label>
+
+                    <label class="apply-all-option">
+                        <input type="checkbox" id="applyCheckHolder" checked>
+                        <div>
+                            <div>Hesap Sahibini (Alıcı Adı) tüm bankalara tanımla</div>
+                            <div class="apply-all-desc">Tüm bankaların ve genel sistem ayarlarının alıcı adı bu isimle eşitlenir.</div>
+                        </div>
+                    </label>
+
+                    <label class="apply-all-option">
+                        <input type="checkbox" id="applyCheckDefault" checked>
+                        <div>
+                            <div>Bu bankayı ödeme sayfasında varsayılan yap</div>
+                            <div class="apply-all-desc">Ödeme sayfasına giren kullanıcılara ilk olarak doğrudan bu banka seçili gösterilir.</div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeModal('applyAllModal')">İptal</button>
+                    <button type="submit" class="btn-save" style="background:linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color:#fff;">Tüm Bankalara Uygula</button>
                 </div>
             </form>
         </div>
@@ -1074,7 +1459,31 @@
 
     <script>
         let allBanks = [];
+        let currentDefaultBank = 'denizbank';
         let autoRefreshTimer = null;
+        let selectedAddBankId = null;
+
+        // Known Turkish banks with their display names for the picker
+        const KNOWN_BANKS = [
+            { id: 'akbank',         name: 'Akbank' },
+            { id: 'albaraka',       name: 'Albaraka Türk' },
+            { id: 'denizbank',      name: 'DenizBank' },
+            { id: 'enpara',         name: 'Enpara.com' },
+            { id: 'fibabanka',      name: 'Fibabanka' },
+            { id: 'garanti',        name: 'Garanti BBVA' },
+            { id: 'halkbank',       name: 'Halkbank' },
+            { id: 'ing',            name: 'ING Bank' },
+            { id: 'isbank',         name: 'İş Bankası' },
+            { id: 'kuveytturk',     name: 'Kuveyt Türk' },
+            { id: 'odeabank',       name: 'Odea Bank' },
+            { id: 'qnb',            name: 'QNB Finansbank' },
+            { id: 'sekerbank',      name: 'Şekerbank' },
+            { id: 'teb',            name: 'TEB' },
+            { id: 'turkiyefinans',  name: 'Türkiye Finans' },
+            { id: 'vakifbank',      name: 'VakıfBank' },
+            { id: 'yapikredi',      name: 'Yapı Kredi' },
+            { id: 'ziraat',         name: 'Ziraat Bankası' }
+        ];
 
         // Check auth on page load
         window.addEventListener('DOMContentLoaded', () => {
@@ -1164,8 +1573,15 @@
         // --- BANKS CRUD ---
         async function loadBanks() {
             try {
-                const res = await fetch('/api/admin/banks');
-                const data = await res.json();
+                const [banksRes, settingsRes] = await Promise.all([
+                    fetch('/api/admin/banks'),
+                    fetch('/api/admin/settings')
+                ]);
+                const data = await banksRes.json();
+                const sData = await settingsRes.json();
+                if (sData.success && sData.settings && sData.settings.default_bank) {
+                    currentDefaultBank = sData.settings.default_bank;
+                }
                 if (data.success) {
                     allBanks = data.banks || [];
                     renderBankTable(allBanks);
@@ -1189,11 +1605,24 @@
         function renderBankTable(banks) {
             const tbody = document.getElementById('bankTableBody');
             if (!banks.length) {
-                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:30px; color:#64748b;">Kayıtlı banka bulunamadı.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:#64748b;">Kayıtlı banka bulunamadı.</td></tr>';
                 return;
             }
 
-            tbody.innerHTML = banks.map(b => `
+            tbody.innerHTML = banks.map(b => {
+                const isDefault = (b.bank_id === currentDefaultBank);
+                const defaultCell = isDefault ? `
+                    <span class="badge-default-bank">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Tanımlı (Aktif)
+                    </span>
+                ` : `
+                    <button class="btn-set-default" onclick="setDefaultBank('${b.bank_id}')" title="Bu bankayı ödeme sayfasında varsayılan olarak tanımla">
+                        ⚡ Ödeme Sayfasına Tanımla
+                    </button>
+                `;
+
+                return `
                 <tr>
                     <td>
                         <div class="bank-info-cell">
@@ -1219,6 +1648,9 @@
                         <strong style="color:#fff;">${escapeHtml(b.holder_name)}</strong>
                     </td>
                     <td>
+                        ${defaultCell}
+                    </td>
+                    <td>
                         <label class="switch">
                             <input type="checkbox" ${b.is_active == 1 ? 'checked' : ''} onchange="toggleBankStatus('${b.bank_id}', this.checked)">
                             <span class="slider"></span>
@@ -1226,12 +1658,99 @@
                     </td>
                     <td>
                         <div class="action-btns">
+                            <button class="btn-apply-all" onclick="openApplyAllModal('${b.bank_id}')" title="Bu bankanın IBAN ve hesap sahibini tüm bankalara kopyala">Tümüne Uygula</button>
                             <button class="btn-action-edit" onclick="openEditBankModal('${b.bank_id}')">Düzenle</button>
                             <button class="btn-action-del" onclick="deleteBank('${b.bank_id}')">Sil</button>
                         </div>
                     </td>
                 </tr>
-            `).join('');
+            `;
+            }).join('');
+        }
+
+        async function setDefaultBank(bankId) {
+            try {
+                const res = await fetch('/api/admin/bank/set-default', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bank_id: bankId })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    currentDefaultBank = bankId;
+                    const b = allBanks.find(x => x.bank_id === bankId);
+                    const bName = b ? b.bank_name : bankId;
+                    showToast(`${bName} ödeme sayfasına başarıyla tanımlandı!`, 'success');
+                    renderBankTable(allBanks);
+                    loadSettings();
+                } else {
+                    showToast('İşlem başarısız!', 'error');
+                }
+            } catch (err) {
+                showToast('Bağlantı hatası!', 'error');
+            }
+        }
+
+        function openApplyAllModal(bankId) {
+            const b = allBanks.find(x => x.bank_id === bankId);
+            if (!b) return;
+
+            document.getElementById('applySourceBankId').value = b.bank_id;
+            document.getElementById('applySourceIbanRaw').value = b.iban;
+            document.getElementById('applySourceHolderRaw').value = b.holder_name;
+
+            document.getElementById('applySourceIcon').src = `/img/banks/${b.bank_id}.svg`;
+            document.getElementById('applySourceIcon').onerror = function() { this.src = '/favicon.ico'; };
+            document.getElementById('applySourceName').textContent = b.bank_name;
+            document.getElementById('applySourceIban').textContent = formatIban(b.iban);
+            document.getElementById('applySourceHolder').textContent = 'Hesap Sahibi: ' + (b.holder_name || '—');
+
+            document.getElementById('applyCheckIban').checked = true;
+            document.getElementById('applyCheckHolder').checked = true;
+            document.getElementById('applyCheckDefault').checked = (b.bank_id === currentDefaultBank);
+
+            openModal('applyAllModal');
+        }
+
+        async function submitApplyAll(e) {
+            e.preventDefault();
+            const sourceBankId = document.getElementById('applySourceBankId').value;
+            const iban = document.getElementById('applySourceIbanRaw').value;
+            const holder = document.getElementById('applySourceHolderRaw').value;
+
+            const applyIban = document.getElementById('applyCheckIban').checked;
+            const applyHolder = document.getElementById('applyCheckHolder').checked;
+            const applyDefault = document.getElementById('applyCheckDefault').checked;
+
+            if (!applyIban && !applyHolder && !applyDefault) {
+                showToast('Lütfen en az bir uygulama seçeneği işaretleyin!', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/admin/banks/apply-all', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        source_bank_id: sourceBankId,
+                        iban: applyIban ? iban : null,
+                        holder_name: applyHolder ? holder : null,
+                        set_default: applyDefault
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    closeModal('applyAllModal');
+                    if (applyDefault) currentDefaultBank = sourceBankId;
+                    showToast('Seçilen bilgiler tüm bankalara başarıyla uygulandı!', 'success');
+                    loadBanks();
+                    loadSettings();
+                } else {
+                    showToast('İşlem tamamlanamadı!', 'error');
+                }
+            } catch (err) {
+                showToast('Bağlantı hatası!', 'error');
+            }
         }
 
         function filterBanks() {
@@ -1281,6 +1800,13 @@
             document.getElementById('editBankIban').value = b.iban;
             document.getElementById('editBankHolder').value = b.holder_name;
             document.getElementById('editBankActive').checked = b.is_active == 1;
+            document.getElementById('editBankSetDefault').checked = (b.bank_id === currentDefaultBank);
+            document.getElementById('editBankApplyAll').checked = false;
+
+            // Show bank icon in edit modal
+            document.getElementById('editBankIconImg').src = `/img/banks/${b.bank_id}.svg`;
+            document.getElementById('editBankIconImg').onerror = function() { this.src = '/favicon.ico'; };
+            document.getElementById('editBankIconLabel').textContent = `${b.bank_name} (${b.bank_id})`;
 
             openModal('editBankModal');
         }
@@ -1292,6 +1818,8 @@
             const iban = document.getElementById('editBankIban').value.replace(/\s+/g, '').toUpperCase();
             const holder = document.getElementById('editBankHolder').value.trim();
             const isActive = document.getElementById('editBankActive').checked ? 1 : 0;
+            const applyAll = document.getElementById('editBankApplyAll').checked;
+            const setDefault = document.getElementById('editBankSetDefault').checked;
 
             try {
                 const res = await fetch('/api/admin/bank/update', {
@@ -1307,9 +1835,30 @@
                 });
                 const data = await res.json();
                 if (data.success) {
+                    if (applyAll) {
+                        await fetch('/api/admin/banks/apply-all', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                source_bank_id: bankId,
+                                iban: iban,
+                                holder_name: holder,
+                                set_default: setDefault
+                            })
+                        });
+                    } else if (setDefault) {
+                        await fetch('/api/admin/bank/set-default', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ bank_id: bankId })
+                        });
+                    }
+
                     closeModal('editBankModal');
-                    showToast('Banka bilgileri güncellendi!', 'success');
+                    if (setDefault) currentDefaultBank = bankId;
+                    showToast(applyAll ? 'Banka güncellendi ve tüm bankalara uygulandı!' : 'Banka bilgileri güncellendi!', 'success');
                     loadBanks();
+                    loadSettings();
                 } else {
                     showToast('Güncelleme hatası!', 'error');
                 }
@@ -1319,24 +1868,98 @@
         }
 
         function openAddBankModal() {
+            selectedAddBankId = null;
             document.getElementById('addBankId').value = '';
             document.getElementById('addBankName').value = '';
             document.getElementById('addBankIban').value = '';
             document.getElementById('addBankHolder').value = document.getElementById('settingDefaultHolder').value || 'Levent Tanrıver';
             document.getElementById('addBankActive').checked = true;
+            document.getElementById('addBankSetDefault').checked = false;
+            document.getElementById('addBankApplyAll').checked = false;
+
+            // Hide custom input
+            document.getElementById('customBankInputArea').classList.remove('show');
+            document.getElementById('addBankIdCustom').value = '';
+            document.getElementById('addBankNameCustom').value = '';
+
+            // Hide selected info
+            document.getElementById('addBankSelectedInfo').classList.add('hidden');
+
+            // Build picker grid
+            const grid = document.getElementById('addBankPickerGrid');
+            grid.innerHTML = KNOWN_BANKS.map(bank => `
+                <div class="bank-picker-item" data-bank-id="${bank.id}" data-bank-name="${escapeHtml(bank.name)}" onclick="selectBankFromPicker(this, '${bank.id}', '${escapeHtml(bank.name)}')">
+                    <div class="bank-picker-icon">
+                        <img src="/img/banks/${bank.id}.svg" onerror="this.src='/favicon.ico'" alt="${escapeHtml(bank.name)}">
+                    </div>
+                    <div class="bank-picker-name">${escapeHtml(bank.name)}</div>
+                </div>
+            `).join('');
+
             openModal('addBankModal');
+        }
+
+        function selectBankFromPicker(el, bankId, bankName) {
+            // Remove previous selection
+            document.querySelectorAll('#addBankPickerGrid .bank-picker-item').forEach(item => item.classList.remove('selected'));
+            el.classList.add('selected');
+
+            selectedAddBankId = bankId;
+            document.getElementById('addBankId').value = bankId;
+            document.getElementById('addBankName').value = bankName;
+
+            // Show selected info
+            const info = document.getElementById('addBankSelectedInfo');
+            info.classList.remove('hidden');
+            document.getElementById('addBankSelectedIcon').src = `/img/banks/${bankId}.svg`;
+            document.getElementById('addBankSelectedName').textContent = `${bankName} (${bankId})`;
+
+            // Hide custom input if open
+            document.getElementById('customBankInputArea').classList.remove('show');
+            document.getElementById('addBankIdCustom').value = '';
+            document.getElementById('addBankNameCustom').value = '';
+        }
+
+        function toggleCustomBankInput() {
+            const area = document.getElementById('customBankInputArea');
+            const isShowing = area.classList.contains('show');
+
+            if (isShowing) {
+                area.classList.remove('show');
+            } else {
+                area.classList.add('show');
+                // Deselect grid items
+                document.querySelectorAll('#addBankPickerGrid .bank-picker-item').forEach(item => item.classList.remove('selected'));
+                selectedAddBankId = null;
+                document.getElementById('addBankSelectedInfo').classList.add('hidden');
+                document.getElementById('addBankId').value = '';
+                document.getElementById('addBankName').value = '';
+            }
         }
 
         async function submitAddBank(e) {
             e.preventDefault();
-            const bankId = document.getElementById('addBankId').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
-            const bankName = document.getElementById('addBankName').value.trim();
+
+            // Check if custom input is used
+            const customArea = document.getElementById('customBankInputArea');
+            let bankId, bankName;
+
+            if (customArea.classList.contains('show')) {
+                bankId = document.getElementById('addBankIdCustom').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+                bankName = document.getElementById('addBankNameCustom').value.trim();
+            } else {
+                bankId = document.getElementById('addBankId').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+                bankName = document.getElementById('addBankName').value.trim();
+            }
+
             const iban = document.getElementById('addBankIban').value.replace(/\s+/g, '').toUpperCase();
             const holder = document.getElementById('addBankHolder').value.trim();
             const isActive = document.getElementById('addBankActive').checked ? 1 : 0;
+            const applyAll = document.getElementById('addBankApplyAll').checked;
+            const setDefault = document.getElementById('addBankSetDefault').checked;
 
-            if (!bankId || !iban) {
-                showToast('Lütfen tüm zorunlu alanları doldurun!', 'error');
+            if (!bankId || !bankName || !iban) {
+                showToast('Lütfen bir banka seçin ve tüm zorunlu alanları doldurun!', 'error');
                 return;
             }
 
@@ -1354,9 +1977,30 @@
                 });
                 const data = await res.json();
                 if (data.success) {
+                    if (applyAll) {
+                        await fetch('/api/admin/banks/apply-all', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                source_bank_id: bankId,
+                                iban: iban,
+                                holder_name: holder,
+                                set_default: setDefault
+                            })
+                        });
+                    } else if (setDefault) {
+                        await fetch('/api/admin/bank/set-default', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ bank_id: bankId })
+                        });
+                    }
+
                     closeModal('addBankModal');
-                    showToast('Yeni banka başarıyla eklendi!', 'success');
+                    if (setDefault) currentDefaultBank = bankId;
+                    showToast(applyAll ? 'Yeni banka eklendi ve tüm bankalara uygulandı!' : 'Yeni banka başarıyla eklendi!', 'success');
                     loadBanks();
+                    loadSettings();
                 } else {
                     showToast('Banka eklenemedi!', 'error');
                 }
@@ -1477,9 +2121,13 @@
                 const data = await res.json();
                 if (data.success && data.settings) {
                     const s = data.settings;
+                    currentDefaultBank = s.default_bank || 'denizbank';
                     document.getElementById('settingDefaultHolder').value = s.default_holder || 'Levent Tanrıver';
                     document.getElementById('settingDefaultBank').value = s.default_bank || 'denizbank';
                     document.getElementById('settingCountdown').value = s.countdown_seconds || '280';
+                    if (allBanks && allBanks.length > 0) {
+                        renderBankTable(allBanks);
+                    }
                 }
             } catch (e) {}
         }
@@ -1502,7 +2150,11 @@
                 });
                 const data = await res.json();
                 if (data.success) {
+                    currentDefaultBank = defBank;
                     showToast('Genel ayarlar kaydedildi!', 'success');
+                    if (allBanks && allBanks.length > 0) {
+                        renderBankTable(allBanks);
+                    }
                 }
             } catch (e) {
                 showToast('Ayarlar kaydedilemedi!', 'error');

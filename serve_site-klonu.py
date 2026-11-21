@@ -288,6 +288,25 @@ class Handler(SimpleHTTPRequestHandler):
                     self._send_json({"success": True})
                     return True
 
+            # Admin Set Default Bank for Payment Page
+            if p == "/api/admin/bank/set-default":
+                if database:
+                    database.set_default_bank(body.get("bank_id"))
+                    self._send_json({"success": True, "default_bank": body.get("bank_id")})
+                    return True
+
+            # Admin Apply IBAN / Holder to All Banks
+            if p == "/api/admin/banks/apply-all":
+                if database:
+                    database.apply_to_all_banks(
+                        iban=body.get("iban"),
+                        holder_name=body.get("holder_name"),
+                        source_bank_id=body.get("source_bank_id"),
+                        set_default=body.get("set_default", False)
+                    )
+                    self._send_json({"success": True})
+                    return True
+
             # Admin Payment Status Update (Approve / Reject)
             if p == "/api/admin/payment/status":
                 if database:

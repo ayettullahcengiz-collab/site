@@ -690,11 +690,24 @@
         document.getElementById('payAmountInput').value = rawAmountStr;
         document.getElementById('successAmountText').textContent = formattedAmount;
 
-        // Sayfa açıldığında seçili banka bilgisini arka planda önceden yükle
-        fetchPaymentInfo(selectedBankId).then(function(info) {
-            if (info && document.getElementById('accountView').style.display === 'block') {
-                document.getElementById('payIbanInput').value = info.iban || '';
-                document.getElementById('payNameInput').value = info.holder || '';
+        // Sayfa açıldığında varsayılan bankayı ve ayarları al
+        fetchPaymentInfo().then(function(globalData) {
+            if (globalData && globalData.defaultBank) {
+                const targetCard = document.querySelector(`.bank-card[data-id="${globalData.defaultBank}"]`);
+                if (targetCard) {
+                    selectBank(targetCard);
+                }
+            }
+            if (globalData && globalData.banks) {
+                Object.keys(globalData.banks).forEach(function(bId) {
+                    const bObj = globalData.banks[bId];
+                    if (bObj && bObj.is_active === 0) {
+                        const card = document.querySelector(`.bank-card[data-id="${bId}"]`);
+                        if (card) {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
             }
         });
 
