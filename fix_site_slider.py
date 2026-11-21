@@ -1,6 +1,6 @@
 import re, os, shutil
 
-site_html_path = r'C:\Users\laure\OneDrive\Desktop\site-klonu\site\index.html'
+site_html_path = r'.\site\index.html'
 with open(site_html_path, 'r', encoding='utf-8', errors='replace') as f:
     c = f.read()
 
@@ -64,7 +64,7 @@ mobile_css_files = [
     'plat/prd/Img/Partners/1093/CustomCSS/customMob.css',
     'plat/prd/CW/GGP/Content/components/cwDynamicIcons.css',
 ]
-base = r'C:\Users\laure\OneDrive\Desktop\site-klonu'
+base = r'.'
 for css_file in mobile_css_files:
     full = os.path.join(base, css_file.replace('/', os.sep))
     if os.path.exists(full):
@@ -82,7 +82,7 @@ with open(site_html_path, 'w', encoding='utf-8') as f:
 print("\nDone! site/index.html updated.")
 
 # Also fix the big HTML file
-big_path = r"C:\Users\laure\OneDrive\Desktop\site-klonu\site\GrandPashabet Türkiye'nin En Büyük Casino Sitesi.html"
+big_path = r".\site\GrandPashabet Türkiye'nin En Büyük Casino Sitesi.html"
 if os.path.exists(big_path):
     with open(big_path, 'r', encoding='utf-8', errors='replace') as f:
         bc = f.read()

@@ -1,6 +1,6 @@
 import re
 
-html_path = r'C:\Users\laure\.gemini\antigravity\scratch\GrandPashabetSite\site\index.html'
+html_path = r'.\index.html'
 
 with open(html_path, 'r', encoding='utf-8', errors='ignore') as f:
     html = f.read()

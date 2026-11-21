@@ -1,4 +1,4 @@
-with open(r'C:\Users\laure\OneDrive\Desktop\site-klonu\site\index.html', 'r', encoding='utf-8', errors='replace') as f:
+with open(r'.\site\index.html', 'r', encoding='utf-8', errors='replace') as f:
     c = f.read()
 
 import re

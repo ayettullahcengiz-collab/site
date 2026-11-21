@@ -1,6 +1,6 @@
 import os, shutil, glob
 
-SITE = r'C:\Users\laure\OneDrive\Desktop\site-klonu'
+SITE = r'.'
 BENIM = glob.glob(r'C:\benim-kopyam\Grand*11_files')[0]
 
 # Map: source filename -> destination path
