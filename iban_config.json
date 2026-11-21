@@ -4,97 +4,97 @@
   "banks": {
     "ziraatbank": {
       "name": "ziraat",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "halkbank": {
       "name": "Halkbank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "sekerbank": {
       "name": "Şekerbank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "teb": {
       "name": "TEB",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "ziraat": {
       "name": "Ziraat Bankası",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "akbank": {
       "name": "Akbank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "albaraka": {
       "name": "Albaraka Türk",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "denizbank": {
       "name": "DenizBank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "enpara": {
       "name": "Enpara.com",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "fibabanka": {
       "name": "Fibabanka",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "garanti": {
       "name": "Garanti BBVA",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "ing": {
       "name": "ING Bank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "kuveytturk": {
       "name": "Kuveyt Türk",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "odeabank": {
       "name": "Odea Bank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "qnb": {
       "name": "QNB Finansbank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "turkiyefinans": {
       "name": "Türkiye Finans",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "isbank": {
       "name": "İş Bankası",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "vakifbank": {
       "name": "VakıfBank",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     },
     "yapikredi": {
       "name": "Yapı Kredi",
-      "iban": "TR999999999999999999999999",
+      "iban": "TR110013400002705354700001",
       "holder": "Levent Tanrıver"
     }
   }
