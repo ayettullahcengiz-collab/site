@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <circle cx="22" cy="23" r="20" fill="#26a17b"/>
+<text x="14" y="31" font-family="sans-serif" font-weight="900" font-size="22" fill="#ffffff">₮</text>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="13" font-weight="900" fill="#0284c7" letter-spacing="0.2">GARANTİ</text>
+        <text x="66" y="52" font-size="13" font-weight="900" fill="#111111" letter-spacing="0.2">KRİPTO</text>
+    </g>
+</svg>

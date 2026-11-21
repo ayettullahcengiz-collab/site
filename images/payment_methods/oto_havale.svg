@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <path d="M12 12c-6 6-6 16 0 22s16 6 22 0l-5-5c-3 3-9 3-12 0s-3-9 0-12 9-3 12 0l5-5c-6-6-16-6-22 0z" fill="#1677be"/>
+<path d="M32 12l-5 5c3 3 3 9 0 12s-9 3-12 0l-5 5c6 6 16 6 22 0s6-16 0-22z" fill="#0c4a75"/>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="15" font-weight="900" fill="#155a8e" letter-spacing="0.2">Oto</text>
+        <text x="66" y="52" font-size="14" font-weight="900" fill="#155a8e" letter-spacing="0.2">Havale</text>
+    </g>
+</svg>

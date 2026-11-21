@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 76" width="170" height="76">
+    <!-- White Pill Background -->
+    <rect x="2" y="3" width="166" height="70" rx="14" ry="14" fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.08))"/>
+    
+    <!-- Left Icon Group -->
+    <g transform="translate(14, 15)">
+        <path d="M38 4c-9 2-18 9-22 17l6 6c8-4 15-13 17-22z" fill="#0a6288"/>
+<path d="M12 25l-8 4 6 6-4 8 8-4 6 6 4-8-12-12z" fill="#0a4c6a"/>
+<circle cx="24" cy="18" r="3" fill="#ffffff"/>
+    </g>
+    
+    <!-- Method Name Typography -->
+    <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" >
+        <text x="66" y="35" font-size="14" font-weight="900" fill="#094966" letter-spacing="0.2">Roket</text>
+        <text x="66" y="52" font-size="14" font-weight="900" fill="#094966" letter-spacing="0.2">Havale</text>
+    </g>
+</svg>
