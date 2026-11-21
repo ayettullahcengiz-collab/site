@@ -12435,7 +12435,7 @@ html[dir="rtl"] .dg_horse_races .dg_horse_event_details_header > i, html[dir="rt
 
 .cw_icon_plus_21::before { content: ""; }
 
-.cw_icon_plus_18::before { content: ""; }
+.cw_icon_plus_18::before { content: none !important; display: none !important; }
 
 .cw_icon_envelope_v5::before { content: ""; }
 
@@ -13829,39 +13829,39 @@ ul.selector li { padding-left: 22px; }
 
 .footer_social-item:not(:last-of-type) { margin-inline-end: 10px; }
 
-.footer_social-item::before { font-family: iconsDinamicMenu; font-size: 48px; line-height: 1; }
+.footer_social-item::before { display: none !important; content: none !important; }
 
-.social__facebook-icon::before { content: ""; }
+.social__facebook-icon::before { display: none !important; content: none !important; }
 
-.social__instagram-icon::before { content: ""; }
+.social__instagram-icon::before { display: none !important; content: none !important; }
 
-.social__instagram1-icon::before { content: ""; }
+.social__instagram1-icon::before { display: none !important; content: none !important; }
 
-.social__linkedin-icon::before { content: ""; }
+.social__linkedin-icon::before { display: none !important; content: none !important; }
 
-.social__mail-icon::before { content: ""; }
+.social__mail-icon::before { display: none !important; content: none !important; }
 
-.social__pinterest-icon::before { content: ""; }
+.social__pinterest-icon::before { display: none !important; content: none !important; }
 
-.social__reddit-icon::before { content: ""; }
+.social__reddit-icon::before { display: none !important; content: none !important; }
 
-.social__telegram-icon::before { content: ""; }
+.social__telegram-icon::before { display: none !important; content: none !important; }
 
-.social__tikTok-icon::before { content: ""; }
+.social__tikTok-icon::before { display: none !important; content: none !important; }
 
-.social__tikTok2-icon::before { content: ""; }
+.social__tikTok2-icon::before { display: none !important; content: none !important; }
 
-.social__tumblr-icon::before { content: ""; }
+.social__tumblr-icon::before { display: none !important; content: none !important; }
 
-.social__twitch-icon::before { content: ""; }
+.social__twitch-icon::before { display: none !important; content: none !important; }
 
-.social__twitter-icon::before { content: ""; }
+.social__twitter-icon::before { display: none !important; content: none !important; }
 
-.social__twitter-icon2::before { content: ""; }
+.social__twitter-icon2::before { display: none !important; content: none !important; }
 
-.social__whatsApp-icon::before { content: ""; }
+.social__whatsApp-icon::before { display: none !important; content: none !important; }
 
-.social__whatsApp1-icon::before { content: ""; }
+.social__whatsApp1-icon::before { display: none !important; content: none !important; }
 
 .social__youtube1-icon::before { content: ""; }
 
