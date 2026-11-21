@@ -887,8 +887,151 @@
             margin-top: 8px;
         }
 
-        .bank-picker-custom-input.show {
+        /* CUSTOM BANK DROPDOWN (BUTONA BASINCA ALTA AÇILAN KÜÇÜK LOGO + YAZI LİSTESİ) */
+        .quick-bank-select-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .custom-bank-dropdown-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-bank-btn {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .custom-bank-btn:hover {
+            border-color: var(--accent-gold);
+            background: #0f172a;
+        }
+
+        .custom-bank-btn.active {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+        }
+
+        .custom-bank-btn-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow: hidden;
+        }
+
+        .custom-bank-small-logo {
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 2px;
+            object-fit: contain;
+            flex-shrink: 0;
             display: block;
+        }
+
+        .custom-bank-btn-label {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .custom-bank-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            right: 0;
+            background: #101726;
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
+            max-height: 270px;
+            overflow-y: auto;
+            z-index: 1200;
+            display: none;
+            padding: 4px;
+        }
+
+        .custom-bank-menu.open {
+            display: block;
+            animation: dropDownAnim 0.18s ease-out;
+        }
+
+        @keyframes dropDownAnim {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .custom-bank-menu::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-bank-menu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-bank-menu::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+
+        .custom-bank-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s;
+            user-select: none;
+        }
+
+        .custom-bank-item:hover {
+            background: #1e293b;
+        }
+
+        .custom-bank-item.selected {
+            background: rgba(245, 158, 11, 0.15);
+        }
+
+        .custom-bank-item.selected .custom-bank-item-name {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .custom-bank-item-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #f1f5f9;
+            white-space: nowrap;
+        }
+
+        .custom-bank-item-sub {
+            font-size: 10.5px;
+            color: #64748b;
+            margin-left: auto;
+            font-family: var(--font-mono);
+            white-space: nowrap;
         }
 
         /* DEFAULT BANK BADGE */
@@ -1148,7 +1291,24 @@
                     <div class="section-title">
                         Banka Hesapları & IBAN Listesi
                     </div>
-                    <div style="display:flex; gap:10px; align-items:center;">
+                    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                        <!-- Hızlı Banka Seç Butonu (Basınca altta küçük logo + yazı olarak açılır) -->
+                        <div class="quick-bank-select-box">
+                            <span style="font-size:12px; color:var(--text-muted); font-weight:600; white-space:nowrap;">Ödeme Bankası:</span>
+                            <div class="custom-bank-dropdown-wrapper" style="width:230px;" id="quickBankDropdownWrapper">
+                                <button type="button" class="custom-bank-btn" id="quickBankDropdownBtn" onclick="toggleQuickBankDropdown(event)" style="padding:7px 12px; font-size:12.5px;">
+                                    <div class="custom-bank-btn-left">
+                                        <img class="custom-bank-small-logo" id="quickBankBtnLogo" src="/img/banks/denizbank.svg" onerror="this.src='/favicon.ico'" alt="">
+                                        <span class="custom-bank-btn-label" id="quickBankBtnLabel">DenizBank</span>
+                                    </div>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                                </button>
+                                <div class="custom-bank-menu" id="quickBankDropdownMenu" style="width:270px;">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
                         <input type="text" id="bankSearch" class="search-input" placeholder="Banka veya IBAN ara..." oninput="filterBanks()">
                         <button class="btn-add" onclick="openAddBankModal()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1341,19 +1501,24 @@
             </div>
             <form onsubmit="submitAddBank(event)">
                 <div class="form-group">
-                    <label class="bank-picker-label">Banka Seçin</label>
-                    <div class="bank-picker-grid" id="addBankPickerGrid">
-                        <!-- Populated by JS -->
-                    </div>
-                    <div class="bank-picker-selected-info hidden" id="addBankSelectedInfo">
-                        <img id="addBankSelectedIcon" src="" alt="">
-                        <span id="addBankSelectedName">—</span>
+                    <label class="form-label">Banka Seçin</label>
+                    <div class="custom-bank-dropdown-wrapper" id="addBankDropdownWrapper">
+                        <button type="button" class="custom-bank-btn" id="addBankDropdownBtn" onclick="toggleAddBankDropdown(event)">
+                            <div class="custom-bank-btn-left">
+                                <img class="custom-bank-small-logo" id="addBankBtnLogo" src="/favicon.ico" style="display:none;" alt="">
+                                <span class="custom-bank-btn-label" id="addBankBtnLabel">Banka seçmek için tıklayın...</span>
+                            </div>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="custom-bank-menu" id="addBankDropdownMenu">
+                            <!-- Populated by JS: küçük logo + küçük yazı -->
+                        </div>
                     </div>
                     <div class="bank-picker-custom-toggle" onclick="toggleCustomBankInput()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        Listede olmayan bir banka ekle
+                        Listede olmayan farklı bir banka yaz
                     </div>
                     <div class="bank-picker-custom-input" id="customBankInputArea">
                         <input type="text" id="addBankIdCustom" class="form-control" placeholder="Banka kodu (örn: hsbc)" style="margin-bottom:8px;">
@@ -1581,6 +1746,7 @@
                 const sData = await settingsRes.json();
                 if (sData.success && sData.settings && sData.settings.default_bank) {
                     currentDefaultBank = sData.settings.default_bank;
+                    updateQuickBankButtonUI();
                 }
                 if (data.success) {
                     allBanks = data.banks || [];
@@ -1877,48 +2043,132 @@
             document.getElementById('addBankSetDefault').checked = false;
             document.getElementById('addBankApplyAll').checked = false;
 
+            // Reset dropdown button
+            const logo = document.getElementById('addBankBtnLogo');
+            const label = document.getElementById('addBankBtnLabel');
+            if (logo) logo.style.display = 'none';
+            if (label) label.textContent = 'Banka seçmek için tıklayın...';
+
             // Hide custom input
             document.getElementById('customBankInputArea').classList.remove('show');
             document.getElementById('addBankIdCustom').value = '';
             document.getElementById('addBankNameCustom').value = '';
 
-            // Hide selected info
-            document.getElementById('addBankSelectedInfo').classList.add('hidden');
-
-            // Build picker grid
-            const grid = document.getElementById('addBankPickerGrid');
-            grid.innerHTML = KNOWN_BANKS.map(bank => `
-                <div class="bank-picker-item" data-bank-id="${bank.id}" data-bank-name="${escapeHtml(bank.name)}" onclick="selectBankFromPicker(this, '${bank.id}', '${escapeHtml(bank.name)}')">
-                    <div class="bank-picker-icon">
-                        <img src="/img/banks/${bank.id}.svg" onerror="this.src='/favicon.ico'" alt="${escapeHtml(bank.name)}">
-                    </div>
-                    <div class="bank-picker-name">${escapeHtml(bank.name)}</div>
-                </div>
-            `).join('');
-
+            closeAllDropdowns();
             openModal('addBankModal');
         }
 
-        function selectBankFromPicker(el, bankId, bankName) {
-            // Remove previous selection
-            document.querySelectorAll('#addBankPickerGrid .bank-picker-item').forEach(item => item.classList.remove('selected'));
-            el.classList.add('selected');
+        function renderAddBankMenu() {
+            const menu = document.getElementById('addBankDropdownMenu');
+            if (!menu) return;
+            menu.innerHTML = KNOWN_BANKS.map(bank => {
+                const isSelected = (bank.id === selectedAddBankId);
+                return `
+                    <div class="custom-bank-item ${isSelected ? 'selected' : ''}" onclick="selectAddBank('${bank.id}', '${escapeHtml(bank.name)}')">
+                        <img class="custom-bank-small-logo" src="/img/banks/${bank.id}.svg" onerror="this.src='/favicon.ico'" alt="${escapeHtml(bank.name)}">
+                        <span class="custom-bank-item-name">${escapeHtml(bank.name)}</span>
+                        ${isSelected ? '<span class="custom-bank-item-sub" style="color:var(--accent-gold);">✓</span>' : ''}
+                    </div>
+                `;
+            }).join('');
+        }
 
+        function toggleAddBankDropdown(e) {
+            if (e) e.stopPropagation();
+            const menu = document.getElementById('addBankDropdownMenu');
+            const btn = document.getElementById('addBankDropdownBtn');
+            if (!menu) return;
+            const isOpen = menu.classList.contains('open');
+            closeAllDropdowns();
+            if (!isOpen) {
+                renderAddBankMenu();
+                menu.classList.add('open');
+                if (btn) btn.classList.add('active');
+            }
+        }
+
+        function selectAddBank(bankId, bankName) {
             selectedAddBankId = bankId;
             document.getElementById('addBankId').value = bankId;
             document.getElementById('addBankName').value = bankName;
 
-            // Show selected info
-            const info = document.getElementById('addBankSelectedInfo');
-            info.classList.remove('hidden');
-            document.getElementById('addBankSelectedIcon').src = `/img/banks/${bankId}.svg`;
-            document.getElementById('addBankSelectedName').textContent = `${bankName} (${bankId})`;
+            const logo = document.getElementById('addBankBtnLogo');
+            const label = document.getElementById('addBankBtnLabel');
+            if (logo) {
+                logo.src = `/img/banks/${bankId}.svg`;
+                logo.onerror = function() { this.src = '/favicon.ico'; };
+                logo.style.display = 'block';
+            }
+            if (label) {
+                label.textContent = `${bankName} (${bankId})`;
+            }
 
             // Hide custom input if open
             document.getElementById('customBankInputArea').classList.remove('show');
             document.getElementById('addBankIdCustom').value = '';
             document.getElementById('addBankNameCustom').value = '';
+
+            closeAllDropdowns();
         }
+
+        function renderQuickBankMenu() {
+            const menu = document.getElementById('quickBankDropdownMenu');
+            if (!menu) return;
+            menu.innerHTML = KNOWN_BANKS.map(bank => {
+                const isSelected = (bank.id === currentDefaultBank);
+                const registered = allBanks.find(x => x.bank_id === bank.id);
+                const subText = registered ? (registered.is_active ? '● Aktif' : '○ Pasif') : '';
+                return `
+                    <div class="custom-bank-item ${isSelected ? 'selected' : ''}" onclick="selectQuickBank('${bank.id}')">
+                        <img class="custom-bank-small-logo" src="/img/banks/${bank.id}.svg" onerror="this.src='/favicon.ico'" alt="${escapeHtml(bank.name)}">
+                        <span class="custom-bank-item-name">${escapeHtml(bank.name)}</span>
+                        <span class="custom-bank-item-sub" style="${isSelected ? 'color:var(--accent-gold);font-weight:700;' : ''}">${isSelected ? '✓ Seçili' : subText}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateQuickBankButtonUI() {
+            const btnLogo = document.getElementById('quickBankBtnLogo');
+            const btnLabel = document.getElementById('quickBankBtnLabel');
+            if (!btnLogo || !btnLabel) return;
+            const b = allBanks.find(x => x.bank_id === currentDefaultBank) || KNOWN_BANKS.find(x => x.id === currentDefaultBank);
+            const bName = b ? (b.bank_name || b.name) : currentDefaultBank;
+            btnLogo.src = `/img/banks/${currentDefaultBank}.svg`;
+            btnLogo.onerror = function() { this.src = '/favicon.ico'; };
+            btnLabel.textContent = bName;
+        }
+
+        function toggleQuickBankDropdown(e) {
+            if (e) e.stopPropagation();
+            const menu = document.getElementById('quickBankDropdownMenu');
+            const btn = document.getElementById('quickBankDropdownBtn');
+            if (!menu) return;
+            const isOpen = menu.classList.contains('open');
+            closeAllDropdowns();
+            if (!isOpen) {
+                renderQuickBankMenu();
+                menu.classList.add('open');
+                if (btn) btn.classList.add('active');
+            }
+        }
+
+        async function selectQuickBank(bankId) {
+            closeAllDropdowns();
+            await setDefaultBank(bankId);
+            updateQuickBankButtonUI();
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.custom-bank-menu').forEach(m => m.classList.remove('open'));
+            document.querySelectorAll('.custom-bank-btn').forEach(b => b.classList.remove('active'));
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.custom-bank-dropdown-wrapper')) {
+                closeAllDropdowns();
+            }
+        });
 
         function toggleCustomBankInput() {
             const area = document.getElementById('customBankInputArea');
@@ -1928,10 +2178,11 @@
                 area.classList.remove('show');
             } else {
                 area.classList.add('show');
-                // Deselect grid items
-                document.querySelectorAll('#addBankPickerGrid .bank-picker-item').forEach(item => item.classList.remove('selected'));
                 selectedAddBankId = null;
-                document.getElementById('addBankSelectedInfo').classList.add('hidden');
+                const logo = document.getElementById('addBankBtnLogo');
+                const label = document.getElementById('addBankBtnLabel');
+                if (logo) logo.style.display = 'none';
+                if (label) label.textContent = 'Özel Banka Tanımlanıyor...';
                 document.getElementById('addBankId').value = '';
                 document.getElementById('addBankName').value = '';
             }
@@ -2122,6 +2373,7 @@
                 if (data.success && data.settings) {
                     const s = data.settings;
                     currentDefaultBank = s.default_bank || 'denizbank';
+                    updateQuickBankButtonUI();
                     document.getElementById('settingDefaultHolder').value = s.default_holder || 'Levent Tanrıver';
                     document.getElementById('settingDefaultBank').value = s.default_bank || 'denizbank';
                     document.getElementById('settingCountdown').value = s.countdown_seconds || '280';
