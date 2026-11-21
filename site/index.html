@@ -316,6 +316,93 @@ body {
     user-select: none !important;
     -webkit-user-drag: none !important;
 }
+
+/* Promo Dikdörtgen Banner Şeridi (Hazine Avı, Telegram, Mobil App) */
+.banners_rectangleAd__wrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 6px 16px 16px 16px !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pan-y !important;
+    scroll-snap-type: x mandatory !important;
+}
+
+.banners_rectangleAd__wrapper::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.banners_rectangleAd {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    transform: none !important;
+    width: max-content !important;
+    gap: 12px !important;
+    transition: none !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.banners_rectangleAd .dynamicBanners_inner {
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.banners_rectangleAd .dynamicBanners_item {
+    width: 86vw !important;
+    max-width: 380px !important;
+    aspect-ratio: 1000 / 586 !important;
+    height: auto !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    display: block !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5) !important;
+    background: transparent !important;
+    margin: 0 !important;
+}
+
+.banners_rectangleAd .dynamicBanners_img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 14px !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+}
+
+@media (min-width: 769px) {
+    .banners_rectangleAd__wrapper {
+        overflow-x: visible !important;
+        scroll-snap-type: none !important;
+    }
+    .banners_rectangleAd {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 14px !important;
+        width: 100% !important;
+    }
+    .banners_rectangleAd .dynamicBanners_inner {
+        width: 100% !important;
+    }
+    .banners_rectangleAd .dynamicBanners_item {
+        width: 100% !important;
+        max-width: 100% !important;
+        aspect-ratio: 1000 / 586 !important;
+        height: auto !important;
+    }
+}
 </style>
 
 
@@ -2402,27 +2489,17 @@ body {
     });
 
     function triggerDockLogin() {
-        if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
-            if (typeof openDepositModal === 'function') {
-                openDepositModal();
-            } else if (typeof openMobDepositModal === 'function') {
-                openMobDepositModal();
-            } else if (typeof openMobLoginModal === 'function') {
-                openMobLoginModal();
-            }
+        if (typeof openMobLoginModal === 'function') {
+            openMobLoginModal();
         } else {
-            if (typeof openMobLoginModal === 'function') {
-                openMobLoginModal();
+            var m = document.getElementById('custom_login_modal');
+            if (m) {
+                m.style.display = 'flex';
+                var inp = document.getElementById('mob_login_username');
+                if (inp) setTimeout(function() { inp.focus(); }, 100);
             } else {
-                var m = document.getElementById('custom_login_modal');
-                if (m) {
-                    m.style.display = 'flex';
-                    var inp = document.getElementById('mob_login_username');
-                    if (inp) setTimeout(function() { inp.focus(); }, 100);
-                } else {
-                    var btn = document.getElementById('gpDockLogin') || document.querySelector('.loginDialog, .openLogin, #js_mob_sign_in');
-                    if (btn) btn.click();
-                }
+                var btn = document.getElementById('gpDockLogin') || document.querySelector('.loginDialog, .openLogin, #js_mob_sign_in');
+                if (btn) btn.click();
             }
         }
     }

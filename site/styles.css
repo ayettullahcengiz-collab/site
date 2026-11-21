@@ -18673,14 +18673,77 @@ html[data-theme="light"] .game__more_block { background: rgb(143, 143, 143); }
 
 .banners_billboardShort_slider .dynamicBanners_img { object-fit: cover; object-position: center top; z-index: -1; top: 0px; position: relative; }
 
-.banners_rectangleAd__wrapper { overflow-x: auto; padding: 0px 16px; -webkit-box-pack: start; justify-content: flex-start; }
+.banners_rectangleAd__wrapper {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 6px 16px 16px 16px !important;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-snap-type: x mandatory !important;
+  touch-action: pan-x pan-y !important;
+}
 
-.banners_rectangleAd { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 8px; }
+.banners_rectangleAd__wrapper::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
 
-.banners_rectangleAd .dynamicBanners_item { width: calc(-32px + 100vw); border-radius: 12px; display: block; height: calc(-3.7px + 51.0937vw); background-color: var(--dynbanners-rectangleAd-bg); overflow: hidden; }
+.banners_rectangleAd {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 12px !important;
+  width: max-content !important;
+}
 
-@media only screen and (min-width: 483px) {
-  .banners_rectangleAd .dynamicBanners_item { max-width: 450px; height: 250px; }
+.banners_rectangleAd .dynamicBanners_inner {
+  flex-shrink: 0 !important;
+  scroll-snap-align: start !important;
+}
+
+.banners_rectangleAd .dynamicBanners_item {
+  width: 86vw !important;
+  max-width: 380px !important;
+  aspect-ratio: 1000 / 586 !important;
+  height: auto !important;
+  border-radius: 14px !important;
+  display: block !important;
+  background-color: var(--dynbanners-rectangleAd-bg);
+  overflow: hidden !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5) !important;
+}
+
+.banners_rectangleAd .dynamicBanners_img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 14px !important;
+}
+
+@media only screen and (min-width: 769px) {
+  .banners_rectangleAd__wrapper {
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+  }
+  .banners_rectangleAd {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  .banners_rectangleAd .dynamicBanners_inner {
+    width: 100% !important;
+  }
+  .banners_rectangleAd .dynamicBanners_item {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 1000 / 586 !important;
+    height: auto !important;
+  }
 }
 
 .banners_thumbnail9_first, .banners_thumbnail9_second { padding: 0px 16px; }
