@@ -428,11 +428,14 @@ body.gp-is-logged-in .gp_user_header {
 
 /* Featured row */
 .gp_dep_featured_row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
     margin-bottom: 16px;
 }
 
 .gp_dep_featured_row .gp_dep_card {
-    width: calc((100% - (4 * 12px)) / 5);
+    width: 100%;
 }
 
 /* Grid for Havale/FAST */
@@ -489,6 +492,7 @@ body.gp-is-logged-in .gp_user_header {
     justify-content: space-between;
     align-items: center;
     font-size: 11.5px;
+    white-space: nowrap;
 }
 
 .gp_lbl {
@@ -844,6 +848,15 @@ body.gp-is-logged-in .gp_user_header {
     .gp_dep_grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
+    }
+    .gp_dep_featured_row {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        margin-bottom: 12px !important;
+    }
+    .gp_dep_featured_row .gp_dep_card {
+        width: 100% !important;
     }
     .gp_dep_card_logo_wrap {
         height: 52px !important;

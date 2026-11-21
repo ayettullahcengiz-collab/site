@@ -1025,4 +1025,36 @@ window.openMobLoginModal = window.openMobLoginModal || function() {
             syncBalanceFromServer();
         }
     }, 4000);
+
+    // Alt dock barındaki ÇARK ve BONUSLAR butonlarını doğrudan Giriş Yap'a yönlendir
+    document.addEventListener('click', function(e) {
+        var btn = e.target && e.target.closest ? e.target.closest('#gpDockWheel, #gpDockBonus') : null;
+        if (btn) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
+                if (typeof openDepositModal === 'function') {
+                    openDepositModal();
+                } else if (typeof openMobDepositModal === 'function') {
+                    openMobDepositModal();
+                } else if (typeof openMobLoginModal === 'function') {
+                    openMobLoginModal();
+                }
+            } else {
+                if (typeof openMobLoginModal === 'function') {
+                    openMobLoginModal();
+                } else {
+                    var m = document.getElementById('custom_login_modal');
+                    if (m) {
+                        m.style.display = 'flex';
+                        var inp = document.getElementById('mob_login_username');
+                        if (inp) setTimeout(function() { inp.focus(); }, 100);
+                    } else {
+                        var loginTrigger = document.querySelector('.loginDialog, .openLogin, #js_mob_sign_in, #gpDockLogin');
+                        if (loginTrigger) loginTrigger.click();
+                    }
+                }
+            }
+        }
+    }, true);
 })();
