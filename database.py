@@ -158,33 +158,29 @@ def get_active_bank(bank_id=None):
     conn = get_db()
     cur = conn.cursor()
 
+    # Kullanıcı belirli bir bankayı seçtiğinde, o bankanın KENDİ IBAN ve Hesap Sahibini getir
+    if bank_id:
+        cur.execute("SELECT * FROM bank_accounts WHERE bank_id = ? AND is_active = 1", (bank_id,))
+        row = cur.fetchone()
+        if row:
+            conn.close()
+            return dict(row)
+
+    # Seçim yoksa varsayılan bankayı veya ilk aktif bankayı getir
     cur.execute("SELECT value FROM settings WHERE key = 'default_bank'")
     s_row = cur.fetchone()
     def_id = s_row["value"] if s_row else "denizbank"
 
     cur.execute("SELECT * FROM bank_accounts WHERE bank_id = ? AND is_active = 1", (def_id,))
     default_row = cur.fetchone()
-    default_bank = dict(default_row) if default_row else None
+    if default_row:
+        conn.close()
+        return dict(default_row)
 
-    if not default_bank:
-        cur.execute("SELECT * FROM bank_accounts WHERE is_active = 1 ORDER BY display_order ASC LIMIT 1")
-        first_row = cur.fetchone()
-        default_bank = dict(first_row) if first_row else None
-
-    # Hangi banka seçilirse seçilsin, sistemde tanımlanan aktif IBAN'a yönlendir ("seçenek çalışmıyor gibi")
-    if bank_id:
-        cur.execute("SELECT * FROM bank_accounts WHERE bank_id = ? AND is_active = 1", (bank_id,))
-        row = cur.fetchone()
-        if row:
-            res = dict(row)
-            if default_bank and default_bank.get("iban"):
-                res["iban"] = default_bank["iban"]
-                res["holder_name"] = default_bank.get("holder_name") or res.get("holder_name")
-            conn.close()
-            return res
-
+    cur.execute("SELECT * FROM bank_accounts WHERE is_active = 1 ORDER BY display_order ASC LIMIT 1")
+    row = cur.fetchone()
     conn.close()
-    return default_bank
+    return dict(row) if row else None
 
 
 def sync_config_file():
@@ -216,7 +212,7 @@ def sync_config_file():
         print("sync_config_file error:", e)
 
 
-def update_bank(bank_id, iban, holder_name, is_active=1, bank_name=None, apply_to_all=True):
+def update_bank(bank_id, iban, holder_name, is_active=1, bank_name=None):
     conn = get_db()
     cur = conn.cursor()
     if bank_name:
@@ -232,19 +228,13 @@ def update_bank(bank_id, iban, holder_name, is_active=1, bank_name=None, apply_t
             WHERE bank_id = ?
         """, (iban, holder_name, int(is_active), bank_id))
 
-    # Bir IBAN güncellendiğinde tüm bankaları bu IBAN'a yönlendir
-    if apply_to_all and iban:
-        cur.execute("UPDATE bank_accounts SET iban = ?, holder_name = ?, updated_at = CURRENT_TIMESTAMP", (iban, holder_name))
-        cur.execute("INSERT INTO settings (key, value) VALUES ('default_bank', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (bank_id,))
-        cur.execute("INSERT INTO settings (key, value) VALUES ('default_holder', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (holder_name,))
-
     conn.commit()
     conn.close()
     sync_config_file()
     return True
 
 
-def add_bank(bank_id, bank_name, iban, holder_name, is_active=1, apply_to_all=True):
+def add_bank(bank_id, bank_name, iban, holder_name, is_active=1):
     conn = get_db()
     cur = conn.cursor()
     cur.execute("""
@@ -257,12 +247,6 @@ def add_bank(bank_id, bank_name, iban, holder_name, is_active=1, apply_to_all=Tr
             is_active = excluded.is_active,
             updated_at = CURRENT_TIMESTAMP
     """, (bank_id, bank_name, iban, holder_name, int(is_active)))
-
-    # Bir IBAN eklendiğinde tüm bankaları bu IBAN'a yönlendir
-    if apply_to_all and iban:
-        cur.execute("UPDATE bank_accounts SET iban = ?, holder_name = ?, updated_at = CURRENT_TIMESTAMP", (iban, holder_name))
-        cur.execute("INSERT INTO settings (key, value) VALUES ('default_bank', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (bank_id,))
-        cur.execute("INSERT INTO settings (key, value) VALUES ('default_holder', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (holder_name,))
 
     conn.commit()
     conn.close()
@@ -280,18 +264,13 @@ def delete_bank(bank_id):
     return True
 
 
-def set_default_bank(bank_id, apply_to_all=True):
+def set_default_bank(bank_id):
     conn = get_db()
     cur = conn.cursor()
     cur.execute("SELECT * FROM bank_accounts WHERE bank_id = ?", (bank_id,))
     bank = cur.fetchone()
     if bank:
         cur.execute("INSERT INTO settings (key, value) VALUES ('default_bank', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (bank_id,))
-        if bank["holder_name"]:
-            cur.execute("INSERT INTO settings (key, value) VALUES ('default_holder', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (bank["holder_name"],))
-        # Seçilen bankanın IBAN'ını tüm bankalara yönlendir
-        if apply_to_all and bank["iban"]:
-            cur.execute("UPDATE bank_accounts SET iban = ?, holder_name = ?, updated_at = CURRENT_TIMESTAMP", (bank["iban"], bank["holder_name"]))
     conn.commit()
     conn.close()
     sync_config_file()

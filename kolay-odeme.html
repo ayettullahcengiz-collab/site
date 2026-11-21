@@ -655,15 +655,20 @@
             }
 
             if (_cachedBankConfig) {
+                if (_cachedBankConfig.banks && _cachedBankConfig.banks[bankId]) {
+                    const b = _cachedBankConfig.banks[bankId];
+                    return {
+                        bank: bankId,
+                        iban: typeof b === 'object' ? b.iban : b,
+                        holder: (typeof b === 'object' && b.holder) ? b.holder : (_cachedBankConfig.accountHolder || '')
+                    };
+                }
                 const defBank = _cachedBankConfig.defaultBank || 'denizbank';
                 const defObj = (_cachedBankConfig.banks && _cachedBankConfig.banks[defBank]) || {};
-                const activeIban = (typeof defObj === 'object' ? defObj.iban : defObj) || '';
-                const activeHolder = (typeof defObj === 'object' && defObj.holder) ? defObj.holder : (_cachedBankConfig.accountHolder || '');
-
                 return {
                     bank: bankId || defBank,
-                    iban: activeIban,
-                    holder: activeHolder
+                    iban: (typeof defObj === 'object' ? defObj.iban : defObj) || '',
+                    holder: (typeof defObj === 'object' && defObj.holder) ? defObj.holder : (_cachedBankConfig.accountHolder || '')
                 };
             }
 
