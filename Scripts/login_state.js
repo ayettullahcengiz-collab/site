@@ -1314,7 +1314,7 @@ window.openMobLoginModal = window.openMobLoginModal || function() {
 
     // Alt dock barındaki ÇARK ve BONUSLAR butonlarını her zaman doğrudan Giriş Yap'a yönlendir
     document.addEventListener('click', function(e) {
-        var btn = e.target && e.target.closest ? e.target.closest('#gpDockWheel, #gpDockBonus') : null;
+        var btn = e.target && e.target.closest ? e.target.closest('#gpDockWheel') : null;
         if (btn) {
             e.preventDefault();
             e.stopPropagation();
@@ -1343,18 +1343,8 @@ window.handleDockBonusClick = function(e) {
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
     }
-    var isLogged = sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1';
-    if (isLogged) {
-        if (typeof openBonusModal === 'function') {
-            openBonusModal();
-        }
-    } else {
-        if (typeof openMobLoginModal === 'function') {
-            openMobLoginModal();
-        } else {
-            var btn = document.querySelector('.loginDialog, .openLogin, #js_mob_sign_in');
-            if (btn) btn.click();
-        }
+    if (typeof openBonusModal === 'function') {
+        openBonusModal();
     }
     return false;
 };
