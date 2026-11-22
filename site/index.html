@@ -3128,52 +3128,52 @@ function gpFilterTab(cat, btn) {
 </script>
 
 
-<!-- Orijinal GrandPashabet Mobil Giris Yap Popupu -->
-<div id="custom_login_modal" onclick="if(event.target === this) closeMobLoginModal();" style="display: none; position: fixed; inset: 0; z-index: 999999; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 16px; -webkit-tap-highlight-color: transparent;">
-    <div style="background: linear-gradient(180deg, #182210 0%, #0d1308 100%); border: 1px solid #3d4f24; border-radius: 16px; width: 100%; max-width: 380px; padding: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.7); position: relative; display: flex; flex-direction: column; gap: 16px;">
-        <!-- Kapat Butonu -->
-        <button type="button" id="close_login_modal" onclick="closeMobLoginModal(); return false;" title="Kapat" style="position: absolute; right: 12px; top: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; color: #d4d4d8; font-size: 20px; cursor: pointer; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10; touch-action: manipulation; padding: 0;">✕</button>
-
-        <!-- Baslik & Logo -->
-        <div style="text-align: center; margin-bottom: 6px;">
-            <img src="images/grandpashabet_login_logo.png" alt="GrandPashabet" style="height: 44px; width: auto; max-width: 220px; object-fit: contain; margin: 0 auto 8px; display: block; image-rendering: -webkit-optimize-contrast;">
-            <div style="color: #ffffff; font-size: 17px; font-weight: 800;">Kullanıcı Girişi</div>
-            <div style="color: #85994b; font-size: 11px; margin-top: 2px;">Hesabınıza giriş yaparak devam edin</div>
+<!-- custom_login_modal (Birebir GrandPashabet Üye Girişi Ekranı) -->
+<div id="custom_login_modal" style="display: none; position: fixed; inset: 0; z-index: 2147483000; background: #172207; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 18px 16px 90px 16px; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', sans-serif;">
+    <div style="width: 100%; max-width: 420px; margin: 0 auto; display: flex; flex-direction: column;">
+        <!-- 1. Header: Üye Girişi & Kapat Butonu -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px;">
+            <span style="font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">Üye Girişi</span>
+            <button type="button" id="close_login_modal" onclick="closeMobLoginModal(); return false;" title="Kapat" style="background: none; border: none; color: #a4b58c; font-size: 20px; cursor: pointer; padding: 4px; line-height: 1; display: flex; align-items: center; justify-content: center;">✕</button>
         </div>
 
-        <!-- Form Alanlari -->
-        <form id="mob_login_form" onsubmit="event.preventDefault(); handleMobileLoginSubmit();" style="display: flex; flex-direction: column; gap: 12px; margin: 0;">
-            <div>
-                <label style="display: block; color: #d4d4d8; font-size: 12px; font-weight: 700; margin-bottom: 6px;">Kullanıcı Adı veya E-posta</label>
-                <input type="text" id="mob_login_username" name="username" placeholder="Kullanıcı adınızı girin" required style="width: 100%; box-sizing: border-box; background: #0c1106; border: 1px solid #283515; border-radius: 8px; padding: 10px 14px; color: #ffffff; font-size: 13px; outline: none;">
-            </div>
-            <div>
-                <label style="display: block; color: #d4d4d8; font-size: 12px; font-weight: 700; margin-bottom: 6px;">Şifre</label>
-                <input type="password" id="mob_login_password" name="password" placeholder="Şifrenizi girin" required style="width: 100%; box-sizing: border-box; background: #0c1106; border: 1px solid #283515; border-radius: 8px; padding: 10px 14px; color: #ffffff; font-size: 13px; outline: none;">
+        <!-- 2. Giriş Formu -->
+        <form id="mob_login_form" onsubmit="event.preventDefault(); handleMobileLoginSubmit();" style="display: flex; flex-direction: column; gap: 14px; margin: 0;">
+            <!-- Kullanıcı Adı / E-mail / Cep numarası -->
+            <div style="position: relative;">
+                <input type="text" id="mob_login_username" name="username" placeholder="Kullanıcı adı / E-mail / Cep numarası" required style="width: 100%; height: 48px; box-sizing: border-box; background: #111805; border: 1px solid #28370d; border-radius: 10px; padding: 0 16px; color: #ffffff; font-size: 13.5px; outline: none; transition: border-color 0.2s ease;">
             </div>
 
-            <!-- Hata mesaji alani -->
-            <div id="mob_login_error" style="display: none; color: #ef4444; font-size: 12px; font-weight: 700; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; padding: 8px; text-align: center;"></div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
-                <label style="color: #a1a1aa; display: flex; align-items: center; gap: 4px; cursor: pointer;">
-                    <input type="checkbox" checked style="accent-color: #87a805;"> Beni Hatırla
-                </label>
-                <a href="#sifremi-unuttum" onclick="alert('Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.');return false;" style="color: #f6c343; text-decoration: none; font-weight: 600;">Şifremi Unuttum</a>
+            <!-- Şifre & Göster/Gizle Butonu -->
+            <div style="position: relative;">
+                <input type="password" id="mob_login_password" name="password" placeholder="Şifre" required style="width: 100%; height: 48px; box-sizing: border-box; background: #111805; border: 1px solid #28370d; border-radius: 10px; padding: 0 44px 0 16px; color: #ffffff; font-size: 13.5px; outline: none; transition: border-color 0.2s ease;">
+                <button type="button" onclick="togglePasswordVisibility()" title="Şifreyi Göster/Gizle" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #7e9162; cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center;">
+                    <svg id="eye_icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
             </div>
 
-            <!-- Giris Butonu -->
-            <button type="button" id="mob_login_btn" onclick="handleMobileLoginSubmit(); return false;" style="background: linear-gradient(180deg, #87a805 0%, #445401 100%); color: #ffffff; border: 1px solid #a3cc06; border-radius: 8px; padding: 12px; font-size: 14px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 12px rgba(135,168,5,0.4); text-transform: uppercase; margin-top: 4px; width: 100%;">
-                GİRİŞ YAP
-            </button>
+            <!-- Hata Mesajı -->
+            <div id="mob_login_error" style="display: none; color: #ff5252; font-size: 12px; text-align: center; font-weight: 600;"></div>
+
+            <!-- GİRİŞ YAP Butonu (Sarı/Turuncu - Birebir Screenshot) -->
+            <button type="submit" id="mob_login_btn" style="width: 100%; height: 48px; background: #e89218; border: none; border-radius: 10px; color: #121904; font-size: 14.5px; font-weight: 800; letter-spacing: 0.6px; cursor: pointer; box-shadow: 0 4px 14px rgba(232, 146, 24, 0.35); transition: filter 0.15s ease;">GİRİŞ YAP</button>
+
+            <!-- Şifrenizi mi unuttunuz? -->
+            <div style="text-align: center; margin-top: 6px;">
+                <a href="javascript:void(0)" onclick="alert('Şifre sıfırlama bağlantısı için lütfen canlı destek ile iletişime geçiniz.');" style="color: #c2cfab; font-size: 13px; text-decoration: none; font-weight: 500;">Şifrenizi mi unuttunuz?</a>
+            </div>
         </form>
 
-        <!-- Kayit Ol Yonlendirme -->
-        <div style="text-align: center; font-size: 12px; color: #a1a1aa; margin-top: 2px;">
-            Hesabınız yok mu? <a href="#kayit-ol" onclick="var u=document.getElementById('mob_login_username');if(u)u.focus();return false;" style="color: #f6c343; font-weight: 700; text-decoration: none;">Hemen Kayıt Ol</a>
+        <!-- 3. Telegram Kanalı Banner Kartı (Birebir Screenshot) -->
+        <div onclick="window.open('https://t.me/grandpashabetresmi', '_blank');" style="margin-top: 20px; border-radius: 16px; overflow: hidden; border: 1px solid #2f400f; box-shadow: 0 4px 20px rgba(0,0,0,0.5); cursor: pointer; background: #131c05;">
+            <img src="images/login_telegram_banner.png" alt="GrandPashabet Telegram Kanalı" onerror="this.src='../images/login_telegram_banner.png'" style="width: 100%; height: auto; display: block; object-fit: cover;">
         </div>
     </div>
 </div>
+
 
 
 <!-- ======================================================== -->
@@ -6835,6 +6835,27 @@ function handleMobileLoginSubmit() {
         initStoryScroll();
     }
 })();
+</script>
+
+
+<script>
+function togglePasswordVisibility() {
+    var inp = document.getElementById('mob_login_password');
+    var icon = document.getElementById('eye_icon');
+    if (!inp) return;
+    if (inp.type === 'password') {
+        inp.type = 'text';
+        if (icon) {
+            icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+        }
+    } else {
+        inp.type = 'password';
+        if (icon) {
+            icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+        }
+    }
+}
+window.togglePasswordVisibility = togglePasswordVisibility;
 </script>
 
 </body></html>
