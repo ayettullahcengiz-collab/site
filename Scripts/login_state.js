@@ -194,6 +194,29 @@ function showLoggedInHeader(username, balance) {
 }
 
 // Dock bar giriş/profil durumunu güncelle
+
+window.handleDockProfileClick = function(e) {
+    if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+    }
+    var isLogged = sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1';
+    if (isLogged) {
+        if (typeof openProfileModal === 'function') {
+            openProfileModal();
+        }
+    } else {
+        if (typeof openMobLoginModal === 'function') {
+            openMobLoginModal();
+        } else {
+            var btn = document.querySelector('.loginDialog, .openLogin, #js_mob_sign_in');
+            if (btn) btn.click();
+        }
+    }
+    return false;
+};
+
+// Dock bar giriş/profil durumunu güncelle
 function updateDockLoginState(isLoggedIn) {
     var dockLogin = document.getElementById('gpDockLogin');
     if (!dockLogin) return;
@@ -201,20 +224,13 @@ function updateDockLoginState(isLoggedIn) {
         dockLogin.innerHTML = '' +
             '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' +
             '<span>PROFİL</span>';
-        dockLogin.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openProfileModal();
-        };
+        dockLogin.onclick = window.handleDockProfileClick;
     } else {
         dockLogin.innerHTML = '' +
             '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>' +
             '<span>GİRİŞ</span>';
-        dockLogin.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (typeof openMobLoginModal === 'function') openMobLoginModal();
-        };
+        dockLogin.onclick = window.handleDockProfileClick;
+        dockLogin.classList.remove('gp-dock-item-active');
     }
 }
 
@@ -880,10 +896,19 @@ function openMailModal() {
     }
 }
 
-function openProfileModal() {
+var _lastProfileToggleTime = 0;
+
+function openProfileModal(force) {
+    var now = Date.now();
+    if (!force && (now - _lastProfileToggleTime < 450)) {
+        return;
+    }
+    _lastProfileToggleTime = now;
+
     var existing = document.getElementById('gp_profile_view');
     if (existing) {
-        existing.remove();
+        if (force === true) return;
+        closeProfileModal();
         return;
     }
 
@@ -904,7 +929,7 @@ function openProfileModal() {
                 '<div class="gp_prof_id_wrap">' +
                     '<span class="gp_prof_id_label">ID:</span>' +
                     '<span class="gp_prof_id_val">' + userId + '</span>' +
-                    '<button type="button" class="gp_prof_copy_btn" onclick="gpCopyId(\'' + userId + '\')" title="Kopyala">' +
+                    '<button type="button" class="gp_prof_copy_btn" onclick="gpCopyId(\'' + userId + '\');return false;" title="Kopyala">' +
                         '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8f9f6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
                             '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>' +
                             '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>' +
@@ -912,7 +937,6 @@ function openProfileModal() {
                     '</button>' +
                 '</div>' +
             '</div>' +
-            '<button type="button" class="gp_prof_close_btn" onclick="closeProfileModal()">&times;</button>' +
         '</div>' +
 
         '<!-- 2. Balance Card -->' +
@@ -933,12 +957,12 @@ function openProfileModal() {
 
         '<!-- 3. Dual Action Buttons -->' +
         '<div class="gp_prof_actions_row">' +
-            '<button type="button" class="gp_prof_btn_withdraw" onclick="closeProfileModal();openWithdrawModal();">PARA ÇEKME</button>' +
-            '<button type="button" class="gp_prof_btn_deposit" onclick="closeProfileModal();openDepositModal();">PARA YATIRMA</button>' +
+            '<button type="button" class="gp_prof_btn_withdraw" onclick="closeProfileModal();openWithdrawModal();return false;">PARA ÇEKME</button>' +
+            '<button type="button" class="gp_prof_btn_deposit" onclick="closeProfileModal();openDepositModal();return false;">PARA YATIRMA</button>' +
         '</div>' +
 
         '<!-- 4. Kayıp Bonusu Button -->' +
-        '<button type="button" class="gp_prof_kayip_btn" onclick="alert(\'Kayıp bonusu talebiniz kontrol ediliyor...\');">' +
+        '<button type="button" class="gp_prof_kayip_btn" onclick="alert(\'Kayıp bonusu talebiniz kontrol ediliyor...\');return false;">' +
             '<svg width="18" height="18" viewBox="0 0 24 24" fill="#d4b465"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>' +
             '<span>KAYIP BONUSU</span>' +
         '</button>' +
@@ -986,8 +1010,8 @@ function openProfileModal() {
             '</div>' +
             '<div id="prof_sub_odemeler" class="gp_prof_accordion_body" style="display:none;">' +
                 '<div class="gp_prof_sub_inner">' +
-                    '<button type="button" class="gp_prof_sub_btn" onclick="closeProfileModal();openDepositModal();">Para Yatırma Talebi Aç</button>' +
-                    '<button type="button" class="gp_prof_sub_btn" onclick="closeProfileModal();openWithdrawModal();">Para Çekme Talebi Aç</button>' +
+                    '<button type="button" class="gp_prof_sub_btn" onclick="closeProfileModal();openDepositModal();return false;">Para Yatırma Talebi Aç</button>' +
+                    '<button type="button" class="gp_prof_sub_btn" onclick="closeProfileModal();openWithdrawModal();return false;">Para Çekme Talebi Aç</button>' +
                 '</div>' +
             '</div>' +
 
@@ -1103,14 +1127,32 @@ function openProfileModal() {
                     '<span class="gp_prof_item_title" style="color:#e04848;">ÇIKIŞ</span>' +
                 '</div>' +
             '</div>' +
+        '</div>' +
+
+        '<!-- 6. Floating Canlı Destek Button -->' +
+        '<div class="gp_prof_floating_livechat" onclick="if(typeof openLiveSupport===\'function\'){openLiveSupport();}else{alert(\'Canlı Destek başlatılıyor...\');}">' +
+            '<div class="gp_livechat_circle">' +
+                '<svg viewBox="0 0 24 24" width="28" height="28" fill="#d4b465"><path d="M12 2a9 9 0 0 0-9 9c0 2.22.81 4.25 2.15 5.82L4 21l4.35-1.11A8.93 8.93 0 0 0 12 20a9 9 0 0 0 9-9 9 9 0 0 0-9-9zm0 16a6.97 6.97 0 0 1-3.56-.98l-.25-.15-2.6.66.68-2.52-.16-.26A6.97 6.97 0 0 1 5 11a7 7 0 1 1 7 7z"/><circle cx="9" cy="11" r="1.2" fill="#d4b465"/><circle cx="12" cy="11" r="1.2" fill="#d4b465"/><circle cx="15" cy="11" r="1.2" fill="#d4b465"/></svg>' +
+            '</div>' +
+            '<div class="gp_livechat_badge">CANLI DESTEK</div>' +
         '</div>';
 
     document.body.appendChild(view);
+
+    var dockLogin = document.getElementById('gpDockLogin');
+    if (dockLogin) {
+        dockLogin.classList.add('gp-dock-item-active');
+    }
 }
 
 function closeProfileModal() {
+    _lastProfileToggleTime = Date.now();
     var view = document.getElementById('gp_profile_view');
     if (view) view.remove();
+    var dockLogin = document.getElementById('gpDockLogin');
+    if (dockLogin) {
+        dockLogin.classList.remove('gp-dock-item-active');
+    }
 }
 
 function gpToggleAccordion(id) {
@@ -1123,9 +1165,11 @@ function gpCopyId(id) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(id).then(function() {
             alert('ID ' + id + ' kopyalandı!');
+        }).catch(function() {
+            prompt('Kopyalayınız:', id);
         });
     } else {
-        alert('ID: ' + id);
+        prompt('Kopyalayınız:', id);
     }
 }
 

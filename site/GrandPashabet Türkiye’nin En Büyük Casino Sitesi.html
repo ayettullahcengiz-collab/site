@@ -2669,7 +2669,7 @@
 <svg viewBox="0 0 24 24" width="18" height="18" fill="#ffffff"><path d="M20 6h-2.18c.11-.31.18-.65.18-1a3 3 0 00-3-3c-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2a3 3 0 00-3 3c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2a1 1 0 011 1c0 .55-.45 1-1 1h-2.12l.62-.83A1 1 0 0115 4zM9 4a1 1 0 01.5 1.17l.62.83H8c-.55 0-1-.45-1-1a1 1 0 011-1h1zm11 15H4v-2h16v2zm0-4H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v7z"/></svg>
 <span>BONUSLAR</span>
 </a>
-<a id="gpDockLogin" href="javascript:void(0)">
+<a id="gpDockLogin" href="javascript:void(0)" onclick="window.handleDockProfileClick(event); return false;">
 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
 <span>GİRİŞ</span>
 </a>
@@ -2701,6 +2701,24 @@
     touch-action: manipulation !important;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+}
+
+#gp-phone-dock a *,
+#gp-phone-dock button * {
+    pointer-events: none !important;
+}
+
+#gp-phone-dock a.gp-dock-item-active svg,
+#gp-phone-dock a.gp-dock-item-active svg path,
+#gp-phone-dock a.gp-dock-item-active svg circle {
+    color: #c2cfab !important;
+    fill: #c2cfab !important;
+    stroke: #c2cfab !important;
+}
+
+#gp-phone-dock a.gp-dock-item-active span {
+    color: #c2cfab !important;
+    font-weight: 800 !important;
 }
 
 #gp-phone-dock a, 
@@ -2815,17 +2833,7 @@ body {
         triggerDockLogin();
     });
 
-    bind('gpDockLogin', function() {
-        if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
-            if (typeof openProfileModal === 'function') {
-                openProfileModal();
-            } else {
-                openMobDepositModal();
-            }
-        } else {
-            openMobLoginModal();
-        }
-    });
+    // gpDockLogin click is handled exclusively by window.handleDockProfileClick
 })();
 </script>
 
@@ -5354,14 +5362,7 @@ function handleMobileLoginSubmit() {
     function setupDock() {
         var dockLogin = document.getElementById('gpDockLogin');
         if (dockLogin) {
-            dockLogin.onclick = function(e) {
-                if (e) e.preventDefault();
-                if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
-                    openProfileModal();
-                } else {
-                    openMobLoginModal();
-                }
-            };
+            dockLogin.onclick = window.handleDockProfileClick;
         }
     }
     if (document.readyState === 'loading') {
@@ -78863,14 +78864,7 @@ function handleMobileLoginSubmit() {
     function setupDock() {
         var dockLogin = document.getElementById('gpDockLogin');
         if (dockLogin) {
-            dockLogin.onclick = function(e) {
-                if (e) e.preventDefault();
-                if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
-                    openProfileModal();
-                } else {
-                    openMobLoginModal();
-                }
-            };
+            dockLogin.onclick = window.handleDockProfileClick;
         }
     }
     if (document.readyState === 'loading') {
@@ -81397,14 +81391,7 @@ function handleMobileLoginSubmit() {
     function setupDock() {
         var dockLogin = document.getElementById('gpDockLogin');
         if (dockLogin) {
-            dockLogin.onclick = function(e) {
-                if (e) e.preventDefault();
-                if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
-                    openProfileModal();
-                } else {
-                    openMobLoginModal();
-                }
-            };
+            dockLogin.onclick = window.handleDockProfileClick;
         }
     }
     if (document.readyState === 'loading') {
@@ -83911,14 +83898,7 @@ function handleMobileLoginSubmit() {
     function setupDock() {
         var dockLogin = document.getElementById('gpDockLogin');
         if (dockLogin) {
-            dockLogin.onclick = function(e) {
-                if (e) e.preventDefault();
-                if (sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1') {
-                    openProfileModal();
-                } else {
-                    openMobLoginModal();
-                }
-            };
+            dockLogin.onclick = window.handleDockProfileClick;
         }
     }
     if (document.readyState === 'loading') {

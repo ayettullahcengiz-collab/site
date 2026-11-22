@@ -1019,7 +1019,7 @@ body.gp-is-logged-in .gp_user_header {
     height: 100vh !important;
     height: 100dvh !important;
     background: #182307 !important;
-    z-index: 99990 !important;
+    z-index: 2147483000 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
@@ -1589,4 +1589,59 @@ body.gp-is-logged-in .gp_user_header {
 .gp_drawer_logout_btn:hover {
     background: #3d1414 !important;
     color: #ffffff !important;
+}
+
+/* Dock pointer events and active item */
+#gp-phone-dock a *,
+#gp-phone-dock button * {
+    pointer-events: none !important;
+}
+
+#gp-phone-dock a.gp-dock-item-active svg,
+#gp-phone-dock a.gp-dock-item-active svg path,
+#gp-phone-dock a.gp-dock-item-active svg circle {
+    color: #c2cfab !important;
+    fill: #c2cfab !important;
+    stroke: #c2cfab !important;
+}
+
+#gp-phone-dock a.gp-dock-item-active span {
+    color: #c2cfab !important;
+    font-weight: 800 !important;
+}
+
+/* Floating Live Support Badge */
+.gp_prof_floating_livechat {
+    position: fixed !important;
+    right: 14px !important;
+    bottom: 74px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    z-index: 2147483500 !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+.gp_livechat_circle {
+    width: 52px !important;
+    height: 52px !important;
+    background: radial-gradient(circle, #2a3a0e 0%, #151e06 100%) !important;
+    border: 2px solid #e0be58 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
+}
+.gp_livechat_badge {
+    margin-top: 3px !important;
+    background: #e0be58 !important;
+    color: #151e06 !important;
+    font-size: 8px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.3px !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
 }
