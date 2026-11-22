@@ -2497,6 +2497,104 @@ body.gp-is-logged-in .gp_user_header {
     display: flex !important;
 }
 
+/* ========================================================
+   YENİ TEK PARÇALI ID + BAKİYE + PARA YATIRMA CÜZDAN PİLL
+   ======================================================== */
+.gp_balance_deposit_pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #182208 !important;
+    border: 1px solid #334313 !important;
+    border-radius: 20px !important;
+    height: 38px !important;
+    padding: 3px 4px 3px 8px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45) !important;
+    text-decoration: none !important;
+    gap: 7px !important;
+    transition: filter 0.15s ease, border-color 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.gp_balance_deposit_pill:hover {
+    filter: brightness(1.08) !important;
+    border-color: #4a611c !important;
+}
+
+.gp_pill_left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+}
+
+.gp_pill_left .gp_flag_icon {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}
+
+.gp_pill_info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    line-height: 1.15 !important;
+    text-align: right !important;
+}
+
+.gp_pill_id {
+    font-size: 10px !important;
+    color: #8f9f6e !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance .gp_balance_val {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+}
+
+.gp_pill_balance .gp_balance_cur {
+    color: #d6b865 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    margin-left: 3px !important;
+}
+
+.gp_pill_wallet_btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: #c5a350 !important;
+    border-radius: 7px !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    transition: filter 0.15s ease !important;
+}
+
+.gp_pill_wallet_btn:hover {
+    filter: brightness(1.15) !important;
+}
+
 /* 1. Segmented Balance + Deposit Pill */
 .gp_balance_deposit_group {
     display: inline-flex !important;
@@ -3460,6 +3558,10 @@ function showLoggedInHeader(username, balance) {
         setBalance(0.00, username);
     }
 
+    if (typeof syncBalanceFromServer === 'function') {
+        syncBalanceFromServer(username);
+    }
+
     var bal = getBalance(username).toFixed(2);
     var userId = getUserId(username);
 
@@ -3488,73 +3590,68 @@ function showLoggedInHeader(username, balance) {
     }
     if (!rightContainer) return;
 
-    // Header varsa bakiye, kullanıcı adı ve ID'yi güncelle
+    // Header varsa bakiye ve ID'yi güncelle
     var existingHeader = document.querySelector('.gp_user_header');
     if (existingHeader) {
         var balEl = existingHeader.querySelector('#js_user_balance');
         if (balEl) balEl.textContent = bal;
-        var nameEl = existingHeader.querySelector('.gp_username');
-        if (nameEl) nameEl.textContent = username;
-        var profileIdEl = existingHeader.querySelector('.gp_profile_id_text');
-        if (profileIdEl) profileIdEl.textContent = 'Profilim ID ' + userId;
+        var idEl = existingHeader.querySelector('.gp_profile_id_val');
+        if (idEl) idEl.textContent = userId;
         return;
     }
 
-    // Yeni header ve açılır menü
+    // Yeni header: Tek parçalı ID + Bakiye + Para Yatırma Cüzdan Butonu
     var headerDiv = document.createElement('div');
     headerDiv.className = 'gp_user_header d-flex align-items-center';
     headerDiv.innerHTML = '' +
-        '<!-- 1. Segmented Balance + Deposit -->' +
-        '<div class="gp_balance_deposit_group">' +
-            '<div class="gp_balance_box">' +
-                '<img src="img/tr_flag_circle.png" class="gp_flag_icon" alt="TRY" onerror="this.onerror=null;this.src=\'img/tr_flag_circle.png\';" />' +
-                '<span class="gp_balance_val" id="js_user_balance">' + bal + '</span>' +
-                '<span class="gp_balance_cur">TRY</span>' +
+        '<div class="gp_balance_deposit_pill" onclick="openDepositModal();return false;" title="Para Yatırma">' +
+            '<div class="gp_pill_left">' +
+                '<svg class="gp_flag_icon" viewBox="0 0 32 32" width="20" height="20" style="border-radius:50%;display:inline-block;vertical-align:middle;flex-shrink:0;"><circle cx="16" cy="16" r="16" fill="#e30a17"/><circle cx="13.8" cy="16" r="7.2" fill="#ffffff"/><circle cx="15.8" cy="16" r="5.7" fill="#e30a17"/><polygon points="19.8,13.8 20.8,15.2 22.5,14.6 21.5,16 22.5,17.4 20.8,16.8 19.8,18.2 19.9,16.5 18.5,16 19.9,15.5" fill="#ffffff"/></svg>' +
+                '<div class="gp_pill_info">' +
+                    '<span class="gp_pill_id">ID: <span class="gp_profile_id_val">' + userId + '</span></span>' +
+                    '<span class="gp_pill_balance"><span class="gp_balance_val" id="js_user_balance">' + bal + '</span> <span class="gp_balance_cur">TRY</span></span>' +
+                '</div>' +
             '</div>' +
-            '<a href="javascript:void(0)" class="gp_deposit_btn" onclick="openDepositModal();return false;">' +
-                '<span>Para Yatırma</span>' +
-            '</a>' +
-        '</div>' +
-
-        '<!-- 2. Mail Icon Button -->' +
-        '<a href="javascript:void(0)" class="gp_mail_btn" onclick="openMailModal();return false;" title="Mesajlar">' +
-            '<svg width="18" height="14" viewBox="0 0 24 18" fill="currentColor">' +
-                '<path d="M20 0H4C1.8 0 0 1.8 0 4v10c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm-.4 4.25-7.1 4.44c-.3.19-.7.19-1 0L4.4 4.25c-.25-.16-.4-.44-.4-.75 0-.69.75-1.12 1.34-.75L12 6.94l6.66-4.19c.59-.37 1.34.06 1.34.75 0 .31-.15.59-.4.75z"/>' +
-            '</svg>' +
-        '</a>' +
-
-        '<!-- 3. User Profile Dropdown Pill -->' +
-        '<div class="gp_user_dropdown_wrapper" id="gpUserDropdown">' +
-            '<a href="javascript:void(0)" class="gp_user_btn" onclick="toggleUserDropdown(event);">' +
-                '<svg class="gp_user_icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">' +
-                    '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>' +
+            '<button type="button" class="gp_pill_wallet_btn" aria-label="Para Yatır">' +
+                '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+                    '<rect x="3" y="5" width="18" height="14" rx="2.5"/>' +
+                    '<path d="M17 10h4v4h-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/>' +
+                    '<circle cx="17.5" cy="12" r="0.75" fill="#ffffff"/>' +
                 '</svg>' +
-                '<span class="gp_username">' + username + '</span>' +
-                '<svg class="gp_arrow_icon" width="8" height="5" viewBox="0 0 10 6" fill="currentColor">' +
-                    '<path d="M0 0l5 5 5-5z"/>' +
-                '</svg>' +
-            '</a>' +
-            '<div class="gp_user_menu">' +
-                '<a href="javascript:void(0)" onclick="openProfileModal();gpCloseDropdown();" class="gp_profile_id_text">Profilim ID ' + userId + '</a>' +
-                '<a href="javascript:void(0)" onclick="openSettingsModal();gpCloseDropdown();">Bildirim ayarları</a>' +
-                '<a href="javascript:void(0)" onclick="openDocumentsModal();gpCloseDropdown();">Belgeler</a>' +
-                '<a href="javascript:void(0)" onclick="openDepositModal();gpCloseDropdown();">Para yatırma</a>' +
-                '<a href="javascript:void(0)" onclick="openWithdrawModal();gpCloseDropdown();">Para çekme</a>' +
-                '<a href="javascript:void(0)" onclick="openGameHistoryModal();gpCloseDropdown();">Oyun geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openHistoryModal();gpCloseDropdown();">Spor bahis geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openBonusesModal();gpCloseDropdown();">Bonuslarım</a>' +
-                '<a href="javascript:void(0)" onclick="openPromoModal();gpCloseDropdown();">Promo kodlar</a>' +
-                '<a href="javascript:void(0)" onclick="openFinancesModal();gpCloseDropdown();">Finansal işlemler</a>' +
-                '<a href="javascript:void(0)" onclick="openReferModal();gpCloseDropdown();">Arkadaş bonusu raporu</a>' +
-                '<a href="javascript:void(0)" onclick="openCallModal();gpCloseDropdown();">Aranma talebi</a>' +
-                '<a href="javascript:void(0)" onclick="gpLogout();" class="gp_logout_btn">Çıkış yap</a>' +
-            '</div>' +
+            '</button>' +
         '</div>';
 
     if (langDropdown && langDropdown.parentNode) {
         langDropdown.parentNode.insertBefore(headerDiv, langDropdown);
     } else {
         rightContainer.appendChild(headerDiv);
+    }
+
+    updateDockLoginState(true);
+}
+
+// Dock bar giriş/profil durumunu güncelle
+function updateDockLoginState(isLoggedIn) {
+    var dockLogin = document.getElementById('gpDockLogin');
+    if (!dockLogin) return;
+    if (isLoggedIn) {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' +
+            '<span>PROFİL</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openProfileModal();
+        };
+    } else {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>' +
+            '<span>GİRİŞ</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof openMobLoginModal === 'function') openMobLoginModal();
+        };
     }
 }
 
@@ -75909,6 +76006,104 @@ body.gp-is-logged-in .gp_user_header {
     display: flex !important;
 }
 
+/* ========================================================
+   YENİ TEK PARÇALI ID + BAKİYE + PARA YATIRMA CÜZDAN PİLL
+   ======================================================== */
+.gp_balance_deposit_pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #182208 !important;
+    border: 1px solid #334313 !important;
+    border-radius: 20px !important;
+    height: 38px !important;
+    padding: 3px 4px 3px 8px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45) !important;
+    text-decoration: none !important;
+    gap: 7px !important;
+    transition: filter 0.15s ease, border-color 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.gp_balance_deposit_pill:hover {
+    filter: brightness(1.08) !important;
+    border-color: #4a611c !important;
+}
+
+.gp_pill_left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+}
+
+.gp_pill_left .gp_flag_icon {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}
+
+.gp_pill_info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    line-height: 1.15 !important;
+    text-align: right !important;
+}
+
+.gp_pill_id {
+    font-size: 10px !important;
+    color: #8f9f6e !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance .gp_balance_val {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+}
+
+.gp_pill_balance .gp_balance_cur {
+    color: #d6b865 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    margin-left: 3px !important;
+}
+
+.gp_pill_wallet_btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: #c5a350 !important;
+    border-radius: 7px !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    transition: filter 0.15s ease !important;
+}
+
+.gp_pill_wallet_btn:hover {
+    filter: brightness(1.15) !important;
+}
+
 /* 1. Segmented Balance + Deposit Pill */
 .gp_balance_deposit_group {
     display: inline-flex !important;
@@ -76872,6 +77067,10 @@ function showLoggedInHeader(username, balance) {
         setBalance(0.00, username);
     }
 
+    if (typeof syncBalanceFromServer === 'function') {
+        syncBalanceFromServer(username);
+    }
+
     var bal = getBalance(username).toFixed(2);
     var userId = getUserId(username);
 
@@ -76900,73 +77099,68 @@ function showLoggedInHeader(username, balance) {
     }
     if (!rightContainer) return;
 
-    // Header varsa bakiye, kullanıcı adı ve ID'yi güncelle
+    // Header varsa bakiye ve ID'yi güncelle
     var existingHeader = document.querySelector('.gp_user_header');
     if (existingHeader) {
         var balEl = existingHeader.querySelector('#js_user_balance');
         if (balEl) balEl.textContent = bal;
-        var nameEl = existingHeader.querySelector('.gp_username');
-        if (nameEl) nameEl.textContent = username;
-        var profileIdEl = existingHeader.querySelector('.gp_profile_id_text');
-        if (profileIdEl) profileIdEl.textContent = 'Profilim ID ' + userId;
+        var idEl = existingHeader.querySelector('.gp_profile_id_val');
+        if (idEl) idEl.textContent = userId;
         return;
     }
 
-    // Yeni header ve açılır menü
+    // Yeni header: Tek parçalı ID + Bakiye + Para Yatırma Cüzdan Butonu
     var headerDiv = document.createElement('div');
     headerDiv.className = 'gp_user_header d-flex align-items-center';
     headerDiv.innerHTML = '' +
-        '<!-- 1. Segmented Balance + Deposit -->' +
-        '<div class="gp_balance_deposit_group">' +
-            '<div class="gp_balance_box">' +
-                '<img src="img/tr_flag_circle.png" class="gp_flag_icon" alt="TRY" onerror="this.onerror=null;this.src=\'img/tr_flag_circle.png\';" />' +
-                '<span class="gp_balance_val" id="js_user_balance">' + bal + '</span>' +
-                '<span class="gp_balance_cur">TRY</span>' +
+        '<div class="gp_balance_deposit_pill" onclick="openDepositModal();return false;" title="Para Yatırma">' +
+            '<div class="gp_pill_left">' +
+                '<svg class="gp_flag_icon" viewBox="0 0 32 32" width="20" height="20" style="border-radius:50%;display:inline-block;vertical-align:middle;flex-shrink:0;"><circle cx="16" cy="16" r="16" fill="#e30a17"/><circle cx="13.8" cy="16" r="7.2" fill="#ffffff"/><circle cx="15.8" cy="16" r="5.7" fill="#e30a17"/><polygon points="19.8,13.8 20.8,15.2 22.5,14.6 21.5,16 22.5,17.4 20.8,16.8 19.8,18.2 19.9,16.5 18.5,16 19.9,15.5" fill="#ffffff"/></svg>' +
+                '<div class="gp_pill_info">' +
+                    '<span class="gp_pill_id">ID: <span class="gp_profile_id_val">' + userId + '</span></span>' +
+                    '<span class="gp_pill_balance"><span class="gp_balance_val" id="js_user_balance">' + bal + '</span> <span class="gp_balance_cur">TRY</span></span>' +
+                '</div>' +
             '</div>' +
-            '<a href="javascript:void(0)" class="gp_deposit_btn" onclick="openDepositModal();return false;">' +
-                '<span>Para Yatırma</span>' +
-            '</a>' +
-        '</div>' +
-
-        '<!-- 2. Mail Icon Button -->' +
-        '<a href="javascript:void(0)" class="gp_mail_btn" onclick="openMailModal();return false;" title="Mesajlar">' +
-            '<svg width="18" height="14" viewBox="0 0 24 18" fill="currentColor">' +
-                '<path d="M20 0H4C1.8 0 0 1.8 0 4v10c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm-.4 4.25-7.1 4.44c-.3.19-.7.19-1 0L4.4 4.25c-.25-.16-.4-.44-.4-.75 0-.69.75-1.12 1.34-.75L12 6.94l6.66-4.19c.59-.37 1.34.06 1.34.75 0 .31-.15.59-.4.75z"/>' +
-            '</svg>' +
-        '</a>' +
-
-        '<!-- 3. User Profile Dropdown Pill -->' +
-        '<div class="gp_user_dropdown_wrapper" id="gpUserDropdown">' +
-            '<a href="javascript:void(0)" class="gp_user_btn" onclick="toggleUserDropdown(event);">' +
-                '<svg class="gp_user_icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">' +
-                    '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>' +
+            '<button type="button" class="gp_pill_wallet_btn" aria-label="Para Yatır">' +
+                '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+                    '<rect x="3" y="5" width="18" height="14" rx="2.5"/>' +
+                    '<path d="M17 10h4v4h-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/>' +
+                    '<circle cx="17.5" cy="12" r="0.75" fill="#ffffff"/>' +
                 '</svg>' +
-                '<span class="gp_username">' + username + '</span>' +
-                '<svg class="gp_arrow_icon" width="8" height="5" viewBox="0 0 10 6" fill="currentColor">' +
-                    '<path d="M0 0l5 5 5-5z"/>' +
-                '</svg>' +
-            '</a>' +
-            '<div class="gp_user_menu">' +
-                '<a href="javascript:void(0)" onclick="openProfileModal();gpCloseDropdown();" class="gp_profile_id_text">Profilim ID ' + userId + '</a>' +
-                '<a href="javascript:void(0)" onclick="openSettingsModal();gpCloseDropdown();">Bildirim ayarları</a>' +
-                '<a href="javascript:void(0)" onclick="openDocumentsModal();gpCloseDropdown();">Belgeler</a>' +
-                '<a href="javascript:void(0)" onclick="openDepositModal();gpCloseDropdown();">Para yatırma</a>' +
-                '<a href="javascript:void(0)" onclick="openWithdrawModal();gpCloseDropdown();">Para çekme</a>' +
-                '<a href="javascript:void(0)" onclick="openGameHistoryModal();gpCloseDropdown();">Oyun geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openHistoryModal();gpCloseDropdown();">Spor bahis geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openBonusesModal();gpCloseDropdown();">Bonuslarım</a>' +
-                '<a href="javascript:void(0)" onclick="openPromoModal();gpCloseDropdown();">Promo kodlar</a>' +
-                '<a href="javascript:void(0)" onclick="openFinancesModal();gpCloseDropdown();">Finansal işlemler</a>' +
-                '<a href="javascript:void(0)" onclick="openReferModal();gpCloseDropdown();">Arkadaş bonusu raporu</a>' +
-                '<a href="javascript:void(0)" onclick="openCallModal();gpCloseDropdown();">Aranma talebi</a>' +
-                '<a href="javascript:void(0)" onclick="gpLogout();" class="gp_logout_btn">Çıkış yap</a>' +
-            '</div>' +
+            '</button>' +
         '</div>';
 
     if (langDropdown && langDropdown.parentNode) {
         langDropdown.parentNode.insertBefore(headerDiv, langDropdown);
     } else {
         rightContainer.appendChild(headerDiv);
+    }
+
+    updateDockLoginState(true);
+}
+
+// Dock bar giriş/profil durumunu güncelle
+function updateDockLoginState(isLoggedIn) {
+    var dockLogin = document.getElementById('gpDockLogin');
+    if (!dockLogin) return;
+    if (isLoggedIn) {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' +
+            '<span>PROFİL</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openProfileModal();
+        };
+    } else {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>' +
+            '<span>GİRİŞ</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof openMobLoginModal === 'function') openMobLoginModal();
+        };
     }
 }
 
@@ -78346,6 +78540,104 @@ body.gp-is-logged-in .gp_user_header {
     display: flex !important;
 }
 
+/* ========================================================
+   YENİ TEK PARÇALI ID + BAKİYE + PARA YATIRMA CÜZDAN PİLL
+   ======================================================== */
+.gp_balance_deposit_pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #182208 !important;
+    border: 1px solid #334313 !important;
+    border-radius: 20px !important;
+    height: 38px !important;
+    padding: 3px 4px 3px 8px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45) !important;
+    text-decoration: none !important;
+    gap: 7px !important;
+    transition: filter 0.15s ease, border-color 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.gp_balance_deposit_pill:hover {
+    filter: brightness(1.08) !important;
+    border-color: #4a611c !important;
+}
+
+.gp_pill_left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+}
+
+.gp_pill_left .gp_flag_icon {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}
+
+.gp_pill_info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    line-height: 1.15 !important;
+    text-align: right !important;
+}
+
+.gp_pill_id {
+    font-size: 10px !important;
+    color: #8f9f6e !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance .gp_balance_val {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+}
+
+.gp_pill_balance .gp_balance_cur {
+    color: #d6b865 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    margin-left: 3px !important;
+}
+
+.gp_pill_wallet_btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: #c5a350 !important;
+    border-radius: 7px !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    transition: filter 0.15s ease !important;
+}
+
+.gp_pill_wallet_btn:hover {
+    filter: brightness(1.15) !important;
+}
+
 /* 1. Segmented Balance + Deposit Pill */
 .gp_balance_deposit_group {
     display: inline-flex !important;
@@ -79309,6 +79601,10 @@ function showLoggedInHeader(username, balance) {
         setBalance(0.00, username);
     }
 
+    if (typeof syncBalanceFromServer === 'function') {
+        syncBalanceFromServer(username);
+    }
+
     var bal = getBalance(username).toFixed(2);
     var userId = getUserId(username);
 
@@ -79337,73 +79633,68 @@ function showLoggedInHeader(username, balance) {
     }
     if (!rightContainer) return;
 
-    // Header varsa bakiye, kullanıcı adı ve ID'yi güncelle
+    // Header varsa bakiye ve ID'yi güncelle
     var existingHeader = document.querySelector('.gp_user_header');
     if (existingHeader) {
         var balEl = existingHeader.querySelector('#js_user_balance');
         if (balEl) balEl.textContent = bal;
-        var nameEl = existingHeader.querySelector('.gp_username');
-        if (nameEl) nameEl.textContent = username;
-        var profileIdEl = existingHeader.querySelector('.gp_profile_id_text');
-        if (profileIdEl) profileIdEl.textContent = 'Profilim ID ' + userId;
+        var idEl = existingHeader.querySelector('.gp_profile_id_val');
+        if (idEl) idEl.textContent = userId;
         return;
     }
 
-    // Yeni header ve açılır menü
+    // Yeni header: Tek parçalı ID + Bakiye + Para Yatırma Cüzdan Butonu
     var headerDiv = document.createElement('div');
     headerDiv.className = 'gp_user_header d-flex align-items-center';
     headerDiv.innerHTML = '' +
-        '<!-- 1. Segmented Balance + Deposit -->' +
-        '<div class="gp_balance_deposit_group">' +
-            '<div class="gp_balance_box">' +
-                '<img src="img/tr_flag_circle.png" class="gp_flag_icon" alt="TRY" onerror="this.onerror=null;this.src=\'img/tr_flag_circle.png\';" />' +
-                '<span class="gp_balance_val" id="js_user_balance">' + bal + '</span>' +
-                '<span class="gp_balance_cur">TRY</span>' +
+        '<div class="gp_balance_deposit_pill" onclick="openDepositModal();return false;" title="Para Yatırma">' +
+            '<div class="gp_pill_left">' +
+                '<svg class="gp_flag_icon" viewBox="0 0 32 32" width="20" height="20" style="border-radius:50%;display:inline-block;vertical-align:middle;flex-shrink:0;"><circle cx="16" cy="16" r="16" fill="#e30a17"/><circle cx="13.8" cy="16" r="7.2" fill="#ffffff"/><circle cx="15.8" cy="16" r="5.7" fill="#e30a17"/><polygon points="19.8,13.8 20.8,15.2 22.5,14.6 21.5,16 22.5,17.4 20.8,16.8 19.8,18.2 19.9,16.5 18.5,16 19.9,15.5" fill="#ffffff"/></svg>' +
+                '<div class="gp_pill_info">' +
+                    '<span class="gp_pill_id">ID: <span class="gp_profile_id_val">' + userId + '</span></span>' +
+                    '<span class="gp_pill_balance"><span class="gp_balance_val" id="js_user_balance">' + bal + '</span> <span class="gp_balance_cur">TRY</span></span>' +
+                '</div>' +
             '</div>' +
-            '<a href="javascript:void(0)" class="gp_deposit_btn" onclick="openDepositModal();return false;">' +
-                '<span>Para Yatırma</span>' +
-            '</a>' +
-        '</div>' +
-
-        '<!-- 2. Mail Icon Button -->' +
-        '<a href="javascript:void(0)" class="gp_mail_btn" onclick="openMailModal();return false;" title="Mesajlar">' +
-            '<svg width="18" height="14" viewBox="0 0 24 18" fill="currentColor">' +
-                '<path d="M20 0H4C1.8 0 0 1.8 0 4v10c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm-.4 4.25-7.1 4.44c-.3.19-.7.19-1 0L4.4 4.25c-.25-.16-.4-.44-.4-.75 0-.69.75-1.12 1.34-.75L12 6.94l6.66-4.19c.59-.37 1.34.06 1.34.75 0 .31-.15.59-.4.75z"/>' +
-            '</svg>' +
-        '</a>' +
-
-        '<!-- 3. User Profile Dropdown Pill -->' +
-        '<div class="gp_user_dropdown_wrapper" id="gpUserDropdown">' +
-            '<a href="javascript:void(0)" class="gp_user_btn" onclick="toggleUserDropdown(event);">' +
-                '<svg class="gp_user_icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">' +
-                    '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>' +
+            '<button type="button" class="gp_pill_wallet_btn" aria-label="Para Yatır">' +
+                '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+                    '<rect x="3" y="5" width="18" height="14" rx="2.5"/>' +
+                    '<path d="M17 10h4v4h-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/>' +
+                    '<circle cx="17.5" cy="12" r="0.75" fill="#ffffff"/>' +
                 '</svg>' +
-                '<span class="gp_username">' + username + '</span>' +
-                '<svg class="gp_arrow_icon" width="8" height="5" viewBox="0 0 10 6" fill="currentColor">' +
-                    '<path d="M0 0l5 5 5-5z"/>' +
-                '</svg>' +
-            '</a>' +
-            '<div class="gp_user_menu">' +
-                '<a href="javascript:void(0)" onclick="openProfileModal();gpCloseDropdown();" class="gp_profile_id_text">Profilim ID ' + userId + '</a>' +
-                '<a href="javascript:void(0)" onclick="openSettingsModal();gpCloseDropdown();">Bildirim ayarları</a>' +
-                '<a href="javascript:void(0)" onclick="openDocumentsModal();gpCloseDropdown();">Belgeler</a>' +
-                '<a href="javascript:void(0)" onclick="openDepositModal();gpCloseDropdown();">Para yatırma</a>' +
-                '<a href="javascript:void(0)" onclick="openWithdrawModal();gpCloseDropdown();">Para çekme</a>' +
-                '<a href="javascript:void(0)" onclick="openGameHistoryModal();gpCloseDropdown();">Oyun geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openHistoryModal();gpCloseDropdown();">Spor bahis geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openBonusesModal();gpCloseDropdown();">Bonuslarım</a>' +
-                '<a href="javascript:void(0)" onclick="openPromoModal();gpCloseDropdown();">Promo kodlar</a>' +
-                '<a href="javascript:void(0)" onclick="openFinancesModal();gpCloseDropdown();">Finansal işlemler</a>' +
-                '<a href="javascript:void(0)" onclick="openReferModal();gpCloseDropdown();">Arkadaş bonusu raporu</a>' +
-                '<a href="javascript:void(0)" onclick="openCallModal();gpCloseDropdown();">Aranma talebi</a>' +
-                '<a href="javascript:void(0)" onclick="gpLogout();" class="gp_logout_btn">Çıkış yap</a>' +
-            '</div>' +
+            '</button>' +
         '</div>';
 
     if (langDropdown && langDropdown.parentNode) {
         langDropdown.parentNode.insertBefore(headerDiv, langDropdown);
     } else {
         rightContainer.appendChild(headerDiv);
+    }
+
+    updateDockLoginState(true);
+}
+
+// Dock bar giriş/profil durumunu güncelle
+function updateDockLoginState(isLoggedIn) {
+    var dockLogin = document.getElementById('gpDockLogin');
+    if (!dockLogin) return;
+    if (isLoggedIn) {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' +
+            '<span>PROFİL</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openProfileModal();
+        };
+    } else {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>' +
+            '<span>GİRİŞ</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof openMobLoginModal === 'function') openMobLoginModal();
+        };
     }
 }
 
@@ -80763,6 +81054,104 @@ body.gp-is-logged-in .gp_user_header {
     display: flex !important;
 }
 
+/* ========================================================
+   YENİ TEK PARÇALI ID + BAKİYE + PARA YATIRMA CÜZDAN PİLL
+   ======================================================== */
+.gp_balance_deposit_pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #182208 !important;
+    border: 1px solid #334313 !important;
+    border-radius: 20px !important;
+    height: 38px !important;
+    padding: 3px 4px 3px 8px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45) !important;
+    text-decoration: none !important;
+    gap: 7px !important;
+    transition: filter 0.15s ease, border-color 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.gp_balance_deposit_pill:hover {
+    filter: brightness(1.08) !important;
+    border-color: #4a611c !important;
+}
+
+.gp_pill_left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+}
+
+.gp_pill_left .gp_flag_icon {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}
+
+.gp_pill_info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    line-height: 1.15 !important;
+    text-align: right !important;
+}
+
+.gp_pill_id {
+    font-size: 10px !important;
+    color: #8f9f6e !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+}
+
+.gp_pill_balance .gp_balance_val {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+}
+
+.gp_pill_balance .gp_balance_cur {
+    color: #d6b865 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    margin-left: 3px !important;
+}
+
+.gp_pill_wallet_btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: #c5a350 !important;
+    border-radius: 7px !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    transition: filter 0.15s ease !important;
+}
+
+.gp_pill_wallet_btn:hover {
+    filter: brightness(1.15) !important;
+}
+
 /* 1. Segmented Balance + Deposit Pill */
 .gp_balance_deposit_group {
     display: inline-flex !important;
@@ -81726,6 +82115,10 @@ function showLoggedInHeader(username, balance) {
         setBalance(0.00, username);
     }
 
+    if (typeof syncBalanceFromServer === 'function') {
+        syncBalanceFromServer(username);
+    }
+
     var bal = getBalance(username).toFixed(2);
     var userId = getUserId(username);
 
@@ -81754,73 +82147,68 @@ function showLoggedInHeader(username, balance) {
     }
     if (!rightContainer) return;
 
-    // Header varsa bakiye, kullanıcı adı ve ID'yi güncelle
+    // Header varsa bakiye ve ID'yi güncelle
     var existingHeader = document.querySelector('.gp_user_header');
     if (existingHeader) {
         var balEl = existingHeader.querySelector('#js_user_balance');
         if (balEl) balEl.textContent = bal;
-        var nameEl = existingHeader.querySelector('.gp_username');
-        if (nameEl) nameEl.textContent = username;
-        var profileIdEl = existingHeader.querySelector('.gp_profile_id_text');
-        if (profileIdEl) profileIdEl.textContent = 'Profilim ID ' + userId;
+        var idEl = existingHeader.querySelector('.gp_profile_id_val');
+        if (idEl) idEl.textContent = userId;
         return;
     }
 
-    // Yeni header ve açılır menü
+    // Yeni header: Tek parçalı ID + Bakiye + Para Yatırma Cüzdan Butonu
     var headerDiv = document.createElement('div');
     headerDiv.className = 'gp_user_header d-flex align-items-center';
     headerDiv.innerHTML = '' +
-        '<!-- 1. Segmented Balance + Deposit -->' +
-        '<div class="gp_balance_deposit_group">' +
-            '<div class="gp_balance_box">' +
-                '<img src="img/tr_flag_circle.png" class="gp_flag_icon" alt="TRY" onerror="this.onerror=null;this.src=\'img/tr_flag_circle.png\';" />' +
-                '<span class="gp_balance_val" id="js_user_balance">' + bal + '</span>' +
-                '<span class="gp_balance_cur">TRY</span>' +
+        '<div class="gp_balance_deposit_pill" onclick="openDepositModal();return false;" title="Para Yatırma">' +
+            '<div class="gp_pill_left">' +
+                '<svg class="gp_flag_icon" viewBox="0 0 32 32" width="20" height="20" style="border-radius:50%;display:inline-block;vertical-align:middle;flex-shrink:0;"><circle cx="16" cy="16" r="16" fill="#e30a17"/><circle cx="13.8" cy="16" r="7.2" fill="#ffffff"/><circle cx="15.8" cy="16" r="5.7" fill="#e30a17"/><polygon points="19.8,13.8 20.8,15.2 22.5,14.6 21.5,16 22.5,17.4 20.8,16.8 19.8,18.2 19.9,16.5 18.5,16 19.9,15.5" fill="#ffffff"/></svg>' +
+                '<div class="gp_pill_info">' +
+                    '<span class="gp_pill_id">ID: <span class="gp_profile_id_val">' + userId + '</span></span>' +
+                    '<span class="gp_pill_balance"><span class="gp_balance_val" id="js_user_balance">' + bal + '</span> <span class="gp_balance_cur">TRY</span></span>' +
+                '</div>' +
             '</div>' +
-            '<a href="javascript:void(0)" class="gp_deposit_btn" onclick="openDepositModal();return false;">' +
-                '<span>Para Yatırma</span>' +
-            '</a>' +
-        '</div>' +
-
-        '<!-- 2. Mail Icon Button -->' +
-        '<a href="javascript:void(0)" class="gp_mail_btn" onclick="openMailModal();return false;" title="Mesajlar">' +
-            '<svg width="18" height="14" viewBox="0 0 24 18" fill="currentColor">' +
-                '<path d="M20 0H4C1.8 0 0 1.8 0 4v10c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm-.4 4.25-7.1 4.44c-.3.19-.7.19-1 0L4.4 4.25c-.25-.16-.4-.44-.4-.75 0-.69.75-1.12 1.34-.75L12 6.94l6.66-4.19c.59-.37 1.34.06 1.34.75 0 .31-.15.59-.4.75z"/>' +
-            '</svg>' +
-        '</a>' +
-
-        '<!-- 3. User Profile Dropdown Pill -->' +
-        '<div class="gp_user_dropdown_wrapper" id="gpUserDropdown">' +
-            '<a href="javascript:void(0)" class="gp_user_btn" onclick="toggleUserDropdown(event);">' +
-                '<svg class="gp_user_icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">' +
-                    '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>' +
+            '<button type="button" class="gp_pill_wallet_btn" aria-label="Para Yatır">' +
+                '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+                    '<rect x="3" y="5" width="18" height="14" rx="2.5"/>' +
+                    '<path d="M17 10h4v4h-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/>' +
+                    '<circle cx="17.5" cy="12" r="0.75" fill="#ffffff"/>' +
                 '</svg>' +
-                '<span class="gp_username">' + username + '</span>' +
-                '<svg class="gp_arrow_icon" width="8" height="5" viewBox="0 0 10 6" fill="currentColor">' +
-                    '<path d="M0 0l5 5 5-5z"/>' +
-                '</svg>' +
-            '</a>' +
-            '<div class="gp_user_menu">' +
-                '<a href="javascript:void(0)" onclick="openProfileModal();gpCloseDropdown();" class="gp_profile_id_text">Profilim ID ' + userId + '</a>' +
-                '<a href="javascript:void(0)" onclick="openSettingsModal();gpCloseDropdown();">Bildirim ayarları</a>' +
-                '<a href="javascript:void(0)" onclick="openDocumentsModal();gpCloseDropdown();">Belgeler</a>' +
-                '<a href="javascript:void(0)" onclick="openDepositModal();gpCloseDropdown();">Para yatırma</a>' +
-                '<a href="javascript:void(0)" onclick="openWithdrawModal();gpCloseDropdown();">Para çekme</a>' +
-                '<a href="javascript:void(0)" onclick="openGameHistoryModal();gpCloseDropdown();">Oyun geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openHistoryModal();gpCloseDropdown();">Spor bahis geçmişi</a>' +
-                '<a href="javascript:void(0)" onclick="openBonusesModal();gpCloseDropdown();">Bonuslarım</a>' +
-                '<a href="javascript:void(0)" onclick="openPromoModal();gpCloseDropdown();">Promo kodlar</a>' +
-                '<a href="javascript:void(0)" onclick="openFinancesModal();gpCloseDropdown();">Finansal işlemler</a>' +
-                '<a href="javascript:void(0)" onclick="openReferModal();gpCloseDropdown();">Arkadaş bonusu raporu</a>' +
-                '<a href="javascript:void(0)" onclick="openCallModal();gpCloseDropdown();">Aranma talebi</a>' +
-                '<a href="javascript:void(0)" onclick="gpLogout();" class="gp_logout_btn">Çıkış yap</a>' +
-            '</div>' +
+            '</button>' +
         '</div>';
 
     if (langDropdown && langDropdown.parentNode) {
         langDropdown.parentNode.insertBefore(headerDiv, langDropdown);
     } else {
         rightContainer.appendChild(headerDiv);
+    }
+
+    updateDockLoginState(true);
+}
+
+// Dock bar giriş/profil durumunu güncelle
+function updateDockLoginState(isLoggedIn) {
+    var dockLogin = document.getElementById('gpDockLogin');
+    if (!dockLogin) return;
+    if (isLoggedIn) {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' +
+            '<span>PROFİL</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openProfileModal();
+        };
+    } else {
+        dockLogin.innerHTML = '' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>' +
+            '<span>GİRİŞ</span>';
+        dockLogin.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof openMobLoginModal === 'function') openMobLoginModal();
+        };
     }
 }
 
