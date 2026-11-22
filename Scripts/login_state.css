@@ -1645,3 +1645,188 @@ body.gp-is-logged-in .gp_user_header {
     white-space: nowrap !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
 }
+
+/* ========================================================
+   GRANDPASHABET MOBİL BONUSLAR / PROMOSYONLAR SAYFASI
+   ======================================================== */
+#gp_bonus_view {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #141d06 !important;
+    z-index: 2147483000 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 18px 14px 120px 14px !important;
+    box-sizing: border-box !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif !important;
+    color: #ffffff !important;
+}
+
+.gp_bonus_header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-bottom: 14px !important;
+    border-bottom: 1px solid #23310a !important;
+    margin-bottom: 12px !important;
+}
+
+.gp_bonus_head_title {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #f0f6e4 !important;
+    letter-spacing: 0.4px !important;
+}
+
+.gp_bonus_head_close {
+    background: #202b0c !important;
+    border: 1px solid #324312 !important;
+    color: #a4b58c !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+}
+
+.gp_bonus_filters {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 8px !important;
+    scrollbar-width: none !important;
+}
+
+.gp_bonus_filters::-webkit-scrollbar {
+    display: none !important;
+}
+
+.gp_bonus_filter_btn {
+    flex-shrink: 0 !important;
+    padding: 7px 14px !important;
+    background: #1b2508 !important;
+    border: 1px solid #2e3e11 !important;
+    border-radius: 20px !important;
+    color: #a4b58c !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+}
+
+.gp_bonus_filter_btn.active {
+    background: #364812 !important;
+    border-color: #8db532 !important;
+    color: #ffffff !important;
+}
+
+.gp_bonus_list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+.gp_bonus_card {
+    background: #1c2709 !important;
+    border: 1px solid #2e3f11 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.gp_bonus_card_hero {
+    border: 1.5px solid #d4b465 !important;
+    box-shadow: 0 4px 20px rgba(212, 180, 101, 0.25) !important;
+}
+
+.gp_bonus_card_img_wrap {
+    position: relative !important;
+    width: 100% !important;
+    background: #0d1403 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+.gp_bonus_card_img_wrap img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.gp_bonus_badge {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    background: rgba(18, 25, 7, 0.85) !important;
+    border: 1px solid #4a631c !important;
+    color: #c2cfab !important;
+    padding: 4px 10px !important;
+    border-radius: 10px !important;
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.gp_bonus_badge_pop {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    background: linear-gradient(135deg, #e6c15b 0%, #a48123 100%) !important;
+    color: #121906 !important;
+    padding: 4px 10px !important;
+    border-radius: 10px !important;
+    font-size: 10.5px !important;
+    font-weight: 900 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.gp_bonus_card_body {
+    padding: 14px 14px 16px 14px !important;
+}
+
+.gp_bonus_card_title {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 6px !important;
+    line-height: 1.25 !important;
+}
+
+.gp_bonus_card_desc {
+    font-size: 12px !important;
+    color: #a4b58c !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+}
+
+.gp_bonus_btn_claim {
+    width: 100% !important;
+    height: 42px !important;
+    background: #f1cf7c !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #121a05 !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.3px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(241, 207, 124, 0.25) !important;
+    transition: filter 0.15s ease !important;
+}
+
+.gp_bonus_btn_claim:hover {
+    filter: brightness(1.08) !important;
+}

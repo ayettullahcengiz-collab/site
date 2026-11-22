@@ -1334,3 +1334,171 @@ window.openMobLoginModal = window.openMobLoginModal || function() {
         }
     }, true);
 })();
+
+
+var _lastBonusToggleTime = 0;
+
+window.handleDockBonusClick = function(e) {
+    if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+    }
+    var isLogged = sessionStorage.getItem('gp_logged_in') === '1' || localStorage.getItem('gp_logged_in') === '1';
+    if (isLogged) {
+        if (typeof openBonusModal === 'function') {
+            openBonusModal();
+        }
+    } else {
+        if (typeof openMobLoginModal === 'function') {
+            openMobLoginModal();
+        } else {
+            var btn = document.querySelector('.loginDialog, .openLogin, #js_mob_sign_in');
+            if (btn) btn.click();
+        }
+    }
+    return false;
+};
+
+function openBonusModal(force) {
+    var now = Date.now();
+    if (!force && (now - _lastBonusToggleTime < 450)) {
+        return;
+    }
+    _lastBonusToggleTime = now;
+
+    var existing = document.getElementById('gp_bonus_view');
+    if (existing) {
+        if (force === true) return;
+        closeBonusModal();
+        return;
+    }
+
+    if (typeof closeProfileModal === 'function') {
+        closeProfileModal();
+    }
+
+    var view = document.createElement('div');
+    view.id = 'gp_bonus_view';
+    view.innerHTML = '' +
+        '<!-- Header -->' +
+        '<div class="gp_bonus_header">' +
+            '<div class="gp_bonus_head_left">' +
+                '<div class="gp_bonus_head_title">PROMOSYONLAR &amp; BONUSLAR</div>' +
+            '</div>' +
+            '<button type="button" class="gp_bonus_head_close" onclick="closeBonusModal()">&times;</button>' +
+        '</div>' +
+
+        '<!-- Category Tabs -->' +
+        '<div class="gp_bonus_filters">' +
+            '<button type="button" class="gp_bonus_filter_btn active" onclick="gpFilterBonuses(\'all\', this)">TÜMÜ</button>' +
+            '<button type="button" class="gp_bonus_filter_btn" onclick="gpFilterBonuses(\'yatirim\', this)">YATIRIM</button>' +
+            '<button type="button" class="gp_bonus_filter_btn" onclick="gpFilterBonuses(\'kayip\', this)">KAYIP</button>' +
+            '<button type="button" class="gp_bonus_filter_btn" onclick="gpFilterBonuses(\'casino\', this)">CASINO</button>' +
+            '<button type="button" class="gp_bonus_filter_btn" onclick="gpFilterBonuses(\'spor\', this)">SPOR</button>' +
+        '</div>' +
+
+        '<!-- Bonus Cards List -->' +
+        '<div class="gp_bonus_list">' +
+
+            '<!-- 1. FEATURED HERO: 250 TL YATIRIM BONUSU -->' +
+            '<div class="gp_bonus_card gp_bonus_card_hero" data-category="yatirim">' +
+                '<div class="gp_bonus_card_img_wrap">' +
+                    '<img src="images/250_tl_1000_tl_bonus.png" alt="250 TLye 1000 TL Yatırım Bonusu" onerror="this.src=\'../images/250_tl_1000_tl_bonus.png\'">' +
+                    '<span class="gp_bonus_badge_pop">ÖZEL TEKLİF</span>' +
+                '</div>' +
+                '<div class="gp_bonus_card_body">' +
+                    '<div class="gp_bonus_card_title">250 TL\'YE 1.000 TL YATIRIM BONUSU</div>' +
+                    '<div class="gp_bonus_card_desc">Tüm yeni ve aktif üyelere özel! Sadece 250 TL yatırım yaparak anında 1.000 TL bakiye ile oynamaya başlayın. Çevrim şartsız kazanç fırsatı GrandPashabet\'te.</div>' +
+                    '<div class="gp_bonus_card_actions">' +
+                        '<button type="button" class="gp_bonus_btn_claim" onclick="closeBonusModal();openDepositModal();return false;">BONUSU AL &bull; YATIRIM YAP</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+
+            '<!-- 2. PRAGMATIC PLAY ÇEKİLİŞİ -->' +
+            '<div class="gp_bonus_card" data-category="casino">' +
+                '<div class="gp_bonus_card_img_wrap">' +
+                    '<img src="images/pragmatic_cekilis_bonus.png" alt="Pragmatic Play Çekilişi" onerror="this.src=\'../images/pragmatic_cekilis_bonus.png\'">' +
+                    '<span class="gp_bonus_badge">TURNUVA</span>' +
+                '</div>' +
+                '<div class="gp_bonus_card_body">' +
+                    '<div class="gp_bonus_card_title">PRAGMATIC PLAY 8.300.000 TL ÇEKİLİŞİ</div>' +
+                    '<div class="gp_bonus_card_desc">Pragmatic Play slotlarında çevirin, haftalık nakit ödül havuzundan payınızı anında nakit olarak alın!</div>' +
+                    '<div class="gp_bonus_card_actions">' +
+                        '<button type="button" class="gp_bonus_btn_claim" onclick="closeBonusModal();openDepositModal();return false;">KATIL &amp; OYNA</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+
+            '<!-- 3. %100 HOŞ GELDİN BONUSU -->' +
+            '<div class="gp_bonus_card" data-category="yatirim">' +
+                '<div class="gp_bonus_card_img_wrap">' +
+                    '<img src="images/8_mobil_20_15__20260726171644127.webp" alt="Hoş Geldin Bonusu">' +
+                    '<span class="gp_bonus_badge">YENİ ÜYE</span>' +
+                '</div>' +
+                '<div class="gp_bonus_card_body">' +
+                    '<div class="gp_bonus_card_title">%100 CASINO &amp; SPOR HOŞ GELDİN BONUSU</div>' +
+                    '<div class="gp_bonus_card_desc">İlk yatırımınıza özel 5.000 TL\'ye kadar %100 nakit hoş geldin bonusu GrandPashabet\'te sizi bekliyor.</div>' +
+                    '<div class="gp_bonus_card_actions">' +
+                        '<button type="button" class="gp_bonus_btn_claim" onclick="closeBonusModal();openDepositModal();return false;">BONUSU AL</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+
+            '<!-- 4. %30 KAYIP BONUSU -->' +
+            '<div class="gp_bonus_card" data-category="kayip">' +
+                '<div class="gp_bonus_card_img_wrap">' +
+                    '<img src="images/11_mobil_20_2__20250708164758874.webp" alt="Kayıp Bonusu">' +
+                    '<span class="gp_bonus_badge">KAYIP</span>' +
+                '</div>' +
+                '<div class="gp_bonus_card_body">' +
+                    '<div class="gp_bonus_card_title">%30 ANLIK NAKİT KAYIP BONUSU</div>' +
+                    '<div class="gp_bonus_card_desc">Şansınız yaver gitmediğinde üzülmeyin! Günlük %30 anlık nakit iadeniz tek tıkla hesabınızda.</div>' +
+                    '<div class="gp_bonus_card_actions">' +
+                        '<button type="button" class="gp_bonus_btn_claim" onclick="alert(\'Kayıp bonusu talebiniz kontrol ediliyor...\');return false;">TALEP ET</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+
+        '</div>' +
+
+        '<!-- Floating Canlı Destek Button -->' +
+        '<div class="gp_prof_floating_livechat" onclick="if(typeof openLiveSupport===\'function\'){openLiveSupport();}else{alert(\'Canlı Destek başlatılıyor...\');}">' +
+            '<div class="gp_livechat_circle">' +
+                '<svg viewBox="0 0 24 24" width="28" height="28" fill="#d4b465"><path d="M12 2a9 9 0 0 0-9 9c0 2.22.81 4.25 2.15 5.82L4 21l4.35-1.11A8.93 8.93 0 0 0 12 20a9 9 0 0 0 9-9 9 9 0 0 0-9-9zm0 16a6.97 6.97 0 0 1-3.56-.98l-.25-.15-2.6.66.68-2.52-.16-.26A6.97 6.97 0 0 1 5 11a7 7 0 1 1 7 7z"/><circle cx="9" cy="11" r="1.2" fill="#d4b465"/><circle cx="12" cy="11" r="1.2" fill="#d4b465"/><circle cx="15" cy="11" r="1.2" fill="#d4b465"/></svg>' +
+            '</div>' +
+            '<div class="gp_livechat_badge">CANLI DESTEK</div>' +
+        '</div>';
+
+    document.body.appendChild(view);
+
+    var dockBonus = document.getElementById('gpDockBonus');
+    if (dockBonus) {
+        dockBonus.classList.add('gp-dock-item-active');
+    }
+}
+
+function closeBonusModal() {
+    _lastBonusToggleTime = Date.now();
+    var view = document.getElementById('gp_bonus_view');
+    if (view) view.remove();
+    var dockBonus = document.getElementById('gpDockBonus');
+    if (dockBonus) {
+        dockBonus.classList.remove('gp-dock-item-active');
+    }
+}
+
+function gpFilterBonuses(cat, btn) {
+    var btns = document.querySelectorAll('.gp_bonus_filter_btn');
+    btns.forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+
+    var cards = document.querySelectorAll('.gp_bonus_card');
+    cards.forEach(function(card) {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
